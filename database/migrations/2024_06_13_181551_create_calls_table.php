@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('resume');
             $table->text('content')->nullable();
             $table->string('link');
-            $table->integer('extended')->default(0);    
+            $table->boolean('extended')->nullable();  
             $table->foreignId('country_id')->constrained('countries');
             $table->foreignId('institution_id')->constrained('institutions');
             $table->foreignId('dedication_id')->constrained('dedications'); //puede ser nullable

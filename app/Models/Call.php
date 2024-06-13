@@ -24,4 +24,10 @@ class Call extends Model
         'unpublish',
         'state_id',
     ];
+// relacion muchos a muchos con sectores//
+    public function sectors()
+    {
+        return $this->belongsToMany('App\Model\Sector');    
+    }
+
 }

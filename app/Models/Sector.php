@@ -12,4 +12,10 @@ class Sector extends Model
         'name',
         'status'
     ];
+
+    public function calls()
+    {
+        return $this->belongsToMany('App\Model\Call');    
+    }
+
 }
