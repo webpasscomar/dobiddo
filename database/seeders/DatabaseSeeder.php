@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             StatesTableSeeder::class,
             DurationsTableSeeder::class,
             DedicationsTableSeeder::class,
+            FormatsTableSeeder::class,
         ]);
     }
 }   
