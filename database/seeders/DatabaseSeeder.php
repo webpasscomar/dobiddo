@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             CountriesTableSeeder::class,
             InstitutionsTableSeeder::class,
             StatesTableSeeder::class,
+            DurationsTableSeeder::class,
         ]);
     }
 }   
