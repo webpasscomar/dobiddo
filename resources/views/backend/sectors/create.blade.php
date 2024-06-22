@@ -7,13 +7,35 @@
 @stop
 
 @section('content')
-  <form action="{{ route('sectores.store') }}" method="POST">
-    @csrf
-    @include('backend.sectors.form')
-    <button type="submit" class="btn btn-success">Guardar</button>
-  </form>
+  <div class="card">
+    <div class="card-body">
+      <form action="{{ route('sectores.store') }}" method="POST">
+        @csrf
+        @include('backend.sectors.form')
+
+        <button type="submit" class="btn btn-primary">
+          <i class="fas fa-save"></i> Guardar
+        </button>
+        <button type="reset" class="btn btn-secondary">
+          <i class="fas fa-undo"></i> Reset
+        </button>
+        <a href="{{ url()->previous() }}" class="btn btn-secondary">
+          <i class="fas fa-arrow-left"></i> Volver al listado
+        </a>
+      </form>
+    </div>
+  </div>
 @stop
 
-{{-- @section('js')
+@section('js')
   @include('sweetalert::alert')
-@stop --}}
+  <script>
+    @if ($errors->any())
+      Swal.fire({
+        icon: 'error',
+        title: 'Errores en el formulario',
+        html: '<ul>@foreach ($errors->all() as $error)<li>{{ $error }}</li>@endforeach</ul>'
+      });
+    @endif
+  </script>
+@stop

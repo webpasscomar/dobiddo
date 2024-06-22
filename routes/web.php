@@ -14,6 +14,9 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/admin', [Dashboard::class, 'index'])->name('backend.dashboard');
 
 
-Route::resource('admin/sectores', SectorController::class);
+// Route::resource('admin/sectores', SectorController::class);
+Route::resource('admin/sectores', SectorController::class)->parameters([
+  'sectores' => 'sector'
+]);
 
 Auth::routes();

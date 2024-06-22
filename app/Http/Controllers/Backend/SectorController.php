@@ -24,8 +24,8 @@ class SectorController extends Controller
     public function store(SectorRequest $request)
     {
         Sector::create($request->validated());
-        Alert::success('Sector creada', 'El sector ha sido creado con éxito.');
-        return redirect()->route('sectors.index');
+        Alert::success('Sector creado', 'El sector ha sido creado con éxito.');
+        return redirect()->route('sectores.index');
     }
 
     public function edit(Sector $sector)
@@ -36,14 +36,14 @@ class SectorController extends Controller
     public function update(SectorRequest $request, Sector $sector)
     {
         $sector->update($request->validated());
-        Alert::success('Sector actualizada', 'El sector ha sido actualizado con éxito.');
-        return redirect()->route('sectors.index');
+        Alert::success('Sector actualizado', 'El sector ha sido actualizado con éxito.');
+        return redirect()->route('sectores.index');
     }
 
     public function destroy(Sector $sector)
     {
         $sector->delete();
-        Alert::success('Sector eliminada', 'El sector ha sido eliminado con éxito.');
-        return redirect()->route('sectors.index');
+        Alert::success('Sector eliminado', 'El sector ha sido eliminado con éxito.');
+        return redirect()->route('sectores.index');
     }
 }

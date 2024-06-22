@@ -13,7 +13,11 @@
 </div>
 <div class="form-group">
   <label for="status">Estado</label>
-  <input type="number" name="status" class="form-control" value="{{ old('status', $sector->status ?? '') }}">
+  {{-- <input type="number" name="status" class="form-control" value="{{ old('status', $sector->status ?? '') }}"> --}}
+      <select name="status" class="form-control">
+        <option value="1" @if(old('status', $sector->status ?? '') == 1) selected @endif>Activo</option>
+        <option value="0" @if(old('status', $sector->status ?? '') == 0) selected @endif>Inactivo</option>
+    </select>
   @error('status')
     <script>
       Swal.fire({
