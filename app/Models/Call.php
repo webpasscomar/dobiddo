@@ -13,6 +13,7 @@ class Call extends Model
         'resume',
         'content',
         'link',
+        'expiration',
         'extended',
         'country_id',
         'institution_id',

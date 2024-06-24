@@ -68,6 +68,14 @@ class InstitutionsTableSeeder extends Seeder
         $int->logo = 'vida_silvestre.png';
         $int->status = 1;
         $int->save();
+
+        $int = new Institution();
+        $int->id = 8;
+        $int->name = 'Naciones Unidas';
+        $int->initial = 'UN';
+        $int->logo = 'naciones_unidas.png';
+        $int->status = 1;
+        $int->save();
     }
     
 }
