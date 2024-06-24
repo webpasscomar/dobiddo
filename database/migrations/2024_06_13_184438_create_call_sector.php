@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('presentes_sesion', function (Blueprint $table) {
+        Schema::create('call_sector', function (Blueprint $table) {
             $table->id();     
             $table->unsignedBigInteger('call_id');
             $table->unsignedBigInteger('sector_id');

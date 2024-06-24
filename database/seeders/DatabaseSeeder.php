@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             DedicationsTableSeeder::class,
             FormatsTableSeeder::class,
             SectorsTableSeeder::class,
+            CallsTableSeeder::class,
         ]);
     }
 }   
