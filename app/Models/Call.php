@@ -25,10 +25,40 @@ class Call extends Model
         'unpublish',
         'state_id',
     ];
-// relacion muchos a muchos con sectores//
+
+    // relacion muchos a muchos con sectores//
     public function sectors()
     {
-        return $this->belongsToMany('App\Model\Sector');    
+        return $this->belongsToMany('App\Model\Sector');
     }
 
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+
+    public function institution()
+    {
+        return $this->belongsTo(Institution::class);
+    }
+
+    public function dedication()
+    {
+        return $this->belongsTo(Dedication::class);
+    }
+
+    public function duration()
+    {
+        return $this->belongsTo(Duration::class);
+    }
+
+    public function format()
+    {
+        return $this->belongsTo(Format::class);
+    }
+
+    public function state()
+    {
+        return $this->belongsTo(State::class);
+    }
 }

@@ -16,44 +16,21 @@
           <li class="nav-item {{ request()->routeIS('home') ? 'active' : '' }}">
             <a href="{{ route('home') }}" title="Home" class="nav-link">Home</a>
           </li>
-          <li class="nav-item {{ request()->routeIS('home') ? 'active' : '' }}">
-            <a href="{{ route('home') }}" title="Home" class="nav-link">Nosotros</a>
+          <li class="nav-item {{ request()->routeIS('about-us') ? 'active' : '' }}">
+            <a href="{{ route('about-us') }}" title="Home" class="nav-link">Nosotros</a>
           </li>
-          <li class="nav-item {{ request()->routeIS('home') ? 'active' : '' }}">
-            <a href="{{ route('home') }}" title="Home" class="nav-link">Que hacemos</a>
+          <li class="nav-item {{ request()->routeIS('company') ? 'active' : '' }}">
+            <a href="{{ route('company') }}" title="company" class="nav-link">Que hacemos</a>
           </li>
-          <li class="nav-item {{ request()->routeIS('home') ? 'active' : '' }}">
-            <a href="{{ route('home') }}" title="Home" class="nav-link">Convocatorias</a>
+          <li class="nav-item {{ request()->routeIS('calls') ? 'active' : '' }}">
+            <a href="{{ route('calls') }}" title="calls" class="nav-link">Convocatorias</a>
           </li>
-          <li class="nav-item {{ request()->routeIS('home') ? 'active' : '' }}">
-            <a href="{{ route('home') }}" title="Home" class="nav-link">Organismos</a>
+          <li class="nav-item {{ request()->routeIS('institutions') ? 'active' : '' }}">
+            <a href="{{ route('institutions') }}" title="institutions" class="nav-link">Organismos</a>
           </li>
-          <li class="nav-item {{ request()->routeIS('home') ? 'active' : '' }}">
-            <a href="{{ route('home') }}" title="Home" class="nav-link">Consultores</a>
+          <li class="nav-item {{ request()->routeIS('consultans') ? 'active' : '' }}">
+            <a href="{{ route('consultans') }}" title="consultans" class="nav-link">Consultores</a>
           </li>
-          {{-- <li class="nav-item {{ request()->routeIS('noticias.index') ? 'active' : '' }}">
-            <a href="{{ route('noticias.index') }}" title="Noticias del folklore argentino"
-              class="nav-link">Noticias</a>
-          </li>
-          <li class="nav-item {{ request()->routeIS('shows.index') ? 'active' : '' }}">
-            <a href="{{ route('shows.index') }}" title="Cartelera de shows folkloricos" class="nav-link">Shows</a>
-          </li>
-          <li class="nav-item {{ request()->routeIS('discos.index') ? 'active' : '' }}">
-            <a href="{{ route('discos.index') }}" title="Discografias del folklore" class="nav-link">Discos</a>
-          </li>
-          <li class="nav-item {{ request()->routeIS('canciones.index') ? 'active' : '' }}">
-            <a href="{{ route('canciones.index') }}" title="Letras de canciones" class="nav-link">Canciones</a>
-          </li>
-          <li class="nav-item {{ request()->routeIS('festivales.index') ? 'active' : '' }}">
-            <a href="{{ route('festivales.index') }}" title="Festivales y fiestas tradicionales"
-              class="nav-link">Festivales</a>
-          </li>
-          <li class="nav-item {{ request()->routeIS('mitos.index') ? 'active' : '' }}">
-            <a href="{{ route('mitos.index') }}" title="Mitos y leyendas urbanas" class="nav-link">Mitos</a>
-          </li>
-          <li class="nav-item {{ request()->routeIS('comidas.index') ? 'active' : '' }}">
-            <a href="{{ route('comidas.index') }}" title="Recetas de comidas tipicas" class="nav-link">Comidas</a>
-          </li> --}}
 
           <!-- Opciones de autenticación -->
           @guest
