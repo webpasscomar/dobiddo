@@ -19,7 +19,7 @@
         <button type="reset" class="btn btn-secondary" id="btnReset">
           <i class="fas fa-undo"></i> Reset
         </button>
-        <a href="{{ route('organismos.index')}}" class="btn btn-secondary">
+        <a href="{{ route('convocatorias.index')}}" class="btn btn-secondary">
           <i class="fas fa-arrow-left"></i> Volver al listado
         </a>
       </form>
