@@ -14,6 +14,7 @@ use App\Http\Controllers\Frontend\CallsController;
 use App\Http\Controllers\Frontend\CompanyController;
 use App\Http\Controllers\Frontend\ConsultansController;
 use App\Http\Controllers\Frontend\InstitutionsController;
+use App\Http\Controllers\Backend\CallController;
 
 Route::get('/consultans', [ConsultansController::class, 'index'])->name('consultans');
 Route::get('/about-us', [AbouUsController::class, 'index'])->name('about-us');
@@ -37,5 +38,8 @@ Route::resource('admin/sectores', SectorController::class)->parameters([
 Route::resource('admin/organismos', OrganismController::class)->parameters([
   'organismos'=>'organism'
 ]);
+
+//Convocatorias
+Route::resource('admin/convocatorias',CallController::class);
 
 Auth::routes();
