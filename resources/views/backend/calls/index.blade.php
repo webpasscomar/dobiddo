@@ -9,7 +9,7 @@
 @section('content')
   <div class="card">
     <div class="card-header text-right">
-      <a href="{{ route('organismos.create') }}" class="btn btn-success mb-3"><i class="fas fa-plus"></i> Crear
+      <a href="{{ route('convocatorias.create') }}" class="btn btn-success mb-3"><i class="fas fa-plus"></i> Crear
         Convocatoria</a>
     </div>
     <div class="card-body">
@@ -17,10 +17,11 @@
         <thead>
         <tr>
           <th>ID</th>
-          <th>Nombre</th>
-          <th>Sigla</th>
-          <th>Logo</th>
+          <th>Título</th>
           <th>Estado</th>
+          <th>Organismo</th>
+          <th>Vencimiento</th>
+          <th>Publicar</th>
           <th>Acciones</th>
         </tr>
         </thead>

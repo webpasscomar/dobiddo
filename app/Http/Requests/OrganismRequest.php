@@ -25,8 +25,8 @@ class OrganismRequest extends FormRequest
     $id = $this->route('organism')->id ?? '';
 
     return [
-      'name' => $put_patch ? 'required|string|unique:organisms,name,'.$id.'|max:255' : 'required|string|unique:organisms,name|max:255',
-      'initial' => $put_patch ? 'required|string|unique:organisms,initial,'.$id.'|max:15' : 'required|string|unique:organisms,initial|max:15',
+      'name' => $put_patch ? 'required|string|unique:institutions,name,'.$id.'|max:255' : 'required|string|unique:institutions,name|max:255',
+      'initial' => $put_patch ? 'required|string|unique:institutions,initial,'.$id.'|max:15' : 'required|string|unique:institutions,initial|max:15',
       'logo' => $put_patch ? 'image|mimes:jpg,jpeg,png|max:1024' : 'required|image|mimes:jpg,jpeg,png|max:1024',
       'status' => 'integer|between:0,1',
     ];

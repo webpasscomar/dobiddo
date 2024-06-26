@@ -5,23 +5,24 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Call;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class CallController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index():View
     {
-        return view('backend.calls.index');
+      return view('backend.calls.index');
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create():View
     {
-        //
+      return view('backend.calls.create');
     }
 
     /**

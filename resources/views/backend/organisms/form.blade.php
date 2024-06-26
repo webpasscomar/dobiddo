@@ -74,7 +74,7 @@
   </div>
 @endif
 <p class="text-right"><span class="fs-4 text-danger">*</span><small> Campos requeridos</small></p>
-<div id="imgPreview" data-show="{{$edit}}">
+<div id="imgPreview">
   @if($edit)
   <img src="{{$organism->logo && file_exists(public_path('storage/organismos/'.$organism->logo)) ? asset('storage/organismos/'.$organism->logo) : asset('img/imagen-no-disponible.jpg')}}" alt="{{$organism->name}}" class="imagen">
   @endif
@@ -84,7 +84,6 @@
   <script>
     // Borrar imagen si se resetea el form
     const imageContainer = document.querySelector('#imgPreview');
-    const edit = Boolean(imageContainer.getAttribute('data-show'));
     const btnReset = document.getElementById('btnReset');
 
     if(btnReset){

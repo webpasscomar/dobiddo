@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\OrganismRequest;
-use App\Models\Organism;
+use App\Models\Institution;
+//use App\Models\Organism;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -19,7 +20,7 @@ class OrganismController extends Controller
      */
     public function index():View
     {
-      $oragnisms = Organism::all();
+      $oragnisms = Institution::all();
         return view('backend.organisms.index',[
           'organisms' => $oragnisms,
         ]);
@@ -48,7 +49,7 @@ class OrganismController extends Controller
           $request->file('logo')->storeAs('organismos', $image_name); // guardamos la imágen en storage/organismos
         }
 
-        Organism::create([
+        Institution::create([
           'name' => $request->input('name'),
           'initial' => $request->input('initial'),
           'logo' => $image_name,
@@ -67,7 +68,7 @@ class OrganismController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Organism $organism)
+    public function show(Institution $organism)
     {
         //
     }
@@ -75,18 +76,18 @@ class OrganismController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Organism $organism):View
+    public function edit(Institution $organism):View
     {
-        return view('backend.organisms.edit',[
-          'edit' => true,
-          'organism' => $organism,
-        ]);
+      return view('backend.organisms.edit',[
+        'edit' => true,
+        'organism' => $organism,
+      ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(OrganismRequest $request, Organism $organism):RedirectResponse
+    public function update(OrganismRequest $request, Institution $organism):RedirectResponse
     {
       $request->validated();
 
@@ -119,7 +120,7 @@ class OrganismController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Organism $organism):RedirectResponse
+    public function destroy(Institution $organism):RedirectResponse
     {
       try {
         File::delete(public_path('storage/organismos/'.$organism->logo)); // eliminamos la imágen
