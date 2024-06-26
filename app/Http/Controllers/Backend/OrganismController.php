@@ -86,7 +86,7 @@ class OrganismController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(OrganismRequest $request, Organism $organism)
+    public function update(OrganismRequest $request, Organism $organism):RedirectResponse
     {
       $request->validated();
 
@@ -119,7 +119,7 @@ class OrganismController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Organism $organism)
+    public function destroy(Organism $organism):RedirectResponse
     {
       try {
         File::delete(public_path('storage/organismos/'.$organism->logo)); // eliminamos la imágen
