@@ -133,8 +133,6 @@ class CallController extends Controller
      */
     public function update(CallRequest $request, Call $call):RedirectResponse
     {
-      $request->validated();
-
       // Comprobar el estado de la convocatoria y poner la fecha ségun si fue publicada ó despublicada
       $state = $request->input('state_id');
       if($state == 2){
@@ -178,6 +176,30 @@ class CallController extends Controller
       }
     }
 
+    // Actualizar el valor de los sectores
+  public function updateSectors( Request $request, Call $call)
+  {
+    $request->validate([
+      'sectors'=>'nullable|array',
+      'sectors.*' => 'exists:sectors,id',
+    ]);
+    try{
+        // Si hay sectores vincular el correspondiente
+      if($request->has('sectors')){
+        $call->sectors()->sync($request->input('sectors'));
+      } else{
+        // sino desvincular todos
+        $call->sectors()->detach();
+      }
+      Alert::success('Proceso correcto', 'Las incumbencias han sido actualizadas con éxito');
+      return redirect()->route('convocatorias.index');
+
+    } catch (\Throwable $th){
+//      dd($th->getMessage());
+      Alert::error('Proceso incorrecto', 'No se pudo actualizar las incumbencias');
+      return redirect()->route('convocatorias.index');
+    }
+  }
     /**
      * Remove the specified resource from storage.
      */

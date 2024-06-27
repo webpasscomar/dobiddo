@@ -28,8 +28,15 @@ class CallRequest extends FormRequest
             'expiration'=>'required|date',
             'country_id'=>'required|integer',
             'institution_id'=>'required|integer',
-            'states'=>'nullable|array',
-            'states.*'=>'exists:states,id',
+            'content'=>'nullable',
+            'extended'=> 'nullable|integer',
+            'dedication_id'=>'nullable|integer',
+            'duration_id' =>'nullable|integer',
+            'format_id' =>'nullable|integer',
+            'comment' => 'nullable|string',
+            'publish'=>'nullable|date',
+            'unpublish'=>'nullable|date',
+            'state_id'=>'nullable|integer',
         ];
     }
 

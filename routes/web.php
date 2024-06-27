@@ -43,5 +43,7 @@ Route::resource('admin/organismos', OrganismController::class)->parameters([
 Route::resource('admin/convocatorias',CallController::class)->parameters([
   'convocatorias' => 'call'
 ]);
+// Ruta para actualizar las areas o sectores
+Route::patch('admin/convocatorias/{call}/sectores', [CallController::class, 'updateSectors'])->name('convocatorias.updateSectors');
 
 Auth::routes();

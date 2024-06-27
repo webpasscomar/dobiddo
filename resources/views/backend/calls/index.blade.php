@@ -35,7 +35,7 @@
             <td class="align-middle">{{ $call->expiration }}</td>
             <td class="align-middle">{{ $call->publish }}</td>
             <td class="text-right align-middle" style="white-space: nowrap;">
-              <button data-bs-toggle="modal" data-bs-target="#sectorModal" class="btn btn-secondary btn-sm" title="sectores">
+              <button data-bs-toggle="modal" data-bs-target="#sectorModal{{$call->id}}" class="btn btn-secondary btn-sm" title="sectores">
                 <i class="fas fa-graduation-cap"></i>
               </button>
               <button href="" class="btn btn-primary btn-sm" title="">
@@ -58,7 +58,7 @@
 
 {{--      Modal Areas /  Sectores--}}
           <!-- Modal -->
-          <div class="modal fade" id="sectorModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="sectorModal{{$call->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable h-100">
               <div class="modal-content">
                 <div class="modal-header">
@@ -66,27 +66,24 @@
                   <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></button>
                 </div>
                 <div class="modal-body h-100">
-{{--                  <div class="row">--}}
-{{--                    <div class="col h-100">--}}
-                  <form action="{{route('convocatorias.update',$call)}}" method="POST" id="form1">
+                  <form action="{{route('convocatorias.updateSectors', $call)}}" method="post" id="form{{$call->id}}">
                     @csrf
-                    @method('PUT')
+                    @method('PATCH')
                     <select name="sectors[]" id="" class="form-control h-100" multiple>
                       @foreach($sectors as $sector)
-                        <option value="{{$sector->id}}">{{$sector->name}}</option>
+                        <option value="{{$sector->id}}" @selected(in_array($sector->id, $call->sectors->pluck('id')->toArray()))>{{$sector->name}}</option>
                       @endforeach
                     </select>
                   </form>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                  <button id="btn1" class="btn btn-primary">Guardar cambios</button>
+                  <button onclick="changeSectors({{$call->id}})" class="btn btn-primary">Guardar cambios</button>
                 </div>
               </div>
             </div>
           </div>
-
-
+      {{--  Fin de modal       --}}
 
         @endforeach
         </tbody>
@@ -150,11 +147,11 @@
       });
     });
 
-    const form1 = document.querySelector('#form1');
-    document.getElementById('btn1').addEventListener('click',()=>{
-      form1.submit();
-    });
-
+    // actualizar sectores de las convocatorias
+    const changeSectors = (id) => {
+      const form = document.querySelector(`#form${id}`);
+      form.submit();
+    };
 
   </script>
 
