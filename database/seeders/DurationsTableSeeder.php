@@ -30,17 +30,31 @@ class DurationsTableSeeder extends Seeder
 
         $duration = new Duration();
         $duration->id = 4;
-        $duration->name = '12 meses';
+        $duration->name = '9 meses';
         $duration->save();
 
         $duration = new Duration();
         $duration->id = 5;
-        $duration->name = '24 meses';
+        $duration->name = '12 meses';
         $duration->save();
-
 
         $duration = new Duration();
         $duration->id = 6;
+        $duration->name = '18 meses';
+        $duration->save();
+
+        $duration = new Duration();
+        $duration->id = 7;
+        $duration->name = '24 meses';
+        $duration->save();
+
+        $duration = new Duration();
+        $duration->id = 8;
+        $duration->name = '36 meses';
+        $duration->save();
+
+        $duration = new Duration();
+        $duration->id = 9;
         $duration->name = 'Indeterminado';
         $duration->save();
     }
