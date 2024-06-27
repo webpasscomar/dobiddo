@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Sector;
 
 class Call extends Model
 {
@@ -29,7 +30,7 @@ class Call extends Model
     // relacion muchos a muchos con sectores//
     public function sectors()
     {
-        return $this->belongsToMany('App\Model\Sector');
+        return $this->belongsToMany(Sector::class);
     }
 
     public function country()

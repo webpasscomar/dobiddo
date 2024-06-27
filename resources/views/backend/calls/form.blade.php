@@ -1,11 +1,22 @@
 {{--Estado--}}
 <div class="row justify-content-end">
   <div class="col-md-2">
-    <div class="form-group mb-3">
+    <div class="form-group mb-1">
       <label for="state_id" class="form-label text-left">Estado</label>
-      <select name="state_id" id="state_id" class="text-right form-control">
-
+      <select name="state_id" id="state_id" class="form-control">
+        @foreach($states as $state)
+          <option value="{{$state->id}}" @selected(old('state_id', $call->state_id ?? 1) == $state->id)>{{$state->name}}</option>
+        @endforeach
       </select>
+      @error('state_id')
+      <script>
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: '{{ $message }}'
+        });
+      </script>
+      @enderror
     </div>
   </div>
 </div>
@@ -13,7 +24,7 @@
 {{--Titulo--}}
 <div class="form-group mb-3">
   <label for="name" class="form-label">Título</label><span class="fs-4 text-danger">*</span>
-  <input type="text" name="name" class="form-control" value="{{ old('name', $organism->name ?? '') }}">
+  <input type="text" name="name" class="form-control" value="{{ old('name', $call->name ?? '') }}">
   @error('name')
   <script>
     Swal.fire({
@@ -26,8 +37,8 @@
 </div>
 {{--Resumen--}}
 <div class="form-group mb-3">
-  <label for="resume" class="form-label">Sigla</label><span class="fs-4 text-danger">*</span>
-  <textarea id="resume" cols="30" rows="4" name="resume" class="form-control">{{ old('resume', $organism->resume ?? '') }}</textarea>
+  <label for="resume" class="form-label">Resumen</label><span class="fs-4 text-danger">*</span>
+  <textarea id="resume" cols="30" rows="4" name="resume" class="form-control">{{ old('resume', $call->resume ?? '') }}</textarea>
   @error('resume')
   <script>
     Swal.fire({
@@ -41,21 +52,12 @@
 {{--Contenido--}}
 <div class="form-group mb-3">
   <label for="content" class="form-label">Contenido</label>
-  <textarea id="content" cols="30" rows="4" name="content" class="form-control">{{ old('content', $organism->content ?? '') }}</textarea>
-  @error('content')
-  <script>
-    Swal.fire({
-      icon: 'error',
-      title: 'Error',
-      text: '{{ $message }}'
-    });
-  </script>
-  @enderror
+  <textarea id="content" cols="30" rows="4" name="content" class="form-control">{{ old('content', $call->content ?? '')}}</textarea>
 </div>
 {{--Link--}}
 <div class="form-group mb-3">
   <label for="link" class="form-label">Link</label><span class="fs-4 text-danger">*</span>
-  <input type="text" name="link" class="form-control">
+  <input type="text" name="link" class="form-control" value="{{old('link', $call->link ?? '')}}">
   @error('link')
   <script>
     Swal.fire({
@@ -71,12 +73,13 @@
 {{--  fecha --}}
   <div class="col-md-4">
     <label for="expiration" class="form-label">Fecha de cierre </label><span class="fs-4 text-danger">*</span>
-    <input type="date" name="expiration" class="form-control">
+    <input type="date" name="expiration" class="form-control" value="{{old('expiration', $call->expiration ?? '')}}">
   </div>
 {{--  extendido --}}
   <div class="col-md-4 w-100 d-flex justify-content-center align-items-center">
     <div class="form-check d-flex align-items-center">
-      <input class="form-check-input" type="checkbox" value="1" name="extended" id="extended">
+      <input class="form-check-input" type="hidden" value="0" name="extended">
+      <input class="form-check-input" type="checkbox" value="1" name="extended" id="extended" @checked(old('extended',$call->extended ?? 0))>
       <label class="form-check-label" for="extended">
         Extendido
       </label>
@@ -87,8 +90,19 @@
     <div class="form-group mb-3">
       <label for="country_id" class="form-label">País</label><span class="fs-4 text-danger">*</span>
       <select name="country_id" id="country_id" class="form-control">
-
+        @foreach($countries as $country)
+          <option value="{{$country->id}}" @selected(old('country_id', $call->country_id ?? 1) == $country->id)>{{$country->name}}</option>
+        @endforeach
       </select>
+      @error('country_id')
+      <script>
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: '{{ $message }}'
+        });
+      </script>
+      @enderror
     </div>
   </div>
 </div>
@@ -99,8 +113,19 @@
     <div class="form-group mb-3">
       <label for="institution_id" class="form-label">Organismo</label><span class="fs-4 text-danger">*</span>
       <select name="institution_id" id="institution_id" class="form-control">
-
+        @foreach($institutions as $institution)
+          <option value="{{$institution->id}}" @selected(old('institution_id', $call->institution_id ?? 1) == $institution->id)>{{$institution->initial}}</option>
+        @endforeach
       </select>
+      @error('institution_id')
+      <script>
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: '{{ $message }}'
+        });
+      </script>
+      @enderror
     </div>
   </div>
 {{--  Dedicación--}}
@@ -108,7 +133,9 @@
     <div class="form-group mb-3">
       <label for="dedication_id" class="form-label">Dedicación</label>
       <select name="dedication_id" id="dedication_id" class="form-control">
-
+        @foreach($dedications as $dedication)
+          <option value="{{$dedication->id}}" @selected(old('dedication_id', $call->dedication_id ?? 1) == $dedication->id)>{{$dedication->name}}</option>
+        @endforeach
       </select>
     </div>
   </div>
@@ -121,7 +148,9 @@
     <div class="form-group mb-3">
       <label for="format_id" class="form-label">Formato</label>
       <select name="format_id" id="format_id" class="form-control">
-
+        @foreach($formats as $format)
+          <option value="{{$format->id}}" @selected(old('format_id', $call->format_id ?? 1) == $format->id)>{{$format->name}}</option>
+        @endforeach
       </select>
     </div>
   </div>
@@ -130,7 +159,9 @@
     <div class="form-group mb-3">
       <label for="duration_id" class="form-label">Duración</label>
       <select name="duration_id" id="duration_id" class="form-control">
-
+        @foreach($durations as $duration)
+          <option value="{{$duration->id}}" @selected(old('duration_id', $call->duration_id ?? 1) == $duration->id)>{{$duration->name}}</option>
+        @endforeach
       </select>
     </div>
   </div>
@@ -139,7 +170,7 @@
 {{--Aclaración--}}
 <div class="form-group mb-3">
   <label for="comment" class="form-label">Aclaración</label>
-  <input type="text" name="comment" class="form-control">
+  <input type="text" name="comment" class="form-control" value="{{old('comment', $call->comment ?? '')}}">
   @error('comment')
   <script>
     Swal.fire({
@@ -153,35 +184,4 @@
 
 <p class="text-right"><span class="fs-4 text-danger">*</span><small> Campos requeridos</small></p>
 
-@section('js')
-  <script>
-    // Borrar imagen si se resetea el form
-    const imageContainer = document.querySelector('#imgPreview');
-    const btnReset = document.getElementById('btnReset');
-
-    if(btnReset){
-      btnReset.addEventListener('click',() =>{
-        imageContainer.innerHTML='';
-      });
-    }
-    // Mostrar imágen previa al cargar
-    const imagePreview =(event)=>{
-      const imageContainer = document.querySelector('#imgPreview');
-      imageContainer.innerHTML='';
-      let file = event.target.files[0];
-      let reader = new FileReader();
-      reader.onload = (event) => {
-        let img = document.createElement('img');
-        img.src = event.target.result;
-        img.width = 150;
-        img.height = 150;
-        img.style.marginBottom = "30px";
-        img.style.borderRadius = "5px";
-        img.style.objectFit = "cover";
-        imageContainer.append(img);
-      };
-      reader.readAsDataURL(file);
-    };
-  </script>
-@endsection
 

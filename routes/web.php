@@ -40,6 +40,8 @@ Route::resource('admin/organismos', OrganismController::class)->parameters([
 ]);
 
 //Convocatorias
-Route::resource('admin/convocatorias',CallController::class);
+Route::resource('admin/convocatorias',CallController::class)->parameters([
+  'convocatorias' => 'call'
+]);
 
 Auth::routes();
