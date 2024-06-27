@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             FormatsTableSeeder::class,
             SectorsTableSeeder::class,
             CallsTableSeeder::class,
+            UsersTableSeeder::class,
         ]);
     }
 }   
