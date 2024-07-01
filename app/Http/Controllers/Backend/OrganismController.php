@@ -9,7 +9,7 @@ use App\Models\Institution;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+// use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -46,7 +46,7 @@ class OrganismController extends Controller
       try {
         if ($request->hasFile('logo')) {
           $image_name = $request->file('logo')->getClientOriginalName(); // nombre de la imágen original
-          $request->file('logo')->storeAs('organismos', $image_name); // guardamos la imágen en storage/organismos
+          $request->file('logo')->storeAs('institutions', $image_name); // guardamos la imágen en storage/organismos
         }
 
         Institution::create([
@@ -93,9 +93,9 @@ class OrganismController extends Controller
 
       try {
         if ($request->hasFile('logo')) {
-          File::delete(public_path('storage/organismos/' . $organism->logo));
+          File::delete(public_path('storage/institutions/' . $organism->logo));
           $image_name = $request->file('logo')->getClientOriginalName();
-          $request->file('logo')->storeAs('organismos', $image_name);
+          $request->file('logo')->storeAs('institutions', $image_name);
         } else {
           $image_name = $organism->logo;
         }
@@ -123,7 +123,7 @@ class OrganismController extends Controller
     public function destroy(Institution $organism):RedirectResponse
     {
       try {
-        File::delete(public_path('storage/organismos/'.$organism->logo)); // eliminamos la imágen
+        File::delete(public_path('storage/institutions/'.$organism->logo)); // eliminamos la imágen
         $organism->delete();
         Alert::success('Organismo eliminado', 'El organismo ha sido eliminado con éxito');
         return redirect()->route('organismos.index');

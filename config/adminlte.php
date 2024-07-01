@@ -15,7 +15,7 @@ return [
     */
 
     'title' => 'DoBIDDo',
-    'title_prefix' => '',
+    'title_prefix' => 'DoBIDDo | ',
     'title_postfix' => '',
 
     /*

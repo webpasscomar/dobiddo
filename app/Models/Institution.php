@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Institution extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    protected $fillable = [
-        'name',
-        'initial',
-        'logo',
-        'status'
-    ];
+  protected $fillable = [
+    'name',
+    'initial',
+    'logo',
+    'status'
+  ];
 }
