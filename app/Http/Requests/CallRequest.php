@@ -28,7 +28,7 @@ class CallRequest extends FormRequest
             'expiration'=>'required|date',
             'country_id'=>'required|integer',
             'institution_id'=>'required|integer',
-            'content'=>'nullable',
+            'content'=>'nullable|string',
             'extended'=> 'nullable|integer',
             'dedication_id'=>'nullable|integer',
             'duration_id' =>'nullable|integer',
@@ -45,12 +45,14 @@ class CallRequest extends FormRequest
     return [
       'name.required'=>'El título es obligatorio',
       'resume.required'=>'El resumen es obligatorio',
+      'resume.string'=> 'formato incorrecto',
       'link.required'=>'El link es obligatorio',
       'link.url'=>'La url no es valida',
       'expiration.required'=>'La fecha de cierre es obligatoria',
       'expiration.date'=>'La fecha de cierre no es valida',
       'country_id.required'=>'El país obligatoria',
       'institution_id.required'=> 'El organismo es obligatorio',
+      'content.string'=> 'formato incorrecto'
     ];
   }
 }

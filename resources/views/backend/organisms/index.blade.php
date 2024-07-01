@@ -15,38 +15,41 @@
         <div class="card-body">
             <table id="organisms-table" class="table table-striped table-bordered table-hover">
                 <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Sigla</th>
-                    <th>Logo</th>
-                    <th>Estado</th>
-                    <th>Acciones</th>
-                </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Sigla</th>
+                        <th>Logo</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
                 </thead>
                 <tbody>
-                @foreach ($organisms as $organism)
-                    <tr>
-                        <td class="align-middle">{{ $organism->id }}</td>
-                        <td class="align-middle">{{ Str::title($organism->name) }}</td>
-                        <td class="align-middle">{{ Str::upper($organism->initial) }}</td>
-                        <td class="align-middle"><img src="{{$organism->logo && file_exists(public_path('storage/organismos/'.$organism->logo)) ? asset('storage/organismos/'.$organism->logo) : asset('img/imagen-no-disponible.jpg')}}" alt="{{$organism->name}}" width="40" height="40" style="object-fit: cover;"></td>
-                        <td class="align-middle">{{ $organism->status == 1 ? 'Activo' : 'Inactivo' }}</td>
-                        <td class="text-right align-middle" style="white-space: nowrap;">
-                            <a href="{{ route('organismos.edit', $organism) }}" class="btn btn-warning btn-sm">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <form action="{{ route('organismos.destroy', $organism) }}" method="POST" class="form-delete"
-                                  style="display:inline;" enctype="multipart/form-data">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
+                    @foreach ($organisms as $organism)
+                        <tr>
+                            <td class="align-middle">{{ $organism->id }}</td>
+                            <td class="align-middle">{{ Str::title($organism->name) }}</td>
+                            <td class="align-middle">{{ Str::upper($organism->initial) }}</td>
+                            <td class="align-middle"><img
+                                    src="{{ $organism->logo && file_exists(public_path('storage/institutions/' . $organism->logo)) ? asset('storage/institutions/' . $organism->logo) : asset('img/imagen-no-disponible.jpg') }}"
+                                    alt="{{ $organism->name }}" width="40" height="40" style="object-fit: cover;">
+                            </td>
+                            <td class="align-middle">{{ $organism->status == 1 ? 'Activo' : 'Inactivo' }}</td>
+                            <td class="text-right align-middle" style="white-space: nowrap;">
+                                <a href="{{ route('organismos.edit', $organism) }}" class="btn btn-warning btn-sm">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <form action="{{ route('organismos.destroy', $organism) }}" method="POST"
+                                    class="form-delete" style="display:inline;" enctype="multipart/form-data">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -54,11 +57,12 @@
 @stop
 
 @section('js')
-{{--  Cargado provisorio de sweetalert--}}
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {{--  Cargado provisorio de sweetalert --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $(function() {
             $('#organisms-table').DataTable({
+                "stateSave": true,
                 language: {
                     "decimal": "",
                     "emptyTable": "No hay información",
@@ -108,6 +112,5 @@
     </script>
 
     @include('sweetalert::alert')
-{{--     @include('components.confirm_delete')--}}
+    {{--     @include('components.confirm_delete') --}}
 @stop
-

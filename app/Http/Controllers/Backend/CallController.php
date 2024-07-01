@@ -15,6 +15,7 @@ use App\Models\State;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Mews\Purifier\Facades\Purifier;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class CallController extends Controller
@@ -45,6 +46,7 @@ class CallController extends Controller
       $durations = Duration::all();
 
       return view('backend.calls.create',[
+        'preview' => false,
         'states' => $states,
         'institutions' => $institutions,
         'countries' => $countries,
@@ -62,6 +64,11 @@ class CallController extends Controller
         $request->validated();
         $publish = null;
         $unpublish = null;
+
+        // Se limpian los datos ingresados con texto enriquecido con la libreira mews/purifier
+        $clean_resume = Purifier::clean($request->input('resume'));
+        $clean_content = Purifier::clean($request->input('content'));
+
         // Comprobar el estado de la convocatoria y poner la fecha ségun si fue publicada ó despublicada
         $state = $request->input('state_id');
         if($state == 2){
@@ -72,8 +79,8 @@ class CallController extends Controller
         try {
           Call::create([
             'name' => $request->input('name'),
-            'resume' => $request->input('resume'),
-            'content' => $request->input('content'),
+            'resume' =>  $clean_resume,
+            'content' => $clean_content,
             'link' => $request->input('link'),
             'expiration' => $request->input('expiration'),
             'extended' => $request->input('extended'),
@@ -101,9 +108,18 @@ class CallController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Call $call)
+    public function show(Call $call): View
     {
-        //
+        return view('backend.calls.show',[
+          'preview' => true,
+          'call' => $call,
+          'states'=> State::all(),
+          'institutions'=> Institution::all(),
+          'countries'=> Country::all(),
+          'formats' => Format::all(),
+          'durations' => Duration::all(),
+          'dedications' => Dedication::all(),
+        ]);
     }
 
     /**
@@ -118,6 +134,7 @@ class CallController extends Controller
       $formats = Format::all();
       $durations = Duration::all();
       return \view('backend.calls.edit',[
+        'preview' => false,
         'call' => $call,
         'states' => $states,
         'institutions' => $institutions,
@@ -146,12 +163,17 @@ class CallController extends Controller
         $unpublish = $call->unpublish;
       }
 
+      // Se limpian los datos ingresados con texto enriquecido con la libreira mews/purifier
+      $clean_resume = Purifier::clean($request->input('resume'));
+      $clean_content = Purifier::clean($request->input('content'));
+
+
       try {
         // Actualizar la convocatoria
         $call->updateOrFail([
           'name' => $request->input('name'),
-          'resume' => $request->input('resume'),
-          'content' => $request->input('content'),
+          'resume' => $clean_resume,
+          'content' => $clean_content,
           'link' => $request->input('link'),
           'expiration' => $request->input('expiration'),
           'extended' => $request->input('extended'),
