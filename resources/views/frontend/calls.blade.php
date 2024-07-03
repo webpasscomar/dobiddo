@@ -75,9 +75,28 @@
             <div class="col-md-12 mb-4">
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title">{{ $call->name }}</h5>
-                  <p class="card-text">{{ $call->resume }}</p>
-                  <a href="{{ $call->link }}">Ir a la publicación</a>
+                  <div class="row">
+                    <div class="col-md-2">
+                      {{-- <img src="{{}}" alt="{{ $call->institution->name }}"> --}}
+                      <img
+                        src="{{ $call->institution->logo && file_exists(public_path('storage/institutions/' . $call->institution->logo)) ? asset('storage/institutions/' . $call->institution->logo) : asset('img/imagen-no-disponible.jpg') }}"
+                        alt="{{ $call->institution->name }}" width="80" height="80" style="object-fit: cover;">
+                    </div>
+                    <div class="col-md-10">
+                      <h5 class="card-title">{{ $call->name }}</h5>
+                      <p text-align="right">Cierre: {{ $call->expiration }}</p>
+                      <p class="card-text">{{ $call->resume }}</p>
+                      <p><button type="button" class="btn  btn-outline-secondary btn-sm"> <img
+                            src="{{ asset('storage/flags/' . $call->country->flag) }}" width="20" height="20">
+                          {{ $call->country->name }}</button>
+                        <button type="button" class="btn btn-warning btn-sm">{{ $call->dedication->name }}</button>
+                        <button type="button" class="btn btn-success btn-sm">{{ $call->format->name }}</button>
+
+                      </p>
+                      <a href="{{ $call->link }}">Ir a la publicación</a>
+                    </div>
+
+                  </div>
                 </div>
               </div>
             </div>
