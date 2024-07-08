@@ -25,15 +25,15 @@
           <li class="nav-item {{ request()->routeIS('calls') ? 'active' : '' }}">
             <a href="{{ route('calls') }}" title="calls" class="nav-link">Convocatorias</a>
           </li>
-          <li class="nav-item {{ request()->routeIS('institutions') ? 'active' : '' }}">
+          {{-- <li class="nav-item {{ request()->routeIS('institutions') ? 'active' : '' }}">
             <a href="{{ route('institutions') }}" title="institutions" class="nav-link">Organismos</a>
           </li>
           <li class="nav-item {{ request()->routeIS('consultans') ? 'active' : '' }}">
             <a href="{{ route('consultans') }}" title="consultans" class="nav-link">Consultores</a>
-          </li>
+          </li> --}}
 
           <!-- Opciones de autenticación -->
-          @guest
+          {{-- @guest
             <li class="nav-item">
               <a href="{{ route('login') }}" class="btn btn-primary"><span class="fas fa-sign-in-alt"></span>
                 Ingresar</a>
@@ -57,7 +57,7 @@
                 </form>
               </div>
             </li>
-          @endguest
+          @endguest --}}
 
 
         </ul>
@@ -66,3 +66,42 @@
     </div>
   </nav>
 </header>
+
+<!-- Agrega los estilos personalizados -->
+<style>
+  .navbar {
+    background-color: #000000;
+    /* Fondo negro para el header */
+  }
+
+  .navbar-nav .nav-link {
+    color: #000000;
+    /* Letra blanca para los enlaces */
+    font-weight: bold;
+
+  }
+
+  .navbar-nav .nav-link:hover {
+    color: #ff0000;
+    /* Amarillo en el hover */
+  }
+
+  .navbar-nav .nav-item.active .nav-link {
+    background-color: #ff0000;
+    /* Fondo amarillo para el enlace activo */
+    color: #ffffff;
+    /* Letra blanca para el enlace activo */
+    border-radius: 0.25rem;
+  }
+
+  .btn-warning {
+    color: #000000;
+    /* Botón con color de fondo de advertencia y letra negra */
+    border-color: #ff0000;
+  }
+
+  .btn-warning:hover {
+    background-color: #ffca2c;
+    border-color: #ffbf00;
+  }
+</style>

@@ -16,12 +16,12 @@
 
           <!-- categorias -->
           <div class="col-md-4 mb-3">
-            <p class="h6 fw-bold text-white">Categorías de productos</p>
-            {{-- <ul class="list-unstyled text-white-50 light">
-              <li><a href="{{ route('empresa') }}" class="text-decoration-none link-light"
-                  title="Saber más sobre la Empresa"> Empresa
+            <p class="h6 fw-bold text-white">Otros</p>
+            <ul class="list-unstyled text-white-50 light">
+              <li><a href="#" class="text-decoration-none link-light" title="Politicas de privacidad"> Politicas de
+                  privacidad
                 </a></li>
-              <li><a href="{{ route('servicios') }}" class="text-decoration-none link-light"
+              {{-- <li><a href="{{ route('servicios') }}" class="text-decoration-none link-light"
                   title="Todos los servicios"> Servicios
                 </a></li>
               <li><a href="{{ route('productos') }}" class="text-decoration-none link-light"
@@ -32,8 +32,8 @@
                   Novedades </a></li>
               <li><a href="{{ route('contacto') }}" class="text-decoration-none link-light" title="Nuestros contactos">
                   Contacto </a>
-              </li>
-            </ul> --}}
+              </li> --}}
+            </ul>
           </div>
 
 
@@ -58,6 +58,12 @@
               </li>
             </ul>
           </div>
+          
+        </div>
+
+        <div class="row">
+          <p class="text-white"><a href="https://webpass.com.ar" target="_blank">Diseño y Desarrollo</a>
+            by WebPass</p>
         </div>
       </div>
     </div>

@@ -46,7 +46,7 @@ class CallsController extends Controller
             $query->where('format_id', $request->input('format_id'));
         }
 
-        $calls = $query->paginate(10);
+        $calls = $query->paginate(5);
 
         // Obtener los datos para los combos
         $countries = Country::all();

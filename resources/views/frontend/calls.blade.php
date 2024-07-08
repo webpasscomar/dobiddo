@@ -21,7 +21,7 @@
               @endforeach
             </select>
           </div>
-          <div class="mb-3">
+          {{-- <div class="mb-3">
             <label for="institution_id" class="form-label">Institución</label>
             <select class="form-control" id="institution_id" name="institution_id">
               <option value="">Todos</option>
@@ -30,8 +30,8 @@
                   {{ request('institution_id') == $institution->id ? 'selected' : '' }}>{{ $institution->name }}</option>
               @endforeach
             </select>
-          </div>
-          <div class="mb-3">
+          </div> --}}
+          {{-- <div class="mb-3">
             <label for="dedication_id" class="form-label">Dedicación</label>
             <select class="form-control" id="dedication_id" name="dedication_id">
               <option value="">Todos</option>
@@ -40,8 +40,8 @@
                   {{ $dedication->name }}</option>
               @endforeach
             </select>
-          </div>
-          <div class="mb-3">
+          </div> --}}
+          {{-- <div class="mb-3">
             <label for="duration_id" class="form-label">Duración</label>
             <select class="form-control" id="duration_id" name="duration_id">
               <option value="">Todos</option>
@@ -50,7 +50,7 @@
                   {{ $duration->name }}</option>
               @endforeach
             </select>
-          </div>
+          </div> --}}
           <div class="mb-3">
             <label for="format_id" class="form-label">Formato</label>
             <select class="form-control" id="format_id" name="format_id">
@@ -85,15 +85,15 @@
                     <div class="col-md-10">
                       <h5 class="card-title">{{ $call->name }}</h5>
                       <p text-align="right">Cierre: {{ $call->expiration }}</p>
-                      <p class="card-text">{{ $call->resume }}</p>
+                      {{-- <p class="card-text">{{ $call->resume }}</p> --}}
                       <p><button type="button" class="btn  btn-outline-secondary btn-sm"> <img
                             src="{{ asset('storage/flags/' . $call->country->flag) }}" width="20" height="20">
                           {{ $call->country->name }}</button>
                         <button type="button" class="btn btn-warning btn-sm">{{ $call->dedication->name }}</button>
                         <button type="button" class="btn btn-success btn-sm">{{ $call->format->name }}</button>
-
                       </p>
-                      <a href="{{ $call->link }}">Ir a la publicación</a>
+                      {{-- <a href="{{ $call->link }}">Ir a la publicación</a> --}}
+                      <a href="{{ $call->link }}">Leer más</a>
                     </div>
 
                   </div>
@@ -102,7 +102,7 @@
             </div>
           @endforeach
         </div>
-        {{-- {{ $calls->links() }} --}}
+        {{ $calls->links() }}
       </div>
     </div>
   </div>
