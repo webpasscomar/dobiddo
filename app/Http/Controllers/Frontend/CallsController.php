@@ -55,6 +55,13 @@ class CallsController extends Controller
         $durations = Duration::all();
         $formats = Format::all();
 
-        return view('frontend.calls', compact('calls', 'countries', 'institutions', 'dedications', 'durations', 'formats'));
+        return view ('frontend.calls', compact('calls', 'countries', 'institutions', 'dedications', 'durations', 'formats'));
     }
+
+  public function details(Call $call)
+  {
+    return view('frontend.calls-details',[
+      'call' => $call
+    ]);
+  }
 }
