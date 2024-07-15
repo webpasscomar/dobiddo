@@ -58,11 +58,11 @@
               </li>
             </ul>
           </div>
-          
+
         </div>
 
         <div class="row">
-          <p class="text-white"><a href="https://webpass.com.ar" target="_blank">Diseño y Desarrollo</a>
+          <p class="text-white text-right"><a href="https://webpass.com.ar" target="_blank">Diseño y Desarrollo</a>
             by WebPass</p>
         </div>
       </div>
@@ -123,4 +123,64 @@
           animatedInput.style.width = '225px';
         }
       }, 50);
+    </script>
+
+
+    <script>
+      function shareOnWhatsApp(url) {
+        window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(url)}`, '_blank');
+      }
+
+      function shareByEmail(url) {
+        window.location.href =
+          `mailto:?subject=Interesante convocatoria&body=Echa un vistazo a esta convocatoria: ${encodeURIComponent(url)}`;
+      }
+
+      function shareOnTwitter(url) {
+        window.open(
+          `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=Echa un vistazo a esta convocatoria`,
+          '_blank');
+      }
+
+      function shareOnFacebook(url) {
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+      }
+
+      function copyToClipboard(url) {
+        navigator.clipboard.writeText(url).then(() => {
+          alert('URL copiada al portapapeles');
+        }, () => {
+          alert('Error al copiar la URL');
+        });
+      }
+    </script>
+
+    <script>
+      function addToCalendar(title, organization, expiration) {
+        const event = {
+          title: title,
+          start: expiration,
+          description: `Organizado por ${organization}`,
+          url: window.location.href
+        };
+
+        const eventString = encodeURIComponent(
+          `BEGIN:VCALENDAR\n` +
+          `VERSION:2.0\n` +
+          `BEGIN:VEVENT\n` +
+          `SUMMARY:${event.title}\n` +
+          `DESCRIPTION:${event.description}\n` +
+          `DTSTART:${event.start.replace(/-/g, '')}T000000Z\n` +
+          `URL:${event.url}\n` +
+          `END:VEVENT\n` +
+          `END:VCALENDAR`
+        );
+
+        const downloadLink = document.createElement('a');
+        downloadLink.href = `data:text/calendar;charset=utf-8,${eventString}`;
+        downloadLink.download = `${event.title}.ics`;
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+      }
     </script>
