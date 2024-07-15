@@ -16,15 +16,29 @@ use App\Http\Controllers\Frontend\ConsultansController;
 use App\Http\Controllers\Frontend\InstitutionsController;
 use App\Http\Controllers\Backend\CallController;
 
+//*********************************************************************************************************
+
+//  RUTAS FRONTEND
+
+//**********************************************************************************************************
+
 Route::get('/consultans', [ConsultansController::class, 'index'])->name('consultans');
 Route::get('/about-us', [AbouUsController::class, 'index'])->name('about-us');
 Route::get('/company', [CompanyController::class, 'index'])->name('company');
 Route::get('/institutions', [InstitutionsController::class, 'index'])->name('institutions');
+//Convocatorias
 Route::get('/calls', [CallsController::class, 'index'])->name('calls');
+// Detalle de convocatoria
+Route::get('/calls/{call}/detalle', [CallsController::class, 'details'])->name('calls.detail');
+
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+//*********************************************************************************************************
 
+//  RUTAS BACKEND / ADMIN - DASHBOARD
+
+//**********************************************************************************************************
 
 Route::get('/admin', [Dashboard::class, 'index'])->name('backend.dashboard');
 

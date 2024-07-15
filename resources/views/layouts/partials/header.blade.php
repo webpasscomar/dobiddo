@@ -22,7 +22,7 @@
           <li class="nav-item {{ request()->routeIS('company') ? 'active' : '' }}">
             <a href="{{ route('company') }}" title="company" class="nav-link">Que hacemos</a>
           </li>
-          <li class="nav-item {{ request()->routeIS('calls') ? 'active' : '' }}">
+          <li class="nav-item {{ request()->routeIS('calls') || request()->routeIs('calls.detail') ? 'active' : '' }}">
             <a href="{{ route('calls') }}" title="calls" class="nav-link">Convocatorias</a>
           </li>
           {{-- <li class="nav-item {{ request()->routeIS('institutions') ? 'active' : '' }}">

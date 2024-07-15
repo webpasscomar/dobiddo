@@ -8,7 +8,10 @@
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>{{ config('app.name', 'Laravel') }}</title>
+  <title>{{ config('app.name', 'Laravel') }} | @yield('title')</title>
+
+  {{--  Font awesome --}}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Fonts -->
   <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -83,7 +86,7 @@
 
   @include('layouts.partials.header')
 
-  <div class="mt-4 mb-4">
+  <div class=" container mt-4 mb-4 min-vh-100">
     @yield('content')
   </div>
 

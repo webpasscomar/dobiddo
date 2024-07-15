@@ -1,10 +1,9 @@
 @extends('layouts.app')
-
+@section('title','Convocatorias')
 @section('content')
   <div class="container">
     <div class="row">
       <div class="col-md-3 bg-warning p-4">
-
 
         <form action="{{ route('calls') }}" method="GET">
           <div class="mb-3">
@@ -92,6 +91,9 @@
                         </button>
                         <button type="button" class="btn btn-warning btn-sm">{{ $call->dedication->name }}</button>
                         <button type="button" class="btn btn-success btn-sm">{{ $call->format->name }}</button>
+                        @if($call->extended === 1)
+                          <button class="btn btn-secondary btn-sm"><i class="fa-solid fa-tag me-1 align-middle"></i>Extendido</button>
+                        @endif
                       </p>
                       <a href="{{ $call->link }}">Ir a la publicación</a>
                       <a href="{{ $call->link }}">Leer más</a>
