@@ -131,7 +131,7 @@
 @endsection
 
 
-@section('js')
+@push('js')
   <script>
     function shareOnWhatsApp(url) {
       window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(url)}`, '_blank');
@@ -190,4 +190,4 @@
       document.body.removeChild(downloadLink);
     }
   </script>
-@stop
+@endpush
