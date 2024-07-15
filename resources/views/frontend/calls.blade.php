@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Convocatorias')
+@section('title', 'Convocatorias')
 @section('content')
   <div class="container">
     <div class="row">
@@ -82,21 +82,23 @@
                         alt="{{ $call->institution->name }}" width="80" height="80" style="object-fit: cover;">
                     </div>
                     <div class="col-md-10">
-                        <h5 class="card-title">{{ $call->name }}</h5>
-                      <p text-align="right">Cierre: {{\Carbon\Carbon::parse($call->expiration)->format('d-m-Y')  }}</p>
+                      <h5 class="card-title">{{ $call->name }}</h5>
+                      <p text-align="right">Cierre: {{ \Carbon\Carbon::parse($call->expiration)->format('d-m-Y') }}</p>
                       {{-- <p class="card-text">{{ $call->resume }}</p> --}}
                       <p><button type="button" class="btn btn-outline-secondary btn-sm"> <img
                             src="{{ asset('storage/flags/' . $call->country->flag) }}" width="20" height="20">
                           {{ $call->country->name }}</button>
                         <button type="button" class="btn btn-warning btn-sm">{{ $call->dedication->name }}</button>
                         <button type="button" class="btn btn-success btn-sm">{{ $call->format->name }}</button>
-                        @if($call->extended === 1)
-                          <button class="btn btn-secondary btn-sm"><i class="fa-solid fa-tag me-1 align-middle"></i>Extendido</button>
+                        @if ($call->extended === 1)
+                          <button class="btn btn-secondary btn-sm"><i
+                              class="fa-solid fa-tag me-1 align-middle"></i>Extendido</button>
                         @endif
                       </p>
                       {{-- <a href="{{ $call->link }}">Ir a la publicación</a> --}}
-{{--                      <a href="{{ $call->link }}">Leer más</a>--}}
-                      <a href="{{route('calls.detail', $call)}}" class="text-primary nav-link"><i class="fa-solid fa-caret-right align-middle text-black me-1"></i>Ver detalle</a>
+                      {{--                      <a href="{{ $call->link }}">Leer más</a> --}}
+                      <a href="{{ route('calls.detail', $call) }}" class="text-primary nav-link"><i
+                          class="fa-solid fa-caret-right align-middle text-black me-1"></i>:: Ver detalle</a>
                     </div>
 
                   </div>
