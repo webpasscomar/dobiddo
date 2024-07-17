@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('flag');
+            $table->decimal('lat',6,4);
+            $table->decimal('lon',6,4);
             $table->timestamps();
         });
     }
