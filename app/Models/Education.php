@@ -7,9 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Education extends Model
 {
-    use HasFactory;
-    protected $table = "educations";
-    protected $fillable = [
-        'name'
-    ];
+  use HasFactory;
+
+  protected $table = "educations";
+  protected $fillable = [
+    'name'
+  ];
+
+  public function consultants()
+  {
+    return $this->hasMany(Consultant::class, 'education_id', 'id');
+  }
+
 }

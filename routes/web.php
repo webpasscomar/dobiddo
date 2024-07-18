@@ -23,6 +23,8 @@ use App\Http\Controllers\Backend\CallController;
 //**********************************************************************************************************
 
 Route::get('/consultans', [ConsultansController::class, 'index'])->name('consultans');
+//Envío del formulario de consultores
+Route::post('/consultans' ,[ConsultansController::class, 'store'])->name('consultans.store');
 Route::get('/about-us', [AbouUsController::class, 'index'])->name('about-us');
 Route::get('/company', [CompanyController::class, 'index'])->name('company');
 Route::get('/institutions', [InstitutionsController::class, 'index'])->name('institutions');

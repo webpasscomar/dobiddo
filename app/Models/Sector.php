@@ -7,15 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sector extends Model
 {
-    use HasFactory;
-    protected $fillable = [
-        'name',
-        'status'
-    ];
+  use HasFactory;
 
-    public function calls()
-    {
-        return $this->belongsToMany('App\Model\Call');    
-    }
+  protected $fillable = [
+    'name',
+    'status'
+  ];
 
+  public function calls()
+  {
+    return $this->belongsToMany('App\Model\Call');
+  }
+
+  public function consultans()
+  {
+    return $this->belongsToMany(Consultant::class);
+  }
 }
