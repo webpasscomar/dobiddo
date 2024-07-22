@@ -67,6 +67,8 @@
         </div>
       </div>
     </div>
+
+    @stack('js')
     <!-- FIN footer -->
 
 

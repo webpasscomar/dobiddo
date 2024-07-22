@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Country extends Model
+class ConsultantSector extends Model
 {
   use HasFactory;
 
-    protected $fillable = [
-        'name',
-        'flag',
-        'lat',
-        'lon',
-    ];
+  protected $table = 'consultant_sector';
+  protected $fillable = [
+    'consultant_id',
+    'sector_id',
+  ];
 }
