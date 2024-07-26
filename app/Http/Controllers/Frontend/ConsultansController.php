@@ -15,18 +15,16 @@ use Illuminate\Support\Facades\Mail;
 
 class ConsultansController extends Controller
 {
-  protected $sectors, $countries, $educations;
-
   public function index()
   {
-    $this->countries = Country::all();
-    $this->sectors = Sector::all();
-    $this->educations = Education::all();
+    $countries = Country::all();
+    $sectors = Sector::all();
+    $educations = Education::all();
 
     return view('frontend.consultans', [
-      'sectors' => $this->sectors,
-      'countries' => $this->countries,
-      'educations' => $this->educations
+      'countries' => $countries,
+      'sectors' => $sectors,
+      'educations' => $educations
     ]);
   }
 
