@@ -53,7 +53,7 @@
 
 @push('js')
   <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
       // Add your common script logic here...
     });
   </script>
@@ -63,15 +63,19 @@
 {{-- Add common CSS customizations --}}
 
 @push('css')
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"/>
   <style type="text/css">
     {{-- You can add AdminLTE customizations here --}}
+
     /*
-            .card-header {
-                border-bottom: none;
-            }
-            .card-title {
-                font-weight: 600;
-            }
-            */
+                .card-header {
+                    border-bottom: none;
+                }
+                .card-title {
+                    font-weight: 600;
+                }
+                */
   </style>
 @endpush

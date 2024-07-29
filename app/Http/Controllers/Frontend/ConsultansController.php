@@ -15,18 +15,16 @@ use Illuminate\Support\Facades\Mail;
 
 class ConsultansController extends Controller
 {
-  protected $sectors, $countries, $educations;
-
   public function index()
   {
-    $this->countries = Country::all();
-    $this->sectors = Sector::all();
-    $this->educations = Education::all();
+    $countries = Country::all();
+    $sectors = Sector::all();
+    $educations = Education::all();
 
     return view('frontend.consultans', [
-      'sectors' => $this->sectors,
-      'countries' => $this->countries,
-      'educations' => $this->educations
+      'countries' => $countries,
+      'sectors' => $sectors,
+      'educations' => $educations
     ]);
   }
 
@@ -35,7 +33,7 @@ class ConsultansController extends Controller
     $data = $request->validated();
     $response = NoCaptcha::verifyResponse($request->input('g-recaptcha-response'));
 
-//    dd($data);
+    //    dd($data);
     if ($response) {
       try {
         $consultant = Consultant::create($data);
@@ -48,26 +46,26 @@ class ConsultansController extends Controller
 
         if ($request->has('sectors')) {
           //Sectores seleccionados por el consultor para enviar en el mail
-//          dd($consultant->sectors);
-//          $consultant['sectors'];
-//          dd($request->sectors);
+          //          dd($consultant->sectors);
+          //          $consultant['sectors'];
+          //          dd($request->sectors);
           // Buscar los sectores correspondientes , y ponerlos en un array para listarlos en el mail
           $sectors = Sector::whereIn('id', $request->sectors)->get();
-//          dd($sectors);
+          //          dd($sectors);
         } else {
           $sectors = [];
         }
-//        $country = Country::where('id', '=', $consultant->nationalityCountry_id)->first();
-//        dd($consultant->nationalityCountry_id);
-//        dd($consultant->nationality->name);
+        //        $country = Country::where('id', '=', $consultant->nationalityCountry_id)->first();
+        //        dd($consultant->nationalityCountry_id);
+        //        dd($consultant->nationality->name);
         $newData = $consultant->load(['nationality', 'residence', 'education'])->toArray();
         // Enviar email configurado en ConsultanMail al usuario con copia oculta al administrador del sitio
-//        dd($consultant->name);
+        //        dd($consultant->name);
         Mail::send(new ConsultanMail($newData, $request->input('email'), $sectors));
         toast('Formulario enviado con éxito', 'success');
         return redirect()->route('consultans');
       } catch (\Throwable $th) {
-        dd($th->getMessage());
+//      dd($th->getMessage());
         toast('No se pudo enviar el formulario', 'error');
         return redirect()->route('consultans');
       }

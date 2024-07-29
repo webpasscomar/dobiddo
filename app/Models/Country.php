@@ -15,4 +15,14 @@ class Country extends Model
         'lat',
         'lon',
     ];
+
+    public function nationalities()
+    {
+      return $this->hasMany(Consultant::class,'nationalityCountry_id','id');
+    }
+
+    public function residences()
+    {
+      return $this->hasMany(Consultant::class,'residenceCountry_id','id');
+    }
 }

@@ -22,16 +22,16 @@ class ConsultanRequest extends FormRequest
   public function rules(): array
   {
     return [
-      'lastname' => 'required|string|min:3|regex:/^[a-zA-Z\s]+$/',
-      'name' => 'required|string|min:3|regex:/^[a-zA-Z\s]+$/',
+      'lastname' => 'required|string|min:3|regex:/^[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ\s]+$/',
+      'name' => 'required|string|min:3|regex:/^[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ\s]+$/',
       'email' => 'required|email|regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/|same:confirmEmail',
       'confirmEmail' => 'required|email|regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/|same:email',
       'nationalityCountry_id' => 'required|exists:countries,id',
       'residenceCountry_id' => 'required|exists:countries,id',
       'education_id' => 'required|exists:educations,id',
-      'experience' => 'nullable|integer',
+      'experience' => 'required|integer',
       'linkedin' => 'nullable|url',
-      'sectors' => 'nullable|array',
+      'sectors' => 'required|array',
       'sectors.*' => 'exists:sectors,id',
       'g-recaptcha-response' => 'required|captcha',
     ];
@@ -60,8 +60,10 @@ class ConsultanRequest extends FormRequest
       'residenceCountry_id.exists' => 'No existe la residencia ',
       'education_id.required' => 'Seleccione la educacion',
       'education_id.exists' => 'No existe la educacion',
+      'experience.required'=> 'Ingrese los años de experiencia',
       'experience.integer' => 'Valor incorrecto',
       'linkedin.url' => 'Ingrese una URL valida',
+      'sectors.required'=>'Ingrese al menos un sector',
       'sectors.exists' => 'Seleccione un sector válido',
       'g-recaptcha-response.required' => 'Captcha requerido',
       'g-recaptcha-response.captcha' => 'Captcha no válido',
