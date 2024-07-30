@@ -16,6 +16,7 @@ use App\Http\Controllers\Frontend\ConsultansController;
 use App\Http\Controllers\backend\ConsultantController;
 use App\Http\Controllers\Frontend\InstitutionsController;
 use App\Http\Controllers\Backend\CallController;
+use App\Http\Controllers\backend\MessageController;
 use Illuminate\Support\Facades\Auth;
 
 //*********************************************************************************************************
@@ -70,5 +71,10 @@ Route::patch('admin/convocatorias/{call}/sectores', [CallController::class, 'upd
 Route::get('admin/consultores', [ConsultantController::class, 'index'])->name('consultants.index');
 // Exportar consultores
 Route::get('admin/consultores/export', [ConsultantController::class, 'export'])->name('consultants.export');
+
+// Mensajes de contacto
+Route::get('admin/mensajes', [MessageController::class, 'index'])->name('messages.index');
+// Eliminar mensajes
+Route::delete('admin/mensajes/{organism}', [MessageController::class, 'destroy'])->name('messages.destroy');
 
 Auth::routes();

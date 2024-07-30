@@ -1,12 +1,11 @@
-@extends('adminlte::page')
+@extends('layouts.adminlte')
 
 @section('title', 'Convocatorias')
 
-@section('content_header')
-    <h1>Convocatorias</h1>
-@stop
+@section('content_header_title', 'Admin')
+@section('content_header_subtitle', 'Convocatorias')
 
-@section('content')
+@section('content_body')
     <div class="card">
         <div class="card-header text-right">
             <a href="{{ route('convocatorias.create') }}" class="btn btn-success mb-3"><i class="fas fa-plus"></i> Crear
@@ -100,7 +99,7 @@
     </div>
 @stop
 
-@section('js')
+@push('js')
     {{-- cargado provisorio de boostrap script   --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
@@ -167,4 +166,4 @@
 
     @include('sweetalert::alert')
     {{--     @include('components.confirm_delete') --}}
-@stop
+@endpush
