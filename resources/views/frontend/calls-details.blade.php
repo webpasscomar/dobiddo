@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('title','Convocatorias - Detalle')
 @section('content')
+
+
   <div>
     <div class="card p-2">
         <a href="#" class="text-primary align-self-end" title="compartir"><i class="fa-regular fa-share-from-square fs-5 align-middle"></i></a>
