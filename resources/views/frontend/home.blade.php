@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Inicio')
+@section('title', 'Inicio')
 
 @section('content')
   <div class="container">
@@ -31,8 +31,29 @@
         <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
         <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
-        <div id="map" style="width: 100%; height: 600px;"></div>
+        <div id="map" style="width: 100%; height: 650px;"></div>
+
         <script>
+          var countriesWithCalls = @json($countriesWithCalls);
+          // Initialize the map
+          var map = L.map('map').setView([-5, -80], 3);
+
+          // Set up the OSM layer
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          }).addTo(map);
+
+          // Add the countries with calls to the map
+          countriesWithCalls.forEach(function(country) {
+            var marker = L.marker([country.lat, country.lon]).addTo(map);
+            marker.bindPopup(`
+            <b>${country.name}</b><br>
+            ${country.calls_count} convocatorias activas<br>
+            <a href="/calls/country/${country.id}">Ver convocatorias</a>
+        `);
+          });
+        </script>
+        {{-- <script>
           var map = L.map('map').setView([20, 0], 2);
 
           L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -175,7 +196,7 @@
             L.marker([convocatoria.lat, convocatoria.lng]).addTo(map)
               .bindPopup('<b>' + convocatoria.pais + '</b>');
           });
-        </script>
+        </script> --}}
       </div>
 
     </div>

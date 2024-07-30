@@ -51,34 +51,34 @@ class CallsController extends Controller
 
         // búsqueda de convocatorias por nombre, resumen, contenido, pais y formato
         // pasamos filters al front para saber si se hizo una busqueda y mostrar el botón de reset en caso de haya filtros aplicados
-        $filters = $request->only(['search','country_id','format_id']); 
+        $filters = $request->only(['search', 'country_id', 'format_id']);
         $query = Call::query();
 
         // Aplicar filtros según los campos a filtrar
         // filtro por nombre y resumen
         if (!empty($filters['search'])) {
-            $query->where(function($q) use ($filters){
-                $q->where('name','like','%'.$filters['search'].'%')
-                    ->orWhere('resume','like','%'.$filters['search'].'%');
+            $query->where(function ($q) use ($filters) {
+                $q->where('name', 'like', '%' . $filters['search'] . '%')
+                    ->orWhere('resume', 'like', '%' . $filters['search'] . '%');
             });
         };
 
         //Filtro por paises
-        if (!empty($filters['country_id'])){
-            $query->where('country_id',$filters['country_id']);
+        if (!empty($filters['country_id'])) {
+            $query->where('country_id', $filters['country_id']);
         }
 
-        if (!empty($filters['format_id'])){
-            $query->where('format_id',$filters['format_id']);
+        if (!empty($filters['format_id'])) {
+            $query->where('format_id', $filters['format_id']);
         }
-       
+
         // si no hay ningun filtro mostramos todos los registros paginados de a 5
-        if (empty(array_filter($filters))){
-            $calls = Call::paginate(5);
+        if (empty(array_filter($filters))) {
+            $calls = Call::paginate(6);
         }
         // Si hay filtros los aplicamos,mostrando los registros paginados de a 5
-        $calls = $query->paginate(5);
-    
+        $calls = $query->paginate(6);
+
 
         // Obtener los datos para los combos
         $countries = Country::all();
@@ -87,13 +87,13 @@ class CallsController extends Controller
         $durations = Duration::all();
         $formats = Format::all();
 
-        return view ('frontend.calls', compact('calls', 'countries', 'institutions', 'dedications', 'durations', 'formats','filters'));
+        return view('frontend.calls2', compact('calls', 'countries', 'institutions', 'dedications', 'durations', 'formats', 'filters'));
     }
 
-  public function details(Call $call)
-  {
-    return view('frontend.calls-details',[
-      'call' => $call
-    ]);
-  }
+    public function details(Call $call)
+    {
+        return view('frontend.calls-details', [
+            'call' => $call
+        ]);
+    }
 }

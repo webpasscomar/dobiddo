@@ -2,6 +2,7 @@
 
 @section('content')
   <div class="container">
+
     <div class="row">
       <div class="col-md-3 bg-warning p-4">
 
