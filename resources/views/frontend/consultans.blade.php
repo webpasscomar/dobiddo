@@ -42,7 +42,7 @@
             <div class="col-md-6">
                 <h2>Consultores</h2>
 
-                <form action="{{ route('consultans.store') }}" method="POST" enctype="">
+                <form action="{{ route('consultans.store') }}" method="POST">
                     @csrf
                     <div class="row">
                         <div class="col-md-6 mb-3">

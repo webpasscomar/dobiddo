@@ -2,7 +2,6 @@
 
 namespace App\Mail;
 
-use App\Models\Country;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -10,20 +9,17 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class ConsultanMail extends Mailable
+class OrganismMailReceived extends Mailable
 {
   use Queueable, SerializesModels;
-
-  public $data, $userEmail, $sectors;
+  public $data = [];
 
   /**
    * Create a new message instance.
    */
-  public function __construct($data, $userEmail, $sectors)
+  public function __construct($data)
   {
     $this->data = $data;
-    $this->userEmail = $userEmail;
-    $this->sectors = $sectors;
   }
 
   /**
@@ -32,9 +28,8 @@ class ConsultanMail extends Mailable
   public function envelope(): Envelope
   {
     return new Envelope(
-      subject: 'Dobiddo',
-      to: $this->userEmail,
-      bcc: 'dobiddo@correo.com'
+      subject: 'Publicar convocatorias',
+      to: 'admin@dobiddo.com',
     );
   }
 
@@ -44,11 +39,10 @@ class ConsultanMail extends Mailable
   public function content(): Content
   {
     return new Content(
-      view: 'emails.consultans',
+      view: 'emails.organism-received',
       with: [
-        'data' => $this->data,
-        'sectors' => $this->sectors
-      ],
+        'organisms' => $this->data
+      ]
     );
   }
 
