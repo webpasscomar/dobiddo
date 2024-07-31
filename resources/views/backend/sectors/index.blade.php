@@ -2,14 +2,13 @@
 
 {{-- Customize layout sections --}}
 
-@section('title', 'sectores')
+@section('title', 'Sectores')
 @section('content_header_title', 'Admin')
 @section('content_header_subtitle', 'Sectores')
 
 {{-- Content body: main page content --}}
 
 @section('content_body')
-
 
     <div class="card">
         <div class="card-header text-right">
