@@ -2,12 +2,13 @@
 @section('title', 'Inicio')
 
 @section('content')
+
   <div class="container">
 
     <div class="row">
 
       <div class="col-md-6">
-        <h1>Que hacemos?</h1>
+        <h1>¿Qué hacemos?</h1>
         <p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el
           texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se
           dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro
@@ -20,7 +21,7 @@
           PageMaker, el cual incluye versiones de Lorem Ipsum.
 
           We implement a proposal developed from our experience in the world of consulting.</p>
-        <p>
+        <p class="fs-4">
           Dobiddo is a platform that provides specialized support services in identifying consulting opportunities in the
           main international organizations.
         </p>
@@ -201,24 +202,33 @@
 
     </div>
 
-
-    {{-- <div class="row">
-      <h1>Call to action ONGs</h1>
-      <a href="{{ route('institutions') }}" title="institutions" class="nav-link">Organismos</a>
-    </div> --}}
+  </div>
 
 
-    <div class="row bg-danger">
-      <div class="col-md-6 offset-md-3 text-center my-4">
-        <div class="p-4 mb-3 bg-light rounded-3">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-6 text-center my-4">
+        <div class="p-4 m-4 shadow bg-light rounded-3">
           <h2>¿Eres un Organismo?</h2>
           <p class="lead">Contacta con nosotros si deseas publicar convocatorias.</p>
           <a href="{{ route('institutions') }}" class="btn btn-primary btn-lg">Publicar Convocatorias</a>
         </div>
       </div>
+
+      <div class="col-md-6 text-center my-4">
+        <div class="p-4 m-4 shadow bg-light rounded-3">
+          <h2>¿Eres un Consultor?</h2>
+          <p class="lead">Regístrate para recibir convocatorias directamente en tu correo.</p>
+          <a href="{{ route('consultans') }}" class="btn btn-success btn-lg">Recibir Convocatorias</a>
+        </div>
+      </div>
+
     </div>
+  </div>
 
-
+  <div class="container">
     <div class="row">
       <div class="col-md-6 d-flex align-items-center justify-content-center">
         <img src="{{ asset('img/mensajes_frases/Mensaje1.png') }}" class="img-fluid" alt="Doing bidding simple">
@@ -228,22 +238,6 @@
         <img src="{{ asset('img/escenas/01_Aeropuerto.png') }}" class="img-fluid" alt="Doing bidding simple">
       </div>
     </div>
-
-    {{-- <div class="row">
-      <h1>Call to action Consultores</h1>
-      <a href="{{ route('consultans') }}" title="consultans" class="nav-link">Consultores</a>
-    </div> --}}
-
-    <div class="row bg-danger">
-      <div class="col-md-6 offset-md-3 text-center my-4">
-        <div class="p-4 mb-3 bg-light rounded-3">
-          <h2>¿Eres un Consultor?</h2>
-          <p class="lead">Regístrate para recibir convocatorias directamente en tu correo.</p>
-          <a href="{{ route('consultans') }}" class="btn btn-success btn-lg">Recibir Convocatorias</a>
-        </div>
-      </div>
-    </div>
-
 
 
 
