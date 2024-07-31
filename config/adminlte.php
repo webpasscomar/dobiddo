@@ -345,17 +345,17 @@ return [
 
 
 
-        // ['header' => 'account_settings'],
-        // [
-        //     'text' => 'profile',
-        //     'url' => 'admin/settings',
-        //     'icon' => 'fas fa-fw fa-user',
-        // ],
-        // [
-        //     'text' => 'change_password',
-        //     'url' => 'admin/settings',
-        //     'icon' => 'fas fa-fw fa-lock',
-        // ],
+    // ['header' => 'account_settings'],
+    [
+      'text' => 'Usuarios',
+      'url' => 'admin/usuarios',
+      'icon' => 'fas fa-fw fa-user',
+    ],
+    // [
+    //     'text' => 'change_password',
+    //     'url' => 'admin/settings',
+    //     'icon' => 'fas fa-fw fa-lock',
+    // ],
 
     // [
     //     'text' => 'multilevel',

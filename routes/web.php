@@ -1,23 +1,24 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\Frontend\HomeController;
-
-
-use App\Http\Controllers\Backend\Dashboard;
-use App\Http\Controllers\Backend\SectorController;
-use App\Http\Controllers\Backend\OrganismController;
 use App\Http\Controllers\Frontend\AbouUsController;
 use App\Http\Controllers\Frontend\CallsController;
 use App\Http\Controllers\Frontend\CompanyController;
 use App\Http\Controllers\Frontend\ConsultansController;
-use App\Http\Controllers\backend\ConsultantController;
 use App\Http\Controllers\Frontend\InstitutionsController;
+
+use App\Http\Controllers\Backend\Dashboard;
+use App\Http\Controllers\Backend\SectorController;
+use App\Http\Controllers\Backend\OrganismController;
+use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\ConsultantController;
 use App\Http\Controllers\Backend\CallController;
-use App\Http\Controllers\backend\MessageController;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Backend\MessageController;
+
+
 
 //*********************************************************************************************************
 
@@ -49,6 +50,10 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/admin', [Dashboard::class, 'index'])->name('backend.dashboard');
 
+// Route::resource('admin/sectores', SectorController::class);
+Route::resource('admin/usuarios', UserController::class)->parameters([
+  'usuarios' => 'user'
+]);
 
 // Route::resource('admin/sectores', SectorController::class);
 Route::resource('admin/sectores', SectorController::class)->parameters([
