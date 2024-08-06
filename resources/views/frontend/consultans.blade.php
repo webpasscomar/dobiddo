@@ -41,6 +41,12 @@
 
             <div class="col-md-6">
                 <h2>Consultores</h2>
+                <p> 
+                ¿Querés ser parte de la comunidad? ¡Nosotros queremos saber más de vos! Ayudanos a 
+                perfilar tus búsquedas y a mantenerte informado de todas las novedades. Sumándote 
+                a la comunidad dobiddo formarás parte del roster de consultores dobiddo y recibirás muchos consejos para postularte a los llamados de los principales organismos de desarrollo.
+                </p>
+                <p> <b> ¿Te sumas? </b></p>
 
                 <form action="{{ route('consultans.store') }}" method="POST">
                     @csrf
