@@ -63,9 +63,9 @@ return [
     |
     */
 
-  'logo' => ' Login',
+  'logo' => 'DoBidDo',
   // 'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-  'logo_img' => 'img/logo.png',
+  'logo_img' => 'img/logo-ico.png',
   'logo_img_class' => 'brand-image img-fluid elevation-2',
   'logo_img_xl' => null,
   'logo_img_xl_class' => 'brand-image-xs',
@@ -296,21 +296,21 @@ return [
 
   'menu' => [
     // Navbar items:
-    [
-      'type' => 'navbar-search',
-      'text' => 'search',
-      'topnav_right' => true,
-    ],
+    // [
+    //   'type' => 'navbar-search',
+    //   'text' => 'search',
+    //   'topnav_right' => true,
+    // ],
     [
       'type' => 'fullscreen-widget',
       'topnav_right' => true,
     ],
 
     // Sidebar items:
-    [
-      'type' => 'sidebar-menu-search',
-      'text' => 'search',
-    ],
+    // [
+    //   'type' => 'sidebar-menu-search',
+    //   'text' => 'search',
+    // ],
     // [
     //     'text' => 'blog',
     //     'url' => 'admin/blog',
