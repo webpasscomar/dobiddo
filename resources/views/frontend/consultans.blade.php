@@ -38,97 +38,98 @@
       </div>
 
 
-      <div class="col-md-6">
+            <div class="col-md-6">
+                <h2>Consultores</h2>
+                <p> 
+                ¿Querés ser parte de la comunidad? ¡Nosotros queremos saber más de vos! Ayudanos a 
+                perfilar tus búsquedas y a mantenerte informado de todas las novedades. Sumándote 
+                a la comunidad dobiddo formarás parte del roster de consultores dobiddo y recibirás muchos consejos para postularte a los llamados de los principales organismos de desarrollo.
+                </p>
+                <p> <b> ¿Te sumas? </b></p>
 
-        <p>¿Querés ser parte de la comunidad? ¡Nosotros queremos saber más de vos! Ayudanos a perfilar tus
-          búsquedas y a
-          mantenerte informado de todas las novedades. Sumándote a la comunidad dobiddo formarás parte del roster de
-          consultores dobiddo y recibirás muchos consejos para postularte a los llamados de los principales organismos de
-          desarrollo.</p>
-        <br>
-        <p class="fs-3">¿Te sumas?</p>
-        <br>
-        <br>
-        <form action="{{ route('consultans.store') }}" method="POST">
-          @csrf
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="lastname" class="form-label">Apellido/s</label><span class="text-danger ms-1">*</span>
-              <input type="text" class="form-control" id="lastname" name="lastname"
-                value="{{ old('lastname' ?? '') }}">
-              @error('lastname')
-                <p class="ms-1 text-danger">{{ $message }}</p>
-              @enderror
-            </div>
-            <div class="col-md-6 mb-3">
-              <label for="name" class="form-label">Nombre/s</label><span class="text-danger ms-1">*</span>
-              <input type="text" class="form-control" id="name" name="name" value="{{ old('name' ?? '') }}">
-              @error('name')
-                <p class="ms-1 text-danger">{{ $message }}</p>
-              @enderror
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="email" class="form-label">Email</label><span class="text-danger ms-1">*</span>
-              <input type="email" class="form-control" id="email" name="email" value="{{ old('email' ?? '') }}">
-              @error('email')
-                <p class="ms-1 text-danger">{{ $message }}</p>
-              @enderror
-            </div>
-            <div class="col-md-6 mb-3">
-              <label for="confirmEmail" class="form-label">Confirmación de Email</label><span
-                class="text-danger ms-1">*</span>
-              <input type="email" class="form-control" id="confirmEmail" name="confirmEmail"
-                value="{{ old('confirmEmail' ?? '') }}">
-              @error('confirmEmail')
-                <p class="ms-1 text-danger">{{ $message }}</p>
-              @enderror
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="nationalityCountry_id" class="form-label">Nacionalidad</label><span
-                class="text-danger ms-1">*</span>
-              <select class="form-select" id="nationalityCountry_id" name="nationalityCountry_id">
-                <option selected disabled>Seleccione ...</option>
-                @foreach ($countries as $country)
-                  <option value="{{ $country->id }}" @selected(old('nationalityCountry_id' ?? '') == $country->id)>{{ $country->name }}
-                  </option>
-                @endforeach
-                <!-- Agrega más opciones según sea necesario -->
-              </select>
-              @error('nationalityCountry_id')
-                <p class="ms-1 text-danger">{{ $message }}</p>
-              @enderror
-            </div>
-            <div class="col-md-6 mb-3">
-              <label for="residenceCountry_id" class="form-label">País de Residencia</label><span
-                class="text-danger ms-1">*</span>
-              <select class="form-select" id="residenceCountry_id" name="residenceCountry_id">
-                <option selected disabled>Seleccione ...</option>
-                @foreach ($countries as $country)
-                  <option value="{{ $country->id }}" @selected(old('residenceCountry_id' ?? '') == $country->id)>{{ $country->name }}
-                  </option>
-                @endforeach
-                <!-- Agrega más opciones según sea necesario -->
-              </select>
-              @error('residenceCountry_id')
-                <p class="ms-1 text-danger">{{ $message }}</p>
-              @enderror
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="education_id" class="form-label">Nivel Educativo Alcanzado</label><span
-                class="text-danger ms-1">*</span>
-              <select class="form-select" id="education_id" name="education_id">
-                <option value="" selected disabled>Seleccione ...</option>
-                @foreach ($educations as $education)
-                  <option value="{{ $education->id }}" @selected(old('education_id' ?? '') == $education->id)>
-                    {{ $education->name }}</option>
-                @endforeach
-                {{-- <option value="terciario">Terciario</option>
+                <form action="{{ route('consultans.store') }}" method="POST">
+                    @csrf
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="lastname" class="form-label">Apellido/s</label><span
+                                class="text-danger ms-1">*</span>
+                            <input type="text" class="form-control" id="lastname" name="lastname"
+                                value="{{ old('lastname' ?? '') }}">
+                            @error('lastname')
+                                <p class="ms-1 text-danger">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="name" class="form-label">Nombre/s</label><span class="text-danger ms-1">*</span>
+                            <input type="text" class="form-control" id="name" name="name"
+                                value="{{ old('name' ?? '') }}">
+                            @error('name')
+                                <p class="ms-1 text-danger">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="email" class="form-label">Email</label><span class="text-danger ms-1">*</span>
+                            <input type="email" class="form-control" id="email" name="email"
+                                value="{{ old('email' ?? '') }}">
+                            @error('email')
+                                <p class="ms-1 text-danger">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="confirmEmail" class="form-label">Confirmación de Email</label><span
+                                class="text-danger ms-1">*</span>
+                            <input type="email" class="form-control" id="confirmEmail" name="confirmEmail"
+                                value="{{ old('confirmEmail' ?? '') }}">
+                            @error('confirmEmail')
+                                <p class="ms-1 text-danger">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="nationalityCountry_id" class="form-label">Nacionalidad</label><span
+                                class="text-danger ms-1">*</span>
+                            <select class="form-select" id="nationalityCountry_id" name="nationalityCountry_id">
+                                <option selected disabled>Seleccione ...</option>
+                                @foreach ($countries as $country)
+                                    <option value="{{ $country->id }}" @selected(old('nationalityCountry_id' ?? '') == $country->id)>{{ $country->name }}
+                                    </option>
+                                @endforeach
+                                <!-- Agrega más opciones según sea necesario -->
+                            </select>
+                            @error('nationalityCountry_id')
+                                <p class="ms-1 text-danger">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="residenceCountry_id" class="form-label">País de Residencia</label><span
+                                class="text-danger ms-1">*</span>
+                            <select class="form-select" id="residenceCountry_id" name="residenceCountry_id">
+                                <option selected disabled>Seleccione ...</option>
+                                @foreach ($countries as $country)
+                                    <option value="{{ $country->id }}" @selected(old('residenceCountry_id' ?? '') == $country->id)>{{ $country->name }}
+                                    </option>
+                                @endforeach
+                                <!-- Agrega más opciones según sea necesario -->
+                            </select>
+                            @error('residenceCountry_id')
+                                <p class="ms-1 text-danger">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="education_id" class="form-label">Nivel Educativo Alcanzado</label><span
+                                class="text-danger ms-1">*</span>
+                            <select class="form-select" id="education_id" name="education_id">
+                                <option value="" selected disabled>Seleccione ...</option>
+                                @foreach ($educations as $education)
+                                    <option value="{{ $education->id }}" @selected(old('education_id' ?? '') == $education->id)>
+                                        {{ $education->name }}</option>
+                                @endforeach
+                                {{-- <option value="terciario">Terciario</option>
                 <option value="universitario">Universitario</option>
                 <option value="postgrado">Postgrado</option> --}}
                 <!-- Agrega más opciones según sea necesario -->

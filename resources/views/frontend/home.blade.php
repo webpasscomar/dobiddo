@@ -8,19 +8,17 @@
     <div class="row">
 
       <div class="col-md-6">
-        <h1 class="fs-2">¿Sabes cuántas convocatorias a consultorías se publican semanalmente?</h1>
-        <br>
-        <p class="fs-4">
-          No es sorprendente que hayas perdido una buena oportunidad ya que, tan solo entre los principales organismos
-          internacionales, encontramos más de 20 plataformas de convocatorias que publican decenas de licitaciones por
-          semana para países de Latinoamérica y el Caribe!</p>
-        <p class="fs-4">
-          Visitar todos los portales lleva mucho tiempo y es por eso que creamos dobiddo para que encuentres todas las
-          oportunidades en un solo lugar.
-        </p>
-        <br>
-        <h3>We make it simple, digital, friendly & smart.</h3>
-
+        <h3>¿Sabes cuántas convocatorias a consultorías se publican semanalmente?</h3>
+        <p>No es sorprendente que hayas perdido una buena oportunidad ya que, tan solo entre los principales organismos internacionales, 
+        encontramos más de 20 plataformas de convocatorias que publican decenas de licitaciones por semana para países de Latinoamérica 
+        y el Caribe! </p>
+        <p>
+          Visitar todos los portales lleva mucho tiempo y es por eso que creamos dobiddo para que encuentres todas las oportunidades en un solo lugar.</p>
+        {{--<p class="fs-4">
+          Dobiddo is a platform that provides specialized support services in identifying consulting opportunities in the
+          main international organizations.
+        </p> --}}
+        <p class="fs-4 strong">We make it simple, digital, friendly & smart.</p>
       </div>
 
       <div class="col-md-6">
@@ -215,7 +213,7 @@
       <div class="col-md-6 text-center my-4">
         <div class="p-4 m-4 shadow bg-light rounded-3">
           <h2>¿Eres un Consultor?</h2>
-          <p class="lead">Regístrate para recibir convocatorias directamente en tu correo.</p>
+          <p class="lead">Sumate a la Comunidad</p>
           <a href="{{ route('consultans') }}" class="btn btn-success btn-lg">Recibir Convocatorias</a>
         </div>
       </div>

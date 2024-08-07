@@ -33,11 +33,11 @@
 
       <div class="col-md-7">
 
-        <p>Nuestra comunidad está conformada por miles de profesionales de América Latina y el Caribe que se
-          encuentran en proceso activo de búsqueda de proyectos y nuevas consultorías. A través de dobiddo te ayudamos a
-          difundir los llamados, alcanzando a muchos más consultores y empresas de las distintas disciplinas y países, y a
-          que los procesos de convocatoria sean mucho más competitivos y transparentes. </p>
-        <br>
+                <h2>Organismos</h2>
+                <p> 
+                Nuestra comunidad está conformada por miles de profesionales de América Latina y el Caribe que se 
+                encuentran en proceso activo de búsqueda de proyectos y nuevas consultorías. A través de dobiddo te ayudamos a difundir los llamados, alcanzando a muchos más consultores y empresas de las distintas disciplinas y países, y a que los procesos de convocatoria sean mucho más competitivos y transparentes. 
+                </p>
 
         <form action="{{ route('institutions.store') }}" method="POST">
           @csrf
