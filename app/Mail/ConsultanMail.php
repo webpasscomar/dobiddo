@@ -32,7 +32,7 @@ class ConsultanMail extends Mailable
   public function envelope(): Envelope
   {
     return new Envelope(
-      subject: 'Dobiddo',
+      subject: 'no-reply@dobiddo.com',
       to: $this->userEmail,
       bcc: 'dobiddo@correo.com'
     );
