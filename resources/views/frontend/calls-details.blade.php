@@ -52,25 +52,18 @@
         {{--    Resumen      --}}
         <div class="row mt-4">
           <div class="col-md-12">
-            <p>{!! $call->resume !!}</p>
+            <p class="fs-5">{!! $call->resume !!}</p>
           </div>
         </div>
 
         {{--    Contenido      --}}
         <div class="row mt-3">
           <div class="col-md-12">
-            <p>{!! $call->content !!}</p>
+            <p class="fs-5">{!! $call->content !!}</p>
           </div>
         </div>
 
-        {{--    link - URL      --}}
-        <div class="row mt-3">
-          <div class="col-md-12">
-            <p>Más Información: </p>
-            <p class="fs-6 align-middle nav-item text-primary"><a href="{{ $call->link }}" class="nav-link"
-                target="_blank"><i class="fa-solid fa-link align-middle me-1"></i>{{ $call->link }}</a></p>
-          </div>
-        </div>
+
 
         {{--    Aclaración      --}}
         <div class="row mt-3">
@@ -92,6 +85,15 @@
           </div>
         </div>
 
+
+        {{--    link - URL      --}}
+        <div class="row mt-3">
+          <div class="col-md-12">
+            {{-- <p>Más Información: </p> --}}
+            <a href="{{ $call->link }}" class="btn btn-sm btn-secondary" target="_blank"><i
+                class="fa-solid fa-link align-middle me-1"></i> Más información</a>
+          </div>
+        </div>
 
 
         <div>
@@ -117,6 +119,10 @@
               onclick="addToCalendar('{{ $call->name }}', '{{ $call->institution->name }}', '{{ $call->expiration }}')">
               <i class="fas fa-calendar-plus"></i>
             </button>
+            <a href="{{ route('google.redirect', ['call_id' => $call->id]) }}" class="btn btn-sm btn-primary"
+              title="Agregar a mi Calendar">
+              <i class="fas fa-calendar-plus"></i>
+            </a>
           </div>
         </div>
 

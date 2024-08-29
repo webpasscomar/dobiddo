@@ -17,8 +17,7 @@ use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\ConsultantController;
 use App\Http\Controllers\Backend\CallController;
 use App\Http\Controllers\Backend\MessageController;
-
-
+use App\Http\Controllers\GoogleCalendarController;
 
 //*********************************************************************************************************
 
@@ -41,6 +40,14 @@ Route::get('/calls/{call}/detalle', [CallsController::class, 'details'])->name('
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/google/redirect', [GoogleCalendarController::class, 'redirectToGoogle'])->name('google.redirect');
+Route::get('/google/callback', [GoogleCalendarController::class, 'handleGoogleCallback'])->name('google.callback');
+Route::get('/calendar/add', [GoogleCalendarController::class, 'addEventToGoogleCalendar'])->name('calendar.addEventToGoogleCalendar');
+Route::get('/calendar/success', function () {
+  return view('calendar.success');
+})->name('calendar.success');
+
 
 //*********************************************************************************************************
 
