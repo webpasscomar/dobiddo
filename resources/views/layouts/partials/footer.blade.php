@@ -3,7 +3,7 @@
         <div class="container py-4">
             <div class="row">
                 <!-- contacto -->
-                <div class="col-md-4 mb-3">
+                <div class="col-md-5 mb-3">
                     <p class="h6 fw-bold text-white">Contacto</p>
                     {{-- <ul class="list-unstyled light text-light">
                         <li>¡Sigue nuestras redes sociales para estar al día con las últimas noticias, lanzamientos y
@@ -16,7 +16,7 @@
                 </div>
 
                 <!-- categorias -->
-                <div class="col-md-4 mb-3">
+                <div class="col-md-5 mb-3">
                     <p class="h6 fw-bold text-white">Otros</p>
                     <ul class="list-unstyled text-white-50 light">
                         <li><a href="#" class="text-decoration-none link-light" title="Politicas de privacidad">
@@ -47,7 +47,7 @@
 
 
                 <!-- redes -->
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <p class="h6 fw-bold text-white">Nuestras redes</p>
                     <ul class="list-group list-group-horizontal">
                         <li class="list-group-item bg-transparent ps-0 border-0 light text-light">
