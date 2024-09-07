@@ -2,52 +2,70 @@
 @section('title', 'Inicio')
 
 @section('content')
+    {{-- Mapa y descripción del sitio --}}
+    <div class="container-fluid py-5 background_home_map">
+        <div class="container text-white">
 
-  <div class="container">
+            <div class="row">
 
-    <div class="row">
+                <div class="col-md-6">
+                    <h2 class="fw-bold">¿Sabes cuántas convocatorias a consultorías se publican semanalmente?</h2>
+                    <p class="fs-5">
+                        Como la mayoría de los consultores de hoy, seguramente te estás perdiendo de muchas oportunidades.
+                        Hay más de 20 plataformas de convocatorias en las que se actualizan semanalmente decenas de
+                        oportunidades. Solo los organismos internacionales publican más de 20 convocatorias de consultoría
+                        por semana solamente para América Latina y el Caribe.
 
-      <div class="col-md-6">
-        <h3>¿Sabes cuántas convocatorias a consultorías se publican semanalmente?</h3>
-        <p>No es sorprendente que hayas perdido una buena oportunidad ya que, tan solo entre los principales organismos internacionales, 
-        encontramos más de 20 plataformas de convocatorias que publican decenas de licitaciones por semana para países de Latinoamérica 
-        y el Caribe! </p>
-        <p>
-          Visitar todos los portales lleva mucho tiempo y es por eso que creamos dobiddo para que encuentres todas las oportunidades en un solo lugar.</p>
-        {{--<p class="fs-4">
+                        Somos un grupo de consultores apoya a la comunidad de consultores a encontrar las oportunidades de
+                        forma simple y fácil.
+
+                        Como sabemos que visitar todos los portales lleva mucho tiempo creamos dobiddo para que encuentres
+                        todas las oportunidades en un solo lugar
+                    </p>
+                    {{-- <p>No es sorprendente que hayas perdido una buena oportunidad ya que, tan solo entre los principales
+                        organismos internacionales,
+                        encontramos más de 20 plataformas de convocatorias que publican decenas de licitaciones por semana
+                        para
+                        países de Latinoamérica
+                        y el Caribe! </p>
+                    <p>
+                        Visitar todos los portales lleva mucho tiempo y es por eso que creamos dobiddo para que encuentres
+                        todas
+                        las oportunidades en un solo lugar.</p> --}}
+                    {{-- <p class="fs-4">
           Dobiddo is a platform that provides specialized support services in identifying consulting opportunities in the
           main international organizations.
         </p> --}}
-        <p class="fs-4 strong">We make it simple, digital, friendly & smart.</p>
-      </div>
+                    {{-- <p class="fs-4 strong">We make it simple, digital, friendly & smart.</p> --}}
+                </div>
 
-      <div class="col-md-6">
-        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+                <div class="col-md-6">
+                    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+                    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
-        <div id="map" style="width: 100%; height: 650px;"></div>
+                    <div id="map" style="width: 100%; height: 650px;" class="rounded-3"></div>
 
-        <script>
-          var countriesWithCalls = @json($countriesWithCalls);
-          // Initialize the map
-          var map = L.map('map').setView([-5, -80], 3);
+                    <script>
+                        var countriesWithCalls = @json($countriesWithCalls);
+                        // Initialize the map
+                        var map = L.map('map').setView([-5, -80], 3);
 
-          // Set up the OSM layer
-          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          }).addTo(map);
+                        // Set up the OSM layer
+                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                        }).addTo(map);
 
-          // Add the countries with calls to the map
-          countriesWithCalls.forEach(function(country) {
-            var marker = L.marker([country.lat, country.lon]).addTo(map);
-            marker.bindPopup(`
+                        // Add the countries with calls to the map
+                        countriesWithCalls.forEach(function(country) {
+                            var marker = L.marker([country.lat, country.lon]).addTo(map);
+                            marker.bindPopup(`
             <b>${country.name}</b><br>
             ${country.calls_count} convocatorias activas<br>
             <a href="/calls/country/${country.id}">Ver convocatorias</a>
         `);
-          });
-        </script>
-        {{-- <script>
+                        });
+                    </script>
+                    {{-- <script>
           var map = L.map('map').setView([20, 0], 2);
 
           L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -191,48 +209,52 @@
               .bindPopup('<b>' + convocatoria.pais + '</b>');
           });
         </script> --}}
-      </div>
+                </div>
 
-    </div>
+            </div>
 
-  </div>
-
-
-  <div class="container">
-
-    <div class="row">
-
-      <div class="col-md-6 text-center my-4">
-        <div class="p-4 m-4 shadow bg-light rounded-3">
-          <h2>¿Eres un Organismo?</h2>
-          <p class="lead">Contacta con nosotros si deseas publicar convocatorias.</p>
-          <a href="{{ route('institutions') }}" class="btn btn-primary btn-lg">Publicar Convocatorias</a>
         </div>
-      </div>
+    </div>
 
-      <div class="col-md-6 text-center my-4">
-        <div class="p-4 m-4 shadow bg-light rounded-3">
-          <h2>¿Eres un Consultor?</h2>
-          <p class="lead">Sumate a la Comunidad</p>
-          <a href="{{ route('consultans') }}" class="btn btn-success btn-lg">Recibir Convocatorias</a>
+    {{-- enlaces Organismos y Consultores --}}
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-6 text-center my-4">
+                <div class="p-4 m-4 shadow bg-light rounded-3">
+                    <h2>¿Eres un Organismo?</h2>
+                    <p class="lead">Contacta con nosotros si deseas publicar convocatorias.</p>
+                    <a href="{{ route('institutions') }}" class="btn text-white btn-lg"
+                        style="background-color: #e9624f">Publicar
+                        Convocatorias</a>
+                </div>
+            </div>
+
+            <div class="col-md-6 text-center my-4">
+                <div class="p-4 m-4 shadow bg-light rounded-3">
+                    <h2>¿Eres un Consultor?</h2>
+                    <p class="lead">Sumate a la Comunidad</p>
+                    <a href="{{ route('consultans') }}" class="btn btn-lg" style="background-color: #7ec6ed">Recibir
+                        Convocatorias</a>
+                </div>
+            </div>
+
         </div>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 d-flex align-items-center justify-content-center">
-        <img src="{{ asset('img/mensajes_frases/Mensaje1.png') }}" class="img-fluid" alt="Doing bidding simple">
-      </div>
-
-      <div class="col-md-6 d-flex align-items-center justify-content-center">
-        <img src="{{ asset('img/escenas/01_Aeropuerto.png') }}" class="img-fluid" alt="Doing bidding simple">
-      </div>
     </div>
 
+    {{-- Imágenes --}}
 
+    <div class="container-fluid home_images">
+        <div class="row">
+            <div class="col-md-6 d-flex align-items-center justify-content-center">
+                <img src="{{ asset('img/mensajes_frases/Mensaje1.png') }}" class="img-fluid" alt="Doing bidding simple"
+                    width="700">
+            </div>
 
-  </div>
+            <div class="col-md-6 d-flex align-items-center justify-content-center">
+                <img src="{{ asset('img/home/home.png') }}" class="img-fluid" alt="Doing bidding simple">
+            </div>
+        </div>
+    </div>
 @endsection

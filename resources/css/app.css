@@ -1,5 +1,11 @@
 /* @import "~bootstrap/dist/css/bootstrap.min.css"; */
 
+*{
+  box-sizing: border-box;
+  margin:0;
+  padding: 0;
+}
+
 .dropdown_consultants {
   max-height: 300px;
   overflow: scroll;
@@ -7,4 +13,18 @@
 
 .text-require {
   font-size: 12px !important;
+}
+
+.background_home_map{
+  background-color: #e9624f;
+  padding: 0;
+  margin:0;
+}
+
+.home_images{
+  background-color: #dac0dd;
+}
+
+.footer{
+  min-height: 25vh;
 }

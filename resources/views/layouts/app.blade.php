@@ -26,11 +26,11 @@
 
     </head>
 
-    <body>
+    <body style="background-color: #eeeee9">
 
         @include('layouts.partials.header')
 
-        <div class="container mt-4 mb-4 min-vh-100">
+        <div class="mt-4 min-vh-100">
 
             @yield('content')
 
