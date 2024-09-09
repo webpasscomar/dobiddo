@@ -1,4 +1,17 @@
     <!-- footer -->
+
+    {{-- mostrar logo dobiddo solo en las rutas de los formularios publicar organismos y convocatorias --}}
+    @if (request()->routeIS('consultans') || request()->routeIS('institutions'))
+        <div class="container-fluid text-center section_logo_dobiddo mt-5 mt-xl-0">
+            <div class="row">
+                <div class="col m-auto">
+                    <img src="{{ asset('img/logotipos/10 Logo claim centrado negro.png') }}" class="" width="200"
+                        alt="dobiddo the bid doers">
+                </div>
+            </div>
+        </div>
+    @endif
+
     <div class="footer" style="background-color: #333">
         <div class="container py-4">
             <div class="row">

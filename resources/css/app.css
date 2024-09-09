@@ -26,5 +26,30 @@
 }
 
 .footer{
-  min-height: 25vh;
+  min-height: 30vh;
+}
+
+.btn-submit{
+  background-color: #e9624f !important;
+}
+
+/* sección logo dobiddo consultores y organismo */
+.section_logo_dobiddo{
+  height:150px;
+  align-content: center;
+  background-color: #e9624f;
+}
+
+.shadow-lg-responsive {
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+}
+
+
+@media (max-width:767px) {
+  /* sombra contenedor formularios oragnismos - convocatorias */
+.shadow-lg-responsive{
+    /* PROBAR EN EL CASO QUE LES GUSTE LA SOMBRA SOLO EN AL COSTADO Y DEBAJO */
+  /* box-shadow: 4px 4px 4px #8c8c8c; */
+  box-shadow: none !important;
+}
 }
