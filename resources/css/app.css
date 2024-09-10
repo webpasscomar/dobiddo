@@ -72,12 +72,33 @@
   color:rgb(156, 154, 154);
 }
 
+/* imágen making bids succeed seccion: nosotros  */
+.about-makingBids{
+  width:25%;
+}
+
+/* imágen pantuflas seccion: nosotros  */
+.about-slippers{
+  width: 15%;
+}
+
+
 /* Quitar sombra de formulario en resoluciones medianas y pequeñas */
 @media (max-width:767px) {
   /* sombra contenedor formularios oragnismos - convocatorias */
-.shadow-lg-responsive{
-    /* PROBAR EN EL CASO QUE LES GUSTE LA SOMBRA SOLO EN AL COSTADO Y DEBAJO */
-  /* box-shadow: 4px 4px 4px #8c8c8c; */
-  box-shadow: none !important;
-}
+  .shadow-lg-responsive{
+      /* PROBAR EN EL CASO QUE LES GUSTE LA SOMBRA SOLO EN AL COSTADO Y DEBAJO */
+    /* box-shadow: 4px 4px 4px #8c8c8c; */
+    box-shadow: none !important;
+  }
+
+  /* imágen making bids succeed seccion: nosotros  */
+  .about-makingBids{
+    width:90%;
+  }
+
+  /* imágen pantuflas seccion: nosotros  */
+  .about-slippers{
+    width: 40%;
+  }
 }
