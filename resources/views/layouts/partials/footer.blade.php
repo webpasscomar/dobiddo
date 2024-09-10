@@ -2,7 +2,8 @@
 
     {{-- mostrar logo dobiddo solo en las rutas de los formularios publicar organismos y convocatorias --}}
     @if (request()->routeIS('consultans') || request()->routeIS('institutions'))
-        <div class="container-fluid text-center section_logo_dobiddo mt-5 mt-xl-0">
+        <div
+            class="container-fluid text-center {{ request()->routeIS('institutions') ? 'section_logo_dobiddo-institutions' : 'section_logo_dobiddo-consultants' }} section_logo_dobiddo mt-5 mt-xl-0">
             <div class="row">
                 <div class="col m-auto">
                     <img src="{{ asset('img/logotipos/10 Logo claim centrado negro.png') }}" class="" width="200"
@@ -23,7 +24,7 @@
                             eventos de
                             música!</li>
                     </ul> --}}
-                    <p class="text-white"><a href="https://webpass.com.ar" target="_blank">Diseño y
+                    <p class="text-white"><a href="https://webpass.com.ar" class="link_webpass" target="_blank">Diseño y
                             Desarrollo</a>
                         by WebPass</p>
                 </div>

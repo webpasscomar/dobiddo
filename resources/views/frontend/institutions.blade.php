@@ -46,11 +46,11 @@
                 </div>
 
             </div>
-            <div class="col-md-7">
+            <div class="col-md-7 {{ $errors->any() ? 'mb-5' : '' }}">
                 {{-- <img src="{{ asset('img/escenas_mensajes/Escena_mensaje8.jpg') }}" class="img-fluid"
                     alt="Doing bidding simple"> --}}
                 <form action="{{ route('institutions.store') }}" method="POST"
-                    class="forms shadow-lg-responsive rounded-3 px-md-5 py-md-4">
+                    class="shadow-lg-responsive rounded-3 px-md-5 py-md-4">
                     @csrf
                     {{-- Organismo --}}
                     <div class="mb-4">
@@ -98,7 +98,7 @@
                             <p class="ms-1 text-danger">{{ $message }}</p>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-submit text-white">Enviar</button>
+                    <button type="submit" class="btn btn_institutions-submit text-white">Enviar</button>
                 </form>
             </div>
 

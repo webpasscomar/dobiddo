@@ -29,22 +29,50 @@
   min-height: 30vh;
 }
 
-.btn-submit{
+/* Color de fondo botón del formulario organismos */
+.btn_institutions-submit{
   background-color: #e9624f !important;
 }
+.btn_institutions-submit:hover{
+  background-color: #ec503b !important;
+}
 
-/* sección logo dobiddo consultores y organismo */
-.section_logo_dobiddo{
+/* Color de fondo botón del formulario consultores */
+.btn_consultants-submit{
+  background-color: #7ec5ec !important;
+}
+.btn_consultants-submit:hover{
+  background-color: #64c0f1 !important;
+}
+
+/* sección logo dobiddo organismos */
+.section_logo_dobiddo-institutions{
   height:150px;
   align-content: center;
   background-color: #e9624f;
+}
+
+/* sección logo dobiddo consultores */
+.section_logo_dobiddo-consultants{
+  height:150px;
+  align-content: center;
+  background-color: #7ec5ec;
 }
 
 .shadow-lg-responsive {
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
 }
 
+.link_webpass{
+  text-decoration: none;
+  color:lightgray;
+}
 
+.link_webpass:hover{
+  color:rgb(156, 154, 154);
+}
+
+/* Quitar sombra de formulario en resoluciones medianas y pequeñas */
 @media (max-width:767px) {
   /* sombra contenedor formularios oragnismos - convocatorias */
 .shadow-lg-responsive{

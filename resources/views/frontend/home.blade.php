@@ -225,8 +225,7 @@
                 <div class="p-4 m-4 shadow bg-light rounded-3">
                     <h2>¿Eres un Organismo?</h2>
                     <p class="lead">Contacta con nosotros si deseas publicar convocatorias.</p>
-                    <a href="{{ route('institutions') }}" class="btn text-white btn-lg"
-                        style="background-color: #e9624f">Publicar
+                    <a href="{{ route('institutions') }}" class="btn text-white btn-lg btn_institutions-submit">Publicar
                         Convocatorias</a>
                 </div>
             </div>
@@ -235,7 +234,7 @@
                 <div class="p-4 m-4 shadow bg-light rounded-3">
                     <h2>¿Eres un Consultor?</h2>
                     <p class="lead">Sumate a la Comunidad</p>
-                    <a href="{{ route('consultans') }}" class="btn btn-lg" style="background-color: #7ec6ed">Recibir
+                    <a href="{{ route('consultans') }}" class="btn btn-lg btn_consultants-submit">Recibir
                         Convocatorias</a>
                 </div>
             </div>
