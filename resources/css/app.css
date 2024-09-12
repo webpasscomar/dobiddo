@@ -82,8 +82,33 @@
   width: 15%;
 }
 
+/* color de fondo de sección Que hacemos? - imagen paris + texto */
+.company_paris_background{
+  background-color: #7ec5ec;
+}
 
-/* Quitar sombra de formulario en resoluciones medianas y pequeñas */
+/* Imagen Paris - sección Qué hacemos */
+.company_img-paris{
+  width:50%;
+}
+/* Imágen frase - sección Qué hacemos */
+.company_img-message{
+  width:50%;
+}
+
+/* Resoluciones medianas */
+@media (max-width:992px){
+  /* Imágen Paris - sección Qué hacemos */
+  .company_img-paris{
+    width:100%;
+  }
+  /* Imágen frase - sección Qué hacemos */
+  .company_img-message{
+    width:100%;
+  }
+}
+
+/* Resoluciones medianas y pequeñas */
 @media (max-width:767px) {
   /* sombra contenedor formularios oragnismos - convocatorias */
   .shadow-lg-responsive{

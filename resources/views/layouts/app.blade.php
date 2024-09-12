@@ -30,7 +30,7 @@
 
         @include('layouts.partials.header')
 
-        <div class="mt-4 min-vh-100">
+        <div class="mt-4">
 
             @yield('content')
 

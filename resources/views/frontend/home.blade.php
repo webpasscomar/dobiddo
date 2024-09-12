@@ -221,8 +221,8 @@
 
         <div class="row">
 
-            <div class="col-md-6 text-center my-4">
-                <div class="p-4 m-4 shadow bg-light rounded-3">
+            <div class="col-lg-6 text-center my-4">
+                <div class="p-4 m-4 shadow bg-light rounded-3 min-vh-25">
                     <h2>¿Eres un Organismo?</h2>
                     <p class="lead">Contacta con nosotros si deseas publicar convocatorias.</p>
                     <a href="{{ route('institutions') }}" class="btn text-white btn-lg btn_institutions-submit">Publicar
@@ -230,7 +230,7 @@
                 </div>
             </div>
 
-            <div class="col-md-6 text-center my-4">
+            <div class="col-lg-6 text-center my-4">
                 <div class="p-4 m-4 shadow bg-light rounded-3">
                     <h2>¿Eres un Consultor?</h2>
                     <p class="lead">Sumate a la Comunidad</p>
