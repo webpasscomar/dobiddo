@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Convocatorias')
-@section('title', 'Convocatorias')
+{{-- @section('title', 'Convocatorias') --}}
 @section('content')
     <div class="container">
         <div class="row">
@@ -81,22 +81,23 @@
                             @endif
                             @if (!empty($filters['country_id']))
                                 @php
-                                  $country = \App\Models\Country::find($filters['country_id']);
+                                    $country = \App\Models\Country::find($filters['country_id']);
                                 @endphp
                                 @if ($country)
-                                  en el país "<strong>{{ $country->name }}</strong>"
+                                    en el país "<strong>{{ $country->name }}</strong>"
                                 @endif
                             @endif
                             @if (!empty($filters['format_id']))
-                              @php
-                                $format = \App\Models\Format::find($filters['format_id']);
-                              @endphp
-                              @if($format)
-                                con la modalidad "<strong>{{ $format->name }}</strong>"
-                              @endif
+                                @php
+                                    $format = \App\Models\Format::find($filters['format_id']);
+                                @endphp
+                                @if ($format)
+                                    con la modalidad "<strong>{{ $format->name }}</strong>"
+                                @endif
                             @endif
                         </div>
                     @endif
+
                     @forelse ($calls as $call)
                         <div class="col-md-12 mb-4">
                             <div class="card">
@@ -110,6 +111,7 @@
                                         </div>
                                         <div class="col-md-10">
                                             <h5 class="card-title">{{ $call->name }}</h5>
+                                            <h6 class="text-secondary">{{ $call->institution->initial }}</h6>
                                             <p text-align="right">Cierre:
                                                 {{ \Carbon\Carbon::parse($call->expiration)->format('d-m-Y') }}</p>
                                             {{-- <p class="card-text">{{ $call->resume }}</p> --}}
@@ -118,7 +120,7 @@
                                                         width="20" height="20">
                                                     {{ $call->country->name }}</button>
                                                 <button type="button"
-                                                    class="btn btn-warning btn-sm">{{ $call->dedication->name }}</button>
+                                                    class="btn btn-warnin btn-sm">{{ $call->dedication->name }}</button>
                                                 <button type="button"
                                                     class="btn btn-success btn-sm">{{ $call->format->name }}</button>
                                                 @if ($call->extended === 1)
@@ -136,13 +138,15 @@
                                 </div>
                             </div>
                         </div>
-                      @empty
-                      <div class="row">
-                        <div class="col-md-12 mt-3 fs-6">
-                          <h4>No se encontraron convocatorias</h4>
+                    @empty
+                        <div class="row">
+                            <div class="col-md-12 mt-3 fs-6">
+                                <h4>No se encontraron convocatorias</h4>
+                            </div>
                         </div>
-                      </div>
                     @endforelse
+
+
                 </div>
                 {{ $calls->links() }}
             </div>
@@ -152,62 +156,62 @@
 
 
 @section('js')
-  <script>
-    function shareOnWhatsApp(url) {
-      window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(url)}`, '_blank');
-    }
+    <script>
+        function shareOnWhatsApp(url) {
+            window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(url)}`, '_blank');
+        }
 
-    function shareByEmail(url) {
-      window.location.href =
-        `mailto:?subject=Interesante convocatoria&body=Echa un vistazo a esta convocatoria: ${encodeURIComponent(url)}`;
-    }
+        function shareByEmail(url) {
+            window.location.href =
+                `mailto:?subject=Interesante convocatoria&body=Echa un vistazo a esta convocatoria: ${encodeURIComponent(url)}`;
+        }
 
-    function shareOnTwitter(url) {
-      window.open(
-        `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=Echa un vistazo a esta convocatoria`,
-        '_blank');
-    }
+        function shareOnTwitter(url) {
+            window.open(
+                `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=Echa un vistazo a esta convocatoria`,
+                '_blank');
+        }
 
-    function shareOnFacebook(url) {
-      window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
-    }
+        function shareOnFacebook(url) {
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+        }
 
-    function copyToClipboard(url) {
-      navigator.clipboard.writeText(url).then(() => {
-        alert('URL copiada al portapapeles');
-      }, () => {
-        alert('Error al copiar la URL');
-      });
-    }
-  </script>
+        function copyToClipboard(url) {
+            navigator.clipboard.writeText(url).then(() => {
+                alert('URL copiada al portapapeles');
+            }, () => {
+                alert('Error al copiar la URL');
+            });
+        }
+    </script>
 
-  <script>
-    function addToCalendar(title, organization, expiration) {
-      const event = {
-        title: title,
-        start: expiration,
-        description: `Organizado por ${organization}`,
-        url: window.location.href
-      };
+    <script>
+        function addToCalendar(title, organization, expiration) {
+            const event = {
+                title: title,
+                start: expiration,
+                description: `Organizado por ${organization}`,
+                url: window.location.href
+            };
 
-      const eventString = encodeURIComponent(
-        `BEGIN:VCALENDAR\n` +
-        `VERSION:2.0\n` +
-        `BEGIN:VEVENT\n` +
-        `SUMMARY:${event.title}\n` +
-        `DESCRIPTION:${event.description}\n` +
-        `DTSTART:${event.start.replace(/-/g, '')}T000000Z\n` +
-        `URL:${event.url}\n` +
-        `END:VEVENT\n` +
-        `END:VCALENDAR`
-      );
+            const eventString = encodeURIComponent(
+                `BEGIN:VCALENDAR\n` +
+                `VERSION:2.0\n` +
+                `BEGIN:VEVENT\n` +
+                `SUMMARY:${event.title}\n` +
+                `DESCRIPTION:${event.description}\n` +
+                `DTSTART:${event.start.replace(/-/g, '')}T000000Z\n` +
+                `URL:${event.url}\n` +
+                `END:VEVENT\n` +
+                `END:VCALENDAR`
+            );
 
-      const downloadLink = document.createElement('a');
-      downloadLink.href = `data:text/calendar;charset=utf-8,${eventString}`;
-      downloadLink.download = `${event.title}.ics`;
-      document.body.appendChild(downloadLink);
-      downloadLink.click();
-      document.body.removeChild(downloadLink);
-    }
-  </script>
+            const downloadLink = document.createElement('a');
+            downloadLink.href = `data:text/calendar;charset=utf-8,${eventString}`;
+            downloadLink.download = `${event.title}.ics`;
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+        }
+    </script>
 @stop

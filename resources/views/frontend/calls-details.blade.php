@@ -2,11 +2,54 @@
 @section('title', 'Convocatorias - Detalle')
 @section('content')
 
-
-    <div>
-        <div class="card p-2">
-            <a href="#" class="text-primary align-self-end" title="compartir"><i
-                    class="fa-regular fa-share-from-square fs-5 align-middle"></i></a>
+    <div class="container mb-4">
+        <div class="card px-4 py-3 shadow-lg-responsive">
+            {{-- Botones compartir redes sociales --}}
+            <div class="d-none d-sm-block align-self-end my-3">
+                <a role="button" class="calls_share" onclick="shareOnWhatsApp('{{ url()->current() }}')"
+                    title="Compartir en Whatsapp">
+                    {{-- <i class="fab fa-whatsapp"></i> --}}
+                    <img src="{{ asset('img/social_media_iconos/whatsapp.png') }}" alt="whatsapp" width="30">
+                </a>
+                <a role="button" class="calls_share" onclick="shareByEmail('{{ url()->current() }}')"
+                    title="Enviar por Correo">
+                    {{-- <i class="fas fa-envelope"></i> --}}
+                    <img src="{{ asset('img/social_media_iconos/mail.png') }}" alt="correo" width="30">
+                </a>
+                <a role="button" class="calls_share" onclick="shareOnTwitter('{{ url()->current() }}')"
+                    title="Compartir Red social X (ex Twitter)">
+                    {{-- <i class="fab fa-x-twitter"></i> --}}
+                    <img src="{{ asset('img/social_media_iconos/Twitter.png') }}" alt="Red Social X" width="30">
+                </a>
+                <a role="button" class="calls_share" onclick="shareOnFacebook('{{ url()->current() }}')"
+                    title="Compartir en Facebook">
+                    {{-- <i class="fab fa-facebook"></i> --}}
+                    <img src="{{ asset('img/social_media_iconos/facebook.png') }}" alt="Facebook" width="30">
+                </a>
+                <a role="button" class="calls_share" onclick="" title="Compartir en Instagram">
+                    {{-- <i class="fab fa-facebook"></i> --}}
+                    <img src="{{ asset('img/social_media_iconos/instagram.png') }}" alt="Instagram" width="30">
+                </a>
+                <a role="button" class="calls_share" onclick="" title="Compartir en Linkedin">
+                    {{-- <i class="fab fa-facebook"></i> --}}
+                    <img src="{{ asset('img/social_media_iconos/linkedin.png') }}" alt="Linkedin" width="30">
+                </a>
+                <a role="button" class="calls_share" onclick="copyClipboard('{{ url()->current() }}')"
+                    title="Copiar al portapapeles">
+                    {{-- <i class="fas fa-copy"></i> --}}
+                    <img src="{{ asset('img/social_media_iconos/copy.png') }}" alt="copiar al portapapeles" width="30">
+                </a>
+                <a role="button" class="calls_share"
+                    onclick="addToCalendar('{{ $call->name }}', '{{ $call->institution->name }}', '{{ $call->expiration }}')"
+                    title="Descargar archivo calendar">
+                    {{-- <i class="fas fa-calendar-plus"></i> --}}
+                    <img src="{{ asset('img/social_media_iconos/download.png') }}" alt="Descargar archivo calendar"
+                        width="30">
+                </a>
+            </div>
+            {{-- fin botones compartir redes sociales --}}
+            {{-- <a href="#" class="text-primary align-self-end" title="compartir"><i
+                    class="fa-regular fa-share-from-square fs-5 align-middle"></i></a> --}}
             <div class="card-body">
                 {{-- Imagen /nombre / extendido / compartir --}}
                 <div class="row">
@@ -17,7 +60,7 @@
 
                             <div class="d-flex flex-column">
                                 <h1 class="fs-3 mt-4 mt-md-0">{{ $call->name }}</h1>
-
+                                <h2 class="text-secondary fs-6">{{ $call->institution->name }}</h2>
 
                                 {{--    botones país, formato, dedicación      --}}
                                 <div class="row mt-3">
@@ -26,9 +69,10 @@
                                                 src="{{ asset('storage/flags/' . $call->country->flag) }}"
                                                 alt="{{ $call->name }}" width="20" height="20"
                                                 class="me-1">{{ $call->country->name }}</button>
-                                        <button class="btn btn-warning btn-sm">{{ $call->dedication->name }}</button>
+                                        <button
+                                            class="btn btn-sm btn_calls-dedication text-white">{{ $call->dedication->name }}</button>
                                         <button type="button"
-                                            class="btn btn-success btn-sm">{{ $call->format->name }}</button>
+                                            class="btn btn-sm btn_calls-format fw-semibold">{{ $call->format->name }}</button>
                                     </div>
                                 </div>
 
@@ -44,9 +88,16 @@
                     </div>
 
                     {{--      fecha expiracion      --}}
-                    <div class ="col-12 col-lg-2 mt-3 mt-lg-0 fs-5">
-                        <i class="fa-regular fa-calendar-days"></i>
-                        <span>{{ \Carbon\Carbon::parse($call->expiration)->format('d-m-Y') }}</span>
+                    <div class ="col-12 col-lg-2 mt-3 mt-lg-0 text-end">
+                        <a href="{{ route('google.redirect', ['call_id' => $call->id]) }}" class="calls_share"
+                            title="Agregar Calendar | {{ \Carbon\Carbon::parse($call->expiration)->format('d-m-Y') }}">
+                            {{-- <i class="fas fa-calendar-plus"></i> --}}
+                            <img src="{{ asset('img/social_media_iconos/calendar.png') }}"
+                                alt="Google calendar - expiracion: {{ \Carbon\Carbon::parse($call->expiration)->format('d-m-Y') }}"
+                                width="50">
+                        </a>
+                        {{-- <i class="fa-regular fa-calendar-days"></i>
+                        <span>{{ \Carbon\Carbon::parse($call->expiration)->format('d-m-Y') }}</span> --}}
                     </div>
                 </div>
 
@@ -66,41 +117,110 @@
 
 
 
-                {{--    Aclaración      --}}
-                <div class="row mt-3">
-                    <div class="col-md-12">
-                        <p>Aclaración: {{ $call->comment }}</p>
+                {{--    Mostrar Aclaración si hay contenido     --}}
+                @if ($call->comment)
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <p>Aclaración:</p>
+                            <p>{{ $call->comment }}</p>
+                        </div>
                     </div>
-                </div>
+                @endif
 
-                {{--   Sectores     --}}
-                <div class="row mt-5">
-                    <div class="col-md-12">
-                        <p>Sectores:</p>
-                        <ul>
-                            @foreach ($call->sectors as $sector)
-                                <li class="nav-link"><i
-                                        class="fa-solid fa-check align-middle fs-6 me-1 text-success"></i>{{ $sector->name }}
-                                </li>
-                            @endforeach
-                        </ul>
+                {{--   Mostrar Sectores si fueron seleccionados --}}
+                @if (count($call->sectors) > 0)
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <p>Sectores:</p>
+                            <ul>
+                                @foreach ($call->sectors as $sector)
+                                    <li class="nav-link">
+                                        <img src="{{ asset('img/elementos/check-circle.png') }}" alt="sectores"
+                                            width="20" class="me-2">
+                                        {{-- <i
+                                        class="fa-solid fa-check align-middle fs-6 me-1 text-success"></i> --}}
+                                        {{ $sector->name }}
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
                     </div>
-                </div>
+                @endif
 
 
                 {{--    link - URL      --}}
-                <div class="row mt-3">
-                    <div class="col-md-12">
+                <div class="row mt-3 align-items-center">
+                    <div class="col-md-12 d-flex">
                         {{-- <p>Más Información: </p> --}}
-                        <a href="{{ $call->link }}" class="btn btn-sm btn-secondary" target="_blank"><i
-                                class="fa-solid fa-link align-middle me-1"></i> Más información</a>
+                        <span class="">Más información:</span>
+                        <a href="{{ $call->link }}" class="calls_share" target="_blank">
+                            <img src="{{ asset('img/social_media_iconos/world_link.png') }}" alt="{{ $call->link }}"
+                                width="25" class="ms-2" title="{{ $call->link }}">
+                        </a>
                     </div>
                 </div>
 
-
                 <div>
+
+                    {{-- Botones compartir redes sociales en versiones mobiles (celular) --}}
+                    <div class="d-block d-sm-none align-self-end my-3 mt-5">
+                        <p>Compartir la convocatoria por:</p>
+                        <a role="button" class="calls_share" onclick="shareOnWhatsApp('{{ url()->current() }}')"
+                            title="Compartir en Whatsapp">
+                            {{-- <i class="fab fa-whatsapp"></i> --}}
+                            <img src="{{ asset('img/social_media_iconos/whatsapp.png') }}" alt="whatsapp" width="30"
+                                class="m-1">
+                        </a>
+                        <a role="button" class="calls_share" onclick="shareByEmail('{{ url()->current() }}')"
+                            title="Enviar por Correo">
+                            {{-- <i class="fas fa-envelope"></i> --}}
+                            <img src="{{ asset('img/social_media_iconos/mail.png') }}" alt="correo" width="30"
+                                class="m-1">
+                        </a>
+                        <a role="button" class="calls_share" onclick="shareOnTwitter('{{ url()->current() }}')"
+                            title="Compartir Red social X (ex Twitter)">
+                            {{-- <i class="fab fa-x-twitter"></i> --}}
+                            <img src="{{ asset('img/social_media_iconos/Twitter.png') }}" alt="Red Social X"
+                                width="30" class="m-1">
+                        </a>
+                        <a role="button" class="calls_share" onclick="shareOnFacebook('{{ url()->current() }}')"
+                            title="Compartir en Facebook">
+                            {{-- <i class="fab fa-facebook"></i> --}}
+                            <img src="{{ asset('img/social_media_iconos/facebook.png') }}" alt="Facebook" width="30"
+                                class="m-1">
+                        </a>
+                        <a role="button" class="calls_share" onclick="" title="Compartir en Instagram">
+                            {{-- <i class="fab fa-facebook"></i> --}}
+                            <img src="{{ asset('img/social_media_iconos/instagram.png') }}" alt="Instagram"
+                                width="30" class="m-1">
+                        </a>
+                        <a role="button" class="calls_share" onclick="" title="Compartir en Linkedin">
+                            {{-- <i class="fab fa-facebook"></i> --}}
+                            <img src="{{ asset('img/social_media_iconos/linkedin.png') }}" alt="Linkedin" width="30"
+                                class="m-1">
+                        </a>
+                        <a role="button" class="calls_share" onclick="copyClipboard('{{ url()->current() }}')"
+                            title="Copiar al portapapeles">
+                            {{-- <i class="fas fa-copy"></i> --}}
+                            <img src="{{ asset('img/social_media_iconos/copy.png') }}" alt="copiar al portapapeles"
+                                width="30" class="m-1">
+                        </a>
+                        <a role="button" class="calls_share"
+                            onclick="addToCalendar('{{ $call->name }}', '{{ $call->institution->name }}', '{{ $call->expiration }}')"
+                            title="Descargar archivo calendar">
+                            {{-- <i class="fas fa-calendar-plus"></i> --}}
+                            <img src="{{ asset('img/social_media_iconos/download.png') }}"
+                                alt="Descargar archivo calendar" width="30" class="m-1">
+                        </a>
+                    </div>
+
+
+
+
+
+
                     <!-- Botones de compartir -->
-                    <div class="mt-3">
+                    {{-- <div class="mt-3">
                         <p>Compartir la convocatoria por:</p>
                         <button class="btn btn-sm btn-success" onclick="shareOnWhatsApp('{{ url()->current() }}')"
                             title="Whatsapp">
@@ -131,14 +251,14 @@
                             title="Agregar a google calendar">
                             <i class="fas fa-calendar-plus"></i>
                         </a>
-                    </div>
+                    </div> --}}
                 </div>
 
 
             </div>
 
             {{--    botón volver   --}}
-            <a href="{{ route('calls') }}" class="btn btn-secondary btn-sm align-self-end d-block"><i
+            <a href="{{ route('calls') }}" class="btn btn_call-back align-self-end d-block"><i
                     class="fa-solid fa-caret-left align-middle me-1"></i>Volver</a>
 
         </div>

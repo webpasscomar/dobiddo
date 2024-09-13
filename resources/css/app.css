@@ -96,6 +96,61 @@
   width:50%;
 }
 
+/* Botones search convocatorias */
+.btn_calls-search{
+  background-color: #e9624f !important;
+}
+.btn_calls-search:hover{
+  background-color: #df5442 !important;
+}
+
+/* Botón volver a convocatorias */
+.btn_call-back{
+  background-color: #dac0dd !important;
+}
+.btn_call-back:hover{
+  background-color: #e3afe7 !important;
+}
+
+/* Convocatorias - Cards */
+.calls_cards{
+  text-decoration: none;
+}
+
+/* Efecto hover cards */
+.calls_cards:hover{
+  background-color: rgba(235, 234, 234,0.4);
+  border-radius: 5px;
+}
+/* colores botones cards de convocatorias - Dedicación y formato */
+.btn_calls-dedication{
+  background-color: #e9624f !important;
+}
+
+.btn_calls-format{
+  background-color: #dac0dd !important;
+}
+
+/* Links compartir redes sociales */
+.calls_share{
+  text-decoration: none;
+}
+
+.calls_share:hover{
+  opacity:0.8;
+}
+
+/* color de fondo de convocatorias banner - antes del footer */
+.calls_banner{
+  background-color: #e9624f;
+}
+/* Tamaño imagen mensage banner convocatorias */
+.calls_banner-images{
+  width:50%;
+}
+
+
+
 /* Resoluciones medianas */
 @media (max-width:992px){
   /* Imágen Paris - sección Qué hacemos */
@@ -107,7 +162,6 @@
     width:100%;
   }
 }
-
 /* Resoluciones medianas y pequeñas */
 @media (max-width:767px) {
   /* sombra contenedor formularios oragnismos - convocatorias */
@@ -127,3 +181,4 @@
     width: 40%;
   }
 }
+

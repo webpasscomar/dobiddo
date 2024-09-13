@@ -13,6 +13,28 @@
         </div>
     @endif
 
+    {{-- Mostrar en convocatorias y detalles de las convocatorias --}}
+    @if (request()->routeIs('calls') || request()->routeIS('calls.detail'))
+        <div class="container-fluid calls_banner py-4 mt-5">
+            <div class="container">
+                <div class="row gy-4 gy-md-0 align-items-center text-center">
+                    <div class="col-md-4">
+                        <img src="{{ asset('img/mensajes_frases/Mensaje2-mod.png') }}" alt="We do. You go."
+                            class="img-fluid calls_banner-images">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="{{ asset('img/elementos/reloj-mod.png') }}" alt="reloj"
+                            class="imf-fluid calls_banner-images">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="{{ asset('img/logotipos/12 Logo claim centrado blanco.png') }}"
+                            alt="dobiddo the bid doers" class="img-fluid calls_banner-images">
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+    {{-- Footer --}}
     <div class="footer" style="background-color: #333">
         <div class="container py-4">
             <div class="row">
