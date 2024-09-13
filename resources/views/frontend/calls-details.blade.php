@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="container mb-4">
-        <div class="card px-4 py-3 shadow-lg-responsive">
+        <div class="card px-1 px-md-4 py-3 shadow-lg-responsive">
             {{-- Botones compartir redes sociales --}}
             <div class="d-none d-sm-block align-self-end my-3">
                 <a role="button" class="calls_share" onclick="shareOnWhatsApp('{{ url()->current() }}')"
@@ -116,7 +116,6 @@
                 </div>
 
 
-
                 {{--    Mostrar Aclaración si hay contenido     --}}
                 @if ($call->comment)
                     <div class="row mt-3">
@@ -149,7 +148,7 @@
 
 
                 {{--    link - URL      --}}
-                <div class="row mt-3 align-items-center">
+                <div class="row mt-4 align-items-center">
                     <div class="col-md-12 d-flex">
                         {{-- <p>Más Información: </p> --}}
                         <span class="">Más información:</span>
@@ -258,7 +257,7 @@
             </div>
 
             {{--    botón volver   --}}
-            <a href="{{ route('calls') }}" class="btn btn_call-back align-self-end d-block"><i
+            <a href="{{ route('calls') }}" class="btn btn_call-back align-self-end d-block me-2 me-md-0"><i
                     class="fa-solid fa-caret-left align-middle me-1"></i>Volver</a>
 
         </div>
