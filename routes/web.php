@@ -37,6 +37,8 @@ Route::post('/institutions', [InstitutionsController::class, 'store'])->name('in
 Route::get('/calls', [CallsController::class, 'index'])->name('calls');
 // Detalle de convocatoria
 Route::get('/calls/{call}/detalle', [CallsController::class, 'details'])->name('calls.detail');
+// Mostrar las convocatorias por paises, según el país que se elija en el mapa de la ruta Home
+Route::get('/calls/country/{id}', [CallsController::class, 'callsByCountry'])->name('calls.country');
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');

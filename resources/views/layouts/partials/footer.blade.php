@@ -14,7 +14,7 @@
     @endif
 
     {{-- Mostrar en convocatorias y detalles de las convocatorias --}}
-    @if (request()->routeIs('calls') || request()->routeIS('calls.detail'))
+    @if (request()->routeIs('calls') || request()->routeIS('calls.detail') || request()->routeIS('calls.country'))
         <div class="container-fluid calls_banner py-4 mt-5">
             <div class="container">
                 <div class="row gy-4 gy-md-0 align-items-center text-center">
