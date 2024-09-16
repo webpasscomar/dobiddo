@@ -11,7 +11,7 @@
 
                     <div class="col-md-3 mb-3">
                         <select class="form-control" id="country_id" name="country_id">
-                            <option value="">Todos</option>
+                            <option value="">Paises</option>
                             @foreach ($countries as $country)
                                 <option value="{{ $country->id }}"
                                     {{ request('country_id') == $country->id ? 'selected' : '' }}>
@@ -22,7 +22,7 @@
 
                     <div class="col-md-3 mb-3">
                         <select class="form-control" id="format_id" name="format_id">
-                            <option value="">Todos</option>
+                            <option value="">Formato</option>
                             @foreach ($formats as $format)
                                 <option value="{{ $format->id }}"
                                     {{ request('format_id') == $format->id ? 'selected' : '' }}>

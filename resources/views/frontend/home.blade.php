@@ -10,6 +10,7 @@
 
                 <div class="col-md-6">
                     <h2 class="fw-bold">¿Sabes cuántas convocatorias a consultorías se publican semanalmente?</h2>
+                    <br> </br>
                     <p class="fs-5">
                         Como la mayoría de los consultores de hoy, seguramente te estás perdiendo de muchas oportunidades.
                         Hay más de 20 plataformas de convocatorias en las que se actualizan semanalmente decenas de
