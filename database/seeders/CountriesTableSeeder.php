@@ -17,8 +17,8 @@ class CountriesTableSeeder extends Seeder
         $country->id = 1;
         $country->name = 'Argentina';
         $country->flag = 'argentina.png';
-        $country->lat = -34.6131;
-        $country->lon = -58.3772;
+        $country->lat = -38.7193;
+        $country->lon = -62.2636;
 
         $country->save();
 

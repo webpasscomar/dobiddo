@@ -75,8 +75,8 @@
 
           var convocatorias = [{
               "pais": "Argentina",
-              "lat": -34.6118,
-              "lng": -58.4173
+              "lat": -36.89536,
+              "lng": -60.31587
             },
             {
               "pais": "Australia",
