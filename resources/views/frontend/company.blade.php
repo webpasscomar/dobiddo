@@ -21,7 +21,10 @@
                     </p>
                     <p>
                         Lo hacemos de manera democrática, transparente y accesible, poniendo la información a disposición de
-                        manera simple a tantos consultores como sea posible. Buscamos y compartimos en un solo lugar
+                        manera simple a tantos consultores como sea posible. 
+                    </p>  
+                    <p>
+                        Buscamos y compartimos en un solo lugar
                         oportunidades de nuevos contratos de consultoría para individuos, empresas y ONG de LATAM y
                         mantenemos
                         al día a la comunidad de consultores en las últimas tendencias y requisitos del mercado.

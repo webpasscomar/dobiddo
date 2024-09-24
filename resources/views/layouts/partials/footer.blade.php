@@ -41,24 +41,23 @@
                 <!-- contacto -->
                 <div class="col-md-5 mb-3">
                     <p class="h6 fw-bold text-white">Contacto</p>
-                    {{-- <ul class="list-unstyled light text-light">
-                        <li>¡Sigue nuestras redes sociales para estar al día con las últimas noticias, lanzamientos y
-                            eventos de
-                            música!</li>
-                    </ul> --}}
-                    <p class="text-white"><a href="https://webpass.com.ar" class="link_webpass" target="_blank">Diseño y
-                            Desarrollo</a>
-                        by WebPass</p>
+                
+                    <p class="text-white"><a href="mailto: info@dobiddo.com" class="link_webpass" target="_blank">Email: info@dobiddo.com</a>
+                    </p>
+          
                 </div>
 
                 <!-- categorias -->
                 <div class="col-md-5 mb-3">
                     <p class="h6 fw-bold text-white">Otros</p>
                     <ul class="list-unstyled text-white-50 light">
-                        <li><a href="#" class="text-decoration-none link-light" title="Politicas de privacidad">
+                        <li><a href="#" class="text-decoration-none link-light"         title="Politicas de privacidad">
                                 Politicas de
                                 privacidad
                             </a></li>
+                        <li> <a href="https://webpass.com.ar" class="link_webpass" target="_blank">Diseño y
+                            Desarrollo</a>by WebPass
+                        </li>
                         {{-- <li><a href="{{ route('servicios') }}" class="text-decoration-none link-light"
                   title="Todos los servicios"> Servicios
                 </a></li>
@@ -87,12 +86,12 @@
                     <p class="h6 fw-bold text-white">Nuestras redes</p>
                     <ul class="list-group list-group-horizontal">
                         <li class="list-group-item bg-transparent ps-0 border-0 light text-light">
-                            <a href="/" class="text-decoration-none link-light"
-                                title="Mirá nuestro canal de youtube"> <i class="fa-brands fa-youtube fs-5"></i> </a>
+                            <a href="mailto:info@dobiddo.com" class="text-decoration-none link-light"
+                            title="Envianos un email"> <i class="fa-solid fa-envelope fs-5"></i> </a>
                         </li>
                         <li class="list-group-item bg-transparent ps-0 border-0 light text-light">
-                            <a href="/" class="text-decoration-none link-light" title="Nuestro Instagram"> <i
-                                    class="fa-brands fa-instagram fs-5"></i> </a>
+                            <a href="https://www.instagram.com/thebiddoers/" target="_blank" class="text-decoration-none link-light" title="Nuestro Instagram"> <i
+                            class="fa-brands fa-instagram fs-5"></i> </a>
                         </li>
                     </ul>
                 </div>

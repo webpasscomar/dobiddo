@@ -40,7 +40,7 @@
         btnResetEdit.addEventListener('click', () => {
             imageContainer.innerHTML = '';
             imageContainer.innerHTML =
-                `<img src="{{ $organism->logo && file_exists(public_path('storage/institutions/' . $organism->logo)) ? asset('storage/institutions/' . $organism->logo) : asset('img/imagen-no-disponible.jpg') }}" alt="{{ $organism->name }}" class="imagen">`;
+                `<img src="{{ $organism->logo && file_exists(public_path('storage/public/institutions/' . $organism->logo)) ? asset('storage/public/institutions/' . $organism->logo) : asset('img/imagen-no-disponible.jpg') }}" alt="{{ $organism->name }}" class="imagen">`;
         });
     </script>
     {{-- Muestra los errores de validación del formulario --}}

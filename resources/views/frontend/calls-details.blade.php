@@ -26,11 +26,7 @@
                     {{-- <i class="fab fa-facebook"></i> --}}
                     <img src="{{ asset('img/social_media_iconos/facebook.png') }}" alt="Facebook" width="30">
                 </a>
-                <a role="button" class="calls_share" onclick="" title="Compartir en Instagram">
-                    {{-- <i class="fab fa-facebook"></i> --}}
-                    <img src="{{ asset('img/social_media_iconos/instagram.png') }}" alt="Instagram" width="30">
-                </a>
-                <a role="button" class="calls_share" onclick="" title="Compartir en Linkedin">
+                <a role="button" class="calls_share" onclick="" title="Compartir en  Linkedin">
                     {{-- <i class="fab fa-facebook"></i> --}}
                     <img src="{{ asset('img/social_media_iconos/linkedin.png') }}" alt="Linkedin" width="30">
                 </a>
@@ -39,13 +35,13 @@
                     {{-- <i class="fas fa-copy"></i> --}}
                     <img src="{{ asset('img/social_media_iconos/copy.png') }}" alt="copiar al portapapeles" width="30">
                 </a>
-                <a role="button" class="calls_share"
+<!--                 <a role="button" class="calls_share"
                     onclick="addToCalendar('{{ $call->name }}', '{{ $call->institution->name }}', '{{ $call->expiration }}')"
                     title="Descargar archivo calendar">
                     {{-- <i class="fas fa-calendar-plus"></i> --}}
                     <img src="{{ asset('img/social_media_iconos/download.png') }}" alt="Descargar archivo calendar"
                         width="30">
-                </a>
+                </a> -->
             </div>
             {{-- fin botones compartir redes sociales --}}
             {{-- <a href="#" class="text-primary align-self-end" title="compartir"><i

@@ -9,17 +9,19 @@
             <div class="row">
 
                 <div class="col-md-6">
-                    <h2 class="fw-bold">¿Sabes cuántas convocatorias a consultorías se publican semanalmente?</h2>
+                    <!-- <h2 class="fw-bold">¿Sabes cuántas convocatorias a consultorías se publican semanalmente?</h2> -->
                     <br> </br>
                     <p class="fs-5">
-                        Como la mayoría de los consultores de hoy, seguramente te estás perdiendo de muchas oportunidades.
-                        Hay más de 20 plataformas de convocatorias en las que se actualizan semanalmente decenas de
-                        oportunidades. Solo los organismos internacionales publican más de 20 convocatorias de consultoría
-                        por semana solamente para América Latina y el Caribe.
+                        Como la mayoría de los consultores de hoy, seguramente te estás perdiendo de muchas oportunidades.<br> </br>
 
+                        Hay más de 20 plataformas de convocatorias en las que se actualizan semanalmente decenas de
+                        oportunidades. <br> </br>
+                        Solo los organismos internacionales publican más de 20 convocatorias de consultoría
+                        por semana solamente para América Latina y el Caribe.
+                        <br> </br>
                         Somos un grupo de consultores apoya a la comunidad de consultores a encontrar las oportunidades de
                         forma simple y fácil.
-
+                        <br> </br>
                         Como sabemos que visitar todos los portales lleva mucho tiempo creamos dobiddo para que encuentres
                         todas las oportunidades en un solo lugar
                     </p>
