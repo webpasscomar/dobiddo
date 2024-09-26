@@ -26,14 +26,14 @@ use App\Http\Controllers\GoogleCalendarController;
 //**********************************************************************************************************
 
 Route::get('/consultans', [ConsultansController::class, 'index'])->name('consultans');
-//Envío del formulario de consultores
+// Envío del formulario de consultores
 Route::post('/consultans', [ConsultansController::class, 'store'])->name('consultans.store');
 Route::get('/about-us', [AbouUsController::class, 'index'])->name('about-us');
 Route::get('/company', [CompanyController::class, 'index'])->name('company');
 Route::get('/institutions', [InstitutionsController::class, 'index'])->name('institutions');
 // Envío de datos del formulario de organismos - ONG
 Route::post('/institutions', [InstitutionsController::class, 'store'])->name('institutions.store');
-//Convocatorias
+// Convocatorias
 Route::get('/calls', [CallsController::class, 'index'])->name('calls');
 // Detalle de convocatoria
 Route::get('/calls/{call}/detalle', [CallsController::class, 'details'])->name('calls.detail');
@@ -46,10 +46,14 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/google/redirect', [GoogleCalendarController::class, 'redirectToGoogle'])->name('google.redirect');
 Route::get('/google/callback', [GoogleCalendarController::class, 'handleGoogleCallback'])->name('google.callback');
 Route::get('/calendar/add', [GoogleCalendarController::class, 'addEventToGoogleCalendar'])->name('calendar.addEventToGoogleCalendar');
+
 Route::get('/calendar/success', function () {
   return view('calendar.success');
 })->name('calendar.success');
 
+Route::get('/privacy-policies', function () {
+  return view('frontend.policies');
+})->name('policies');
 
 //*********************************************************************************************************
 
