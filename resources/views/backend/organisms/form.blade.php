@@ -77,7 +77,7 @@
 <p class="text-right"><span class="fs-4 text-danger">*</span><small> Campos requeridos</small></p>
 <div id="imgPreview">
     @if ($edit)
-        <img src="{{ $organism->logo && file_exists(public_path('storage/public/institutions/' . $organism->logo)) ? asset('storage/public/institutions/' . $organism->logo) : asset('img/imagen-no-disponible.jpg') }}"
+        <img src="{{ $organism->logo && file_exists(public_path('storage/institutions/' . $organism->logo)) ? asset('storage/institutions/' . $organism->logo) : asset('img/imagen-no-disponible.jpg') }}"
             alt="{{ $organism->name }}" class="imagen">
     @endif
 </div>

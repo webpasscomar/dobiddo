@@ -31,7 +31,7 @@
                             <td class="align-middle">{{ Str::title($organism->name) }}</td>
                             <td class="align-middle">{{ Str::upper($organism->initial) }}</td>
                             <td class="align-middle"><img
-                                    src="{{ $organism->logo && file_exists(public_path('storage/public/institutions/' . $organism->logo)) ? asset('storage/public/institutions/' . $organism->logo) : asset('img/imagen-no-disponible.jpg') }}"
+                                    src="{{ $organism->logo && file_exists(public_path('storage/institutions/' . $organism->logo)) ? asset('storage/institutions/' . $organism->logo) : asset('img/imagen-no-disponible.jpg') }}"
                                     alt="{{ $organism->name }}" width="40" height="40" style="object-fit: cover;">
                             </td>
                             <td class="align-middle">{{ $organism->status == 1 ? 'Activo' : 'Inactivo' }}</td>
