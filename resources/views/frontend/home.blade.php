@@ -10,9 +10,10 @@
 
                 <div class="col-md-6">
                     <!-- <h2 class="fw-bold">¿Sabes cuántas convocatorias a consultorías se publican semanalmente?</h2> -->
-                    <br> </br>
-                    <p class="fs-5">
-                        Como la mayoría de los consultores de hoy, seguramente te estás perdiendo de muchas oportunidades.<br> </br>
+                    {{-- <br> </br> --}}
+                    <p class="fs-4">
+                        Como la mayoría de los consultores de hoy, seguramente te estás perdiendo de muchas
+                        oportunidades.<br> </br>
 
                         Hay más de 20 plataformas de convocatorias en las que se actualizan semanalmente decenas de
                         oportunidades. <br> </br>
@@ -225,9 +226,9 @@
         <div class="row">
 
             <div class="col-lg-6 text-center my-4">
-                <div class="p-4 m-4 shadow bg-light rounded-3 min-vh-25">
+                <div class="p-4 m-4 shadow bg-light rounded-3">
                     <h2>¿Eres un Organismo?</h2>
-                    <p class="lead">Contacta con nosotros si deseas publicar convocatorias.</p>
+                    <p class="lead fs-6">Contacta con nosotros si deseas publicar convocatorias.</p>
                     <a href="{{ route('institutions') }}" class="btn text-white btn-lg btn_institutions-submit">Publicar
                         Convocatorias</a>
                 </div>
@@ -236,7 +237,7 @@
             <div class="col-lg-6 text-center my-4">
                 <div class="p-4 m-4 shadow bg-light rounded-3">
                     <h2>¿Eres un Consultor?</h2>
-                    <p class="lead">Sumate a la Comunidad</p>
+                    <p class="lead fs-6">Sumate a la Comunidad</p>
                     <a href="{{ route('consultans') }}" class="btn btn-lg btn_consultants-submit">Recibir
                         Convocatorias</a>
                 </div>
