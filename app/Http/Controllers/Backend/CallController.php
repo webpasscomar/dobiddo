@@ -154,6 +154,8 @@ class CallController extends Controller
    */
   public function update(CallRequest $request, Call $call): RedirectResponse
   {
+
+    $request->validated();
     // Comprobar el estado de la convocatoria y poner la fecha ségun si fue publicada ó despublicada
     $state = $request->input('state_id');
     if ($state == 2) {
