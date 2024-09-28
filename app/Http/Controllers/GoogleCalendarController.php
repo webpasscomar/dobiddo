@@ -49,8 +49,8 @@ class GoogleCalendarController extends Controller
     $service = new GoogleCalendar($this->client);
 
     $event = new GoogleCalendar\Event([
-      'summary' => $call->name,
-      'description' => $call->resume,
+      'summary' => 'DOBIDDO Recordatorio vencimiento',
+      'description' => $call->name . '.  ' . '<a href="' . url('/calls/' . $call->slug) . '" target="_blank">Ver Convocatoria</a>',
       'start' => [
         'date' => $call->expiration,
         'timeZone' => 'America/Argentina/Buenos_Aires', // Ajusta según sea necesario

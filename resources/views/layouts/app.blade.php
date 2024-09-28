@@ -20,9 +20,9 @@
         {{-- <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet"> --}}
 
         <!-- Scripts -->
+        @stack('head')
         @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
-        @stack('head')
 
     </head>
 

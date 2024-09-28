@@ -43,6 +43,7 @@ class OrganismMailSent extends Mailable
       view: 'emails.organism-sent',
       with: [
         'fullName' => $this->fullName,
+        'email' => $this->email
       ]
     );
   }

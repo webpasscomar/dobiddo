@@ -1,7 +1,15 @@
 @extends('layouts.app')
 @section('title', 'Convocatorias - Detalle')
-@section('content')
 
+@push('head')
+    <meta property="og:type" content="website">
+    {{-- <meta property="og:url" content="{{ url()->current() }}"> --}}
+    <meta property="og:title" content="{{ $call->name }}">
+    <meta property="og:description" content="{{ $call->resume }}">
+    <meta property="og:image" content="{{ asset('img/logotipos/08 Logo claim izquierdo rojo.png') }}">
+@endpush
+
+@section('content')
     <div class="container mb-4">
         <div class="card px-1 px-md-4 py-3 shadow-lg-responsive">
             {{-- Botones compartir redes sociales --}}
@@ -35,13 +43,13 @@
                     {{-- <i class="fas fa-copy"></i> --}}
                     <img src="{{ asset('img/social_media_iconos/copy.png') }}" alt="copiar al portapapeles" width="30">
                 </a>
-<!--                 <a role="button" class="calls_share"
-                    onclick="addToCalendar('{{ $call->name }}', '{{ $call->institution->name }}', '{{ $call->expiration }}')"
-                    title="Descargar archivo calendar">
-                    {{-- <i class="fas fa-calendar-plus"></i> --}}
-                    <img src="{{ asset('img/social_media_iconos/download.png') }}" alt="Descargar archivo calendar"
-                        width="30">
-                </a> -->
+                <!--                 <a role="button" class="calls_share"
+                                                                                                                                                                                                                                        onclick="addToCalendar('{{ $call->name }}', '{{ $call->institution->name }}', '{{ $call->expiration }}')"
+                                                                                                                                                                                                                                        title="Descargar archivo calendar">
+                                                                                                                                                                                                                                        {{-- <i class="fas fa-calendar-plus"></i> --}}
+                                                                                                                                                                                                                                        <img src="{{ asset('img/social_media_iconos/download.png') }}" alt="Descargar archivo calendar"
+                                                                                                                                                                                                                                            width="30">
+                                                                                                                                                                                                                                    </a> -->
             </div>
             {{-- fin botones compartir redes sociales --}}
             {{-- <a href="#" class="text-primary align-self-end" title="compartir"><i
@@ -85,15 +93,15 @@
 
                     {{--      fecha expiracion      --}}
                     <div class ="col-12 col-lg-2 mt-3 mt-lg-0 text-end">
+                        <span class="me-1">{{ \Carbon\Carbon::parse($call->expiration)->format('d-m-Y') }}</span>
+                        {{-- Logo calendar - agregar a calendario --}}
                         <a href="{{ route('google.redirect', ['call_id' => $call->id]) }}" class="calls_share"
                             title="Agregar Calendar | {{ \Carbon\Carbon::parse($call->expiration)->format('d-m-Y') }}">
                             {{-- <i class="fas fa-calendar-plus"></i> --}}
                             <img src="{{ asset('img/social_media_iconos/schedule-circle.svg') }}"
                                 alt="Google calendar - expiracion: {{ \Carbon\Carbon::parse($call->expiration)->format('d-m-Y') }}"
-                                width="50">
+                                width="40">
                         </a>
-                        {{-- <i class="fa-regular fa-calendar-days"></i>
-                        <span>{{ \Carbon\Carbon::parse($call->expiration)->format('d-m-Y') }}</span> --}}
                     </div>
                 </div>
 
@@ -194,65 +202,26 @@
                             <img src="{{ asset('img/social_media_iconos/linkedin-circle.svg') }}" alt="Linkedin"
                                 width="30" class="m-1">
                         </a>
-                        <a role="button" class="calls_share" onclick="copyClipboard('{{ url()->current() }}')"
-                            title="Copiar al portapapeles">
+                        <a role="button" class="calls_share" id="btnCopyURL"
+                            data-clipboard-text="{{ url()->current() }}" title="Copiar al portapapeles">
                             {{-- <i class="fas fa-copy"></i> --}}
                             <img src="{{ asset('img/social_media_iconos/copy-circle.svg') }}"
                                 alt="copiar al portapapeles" width="30" class="m-1">
                         </a>
-                        <a role="button" class="calls_share"
+                        {{-- <a role="button" class="calls_share"
                             onclick="addToCalendar('{{ $call->name }}', '{{ $call->institution->name }}', '{{ $call->expiration }}')"
-                            title="Descargar archivo calendar">
-                            {{-- <i class="fas fa-calendar-plus"></i> --}}
-                            <img src="{{ asset('img/social_media_iconos/download-circle.svg') }}"
+                            title="Descargar archivo calendar"> --}}
+                        {{-- <i class="fas fa-calendar-plus"></i> --}}
+                        {{-- <img src="{{ asset('img/social_media_iconos/download-circle.svg') }}"
                                 alt="Descargar archivo calendar" width="30" class="m-1">
-                        </a>
+                        </a> --}}
                     </div>
-
-
-
-
-
-
-                    <!-- Botones de compartir -->
-                    {{-- <div class="mt-3">
-                        <p>Compartir la convocatoria por:</p>
-                        <button class="btn btn-sm btn-success" onclick="shareOnWhatsApp('{{ url()->current() }}')"
-                            title="Whatsapp">
-                            <i class="fab fa-whatsapp"></i>
-                        </button>
-                        <button class="btn btn-sm btn-primary" onclick="shareByEmail('{{ url()->current() }}')"
-                            title="Correo">
-                            <i class="fas fa-envelope"></i>
-                        </button>
-                        <button class="btn btn-sm btn-info" onclick="shareOnTwitter('{{ url()->current() }}')"
-                            title="Red social X - (ex Twitter)">
-                            <i class="fab fa-x-twitter"></i>
-                        </button>
-                        <button class="btn btn-sm btn-primary" onclick="shareOnFacebook('{{ url()->current() }}')"
-                            title="Facebook">
-                            <i class="fab fa-facebook"></i>
-                        </button>
-                        <button class="btn btn-sm btn-secondary" onclick="copyClipboard('{{ url()->current() }}')"
-                            title="Copiar al portapapeles">
-                            <i class="fas fa-copy"></i>
-                        </button>
-                        <button class="btn btn-sm btn-warning"
-                            onclick="addToCalendar('{{ $call->name }}', '{{ $call->institution->name }}', '{{ $call->expiration }}')"
-                            title="Descargar archivo calendar">
-                            <i class="fas fa-calendar-plus"></i>
-                        </button>
-                        <a href="{{ route('google.redirect', ['call_id' => $call->id]) }}" class="btn btn-sm btn-primary"
-                            title="Agregar a google calendar">
-                            <i class="fas fa-calendar-plus"></i>
-                        </a>
-                    </div> --}}
                 </div>
 
             </div>
 
             {{--    botón volver   --}}
-            <a href="{{ url()->previous() }}" class="btn btn_call-back align-self-end d-block me-2 me-md-0"><i
+            <a href="{{ url('/calls') }}" class="btn btn_call-back align-self-end d-block me-2 me-md-0"><i
                     class="fa-solid fa-caret-left align-middle me-1"></i>Volver</a>
 
         </div>
@@ -262,26 +231,32 @@
 
 
 @push('js')
+    <script src="{{ asset('vendor/clipboard.js/dist/clipboard.min.js') }}"></script>
     <script>
+        // funcionalidad compartir en whatsapp
         function shareOnWhatsApp(url) {
             window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(url)}`, '_blank');
         }
 
+        // funcionalidad compartir por email
         function shareByEmail(url) {
             window.location.href =
                 `mailto:?subject=Interesante convocatoria&body=Echa un vistazo a esta convocatoria: ${encodeURIComponent(url)}`;
         }
 
+        // funcionalidad compartir en red X (ex Twitter)
         function shareOnTwitter(url) {
             window.open(
                 `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=Echa un vistazo a esta convocatoria`,
                 '_blank');
         }
 
+        // funcionalidad compartir en facebook
         function shareOnFacebook(url) {
             window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
         }
 
+        // funcionalidad copiar URL Desktop
         function copyClipboard(url) {
             // console.log(url);
             navigator.clipboard.writeText(url).then(() => {
@@ -318,9 +293,51 @@
                 });
             });
         }
+        // Copiar URL versión mobile
+
+        let clipboard = new ClipboardJS('#btnCopyURL');
+        // Proceso satisfactorio
+        clipboard.on('success', function(e) {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+            });
+            Toast.fire({
+                icon: "success",
+                title: "URL copiada al portapapeles"
+            });
+
+            // e.clearSelection();
+        });
+        // Proceso erroneo
+        clipboard.on('error', function(e) {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+            });
+            Toast.fire({
+                icon: "error",
+                title: "No se pudo copiar la URL"
+            });
+        });
     </script>
 
     <script>
+        // funcionalidad agregar a calendar
         function addToCalendar(title, organization, expiration) {
             const event = {
                 title: title,
