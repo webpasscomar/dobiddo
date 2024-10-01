@@ -1,0 +1,55 @@
+# Redirigir todo el tráfico al directorio /public
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Redirección de URLs antiguas a nuevas
+    # Redirección para biografías
+    RewriteRule ^biografia-de-(.*)$ /biografias-de-artistas-folkloricos/$1 [R=301,L]
+
+    # Redirección para noticias específicas
+    RewriteRule ^noticias-de-(.*?)/(.*)$ /noticias-del-folklore-argentino/$1/$2 [R=301,L]
+
+    # Redirección para el listado de noticias
+    RewriteRule ^noticias-de-(.*)$ /noticias-del-folklore-argentino/$1 [R=301,L]
+
+    # Redirección para discografía específica
+    RewriteRule ^discografia-de-(.*?)/(.*)$ /discografias-del-folklore-argentino/$1/$2 [R=301,L]
+
+    # Redirección para el listado de discografías
+    RewriteRule ^discografia-de-(.*)$ /discografias-del-folklore-argentino/$1 [R=301,L]
+
+    # Redirección para una letra de canción específica
+    RewriteRule ^letras-de-canciones-de-(.*?)/(.*)$ /letras-de-canciones-folkloricas/$1/$2 [R=301,L]
+
+    # Redirección para el listado de letras de canciones
+    RewriteRule ^letras-de-canciones-de-(.*)$ /letras-de-canciones-folkloricas/$1 [R=301,L]
+
+    # Redirigir todo el tráfico al directorio /public
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ /public/$1 [L,NC]
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+</IfModule>
+
+<IfModule mod_negotiation.c>
+    Options -MultiViews
+</IfModule>
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/pdf "access plus 1 month"
+    ExpiresByType text/x-javascript "access plus 1 month"
+    ExpiresByType application/x-shockwave-flash "access plus 1 month"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresDefault "access plus 2 days"
+</IfModule>
+
+# Deshabilitar la listade directorios
+Options -Indexes
