@@ -26,10 +26,12 @@ class CallsController extends Controller
     // si no hay ningun filtro mostramos todos los registros paginados de a 5
     if (empty(array_filter($filters))) {
       // Devuelvo todas las calls que aun esten vigentes paginadas
-      $calls = Call::where('expiration', '>=', Carbon::today())->paginate(6);
+      $calls = Call::where('expiration', '>=', Carbon::today())
+        ->where('state_id', '=', 2)
+        ->paginate(6);
     } else {
 
-      $query = Call::where('expiration', '>=', Carbon::today());
+      $query = Call::where('expiration', '>=', Carbon::today())->where('state_id', '=', 2);
 
       // Aplicar filtros según los campos a filtrar
       // filtro por nombre y resumen
@@ -74,9 +76,12 @@ class CallsController extends Controller
 
   public function callsByCountry($id): View
   {
-    $calls = Call::where('country_id', '=', intval($id))->get();
+    $calls = Call::where('country_id', '=', intval($id))
+      ->where('expiration', '>=', Carbon::today())
+      ->where('state_id', '=', 2)
+      ->get();
     $country = Country::find($id);
-    // dd($id, '|', $calls);
+
 
     return view('frontend.calls-by-country', [
       'calls' => $calls,
