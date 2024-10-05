@@ -28,7 +28,8 @@ class CallsController extends Controller
       // Devuelvo todas las calls que aun esten vigentes paginadas
       $calls = Call::where('expiration', '>=', Carbon::today())
         ->where('state_id', '=', 2)
-        ->paginate(6);
+        ->orderBy('expiration', 'asc')
+        ->paginate(15);
     } else {
 
       $query = Call::where('expiration', '>=', Carbon::today())->where('state_id', '=', 2);
@@ -52,9 +53,8 @@ class CallsController extends Controller
       }
 
       // Si hay filtros los aplicamos,mostrando los registros paginados de a 5
-      $calls = $query->paginate(6);
+      $calls = $query->orderBy('expiration', 'asc')->paginate(15);
     }
-
 
 
     // Obtener los datos para los combos
@@ -64,8 +64,9 @@ class CallsController extends Controller
     $durations = Duration::all();
     $formats = Format::all();
 
-    return view('frontend.calls2', compact('calls', 'countries', 'institutions', 'dedications', 'durations', 'formats', 'filters'));
+    return view('frontend.calls', compact('calls', 'countries', 'institutions', 'dedications', 'durations', 'formats', 'filters'));
   }
+
 
   public function details(Call $call)
   {
@@ -74,11 +75,13 @@ class CallsController extends Controller
     ]);
   }
 
+
   public function callsByCountry($id): View
   {
     $calls = Call::where('country_id', '=', intval($id))
       ->where('expiration', '>=', Carbon::today())
       ->where('state_id', '=', 2)
+      ->orderBy('expiration', 'asc')
       ->get();
     $country = Country::find($id);
 
