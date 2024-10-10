@@ -45,7 +45,7 @@ class CallController extends Controller
   {
     $states = State::all();
     $institutions = Institution::all();
-    $countries = Country::all();
+    $countries = Country::orderBy('name', 'asc')->get();
     $dedications = Dedication::all();
     $formats = Format::all();
     $durations = Duration::all();

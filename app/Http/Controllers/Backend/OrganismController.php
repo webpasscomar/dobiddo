@@ -52,7 +52,7 @@ class OrganismController extends Controller
     try {
       if ($request->hasFile('logo')) {
         $image_name = $request->file('logo')->getClientOriginalName(); // nombre de la imágen original
-        $request->file('logo')->storeAs('institutions', $image_name); // guardamos la imágen en storage/organismos
+        $request->file('logo')->storeAs('institutions', $image_name, 'public'); // guardamos la imágen en storage/organismos
       }
 
       Institution::create([
@@ -101,7 +101,7 @@ class OrganismController extends Controller
       if ($request->hasFile('logo')) {
         File::delete(public_path('storage/institutions/' . $organism->logo));
         $image_name = $request->file('logo')->getClientOriginalName();
-        $request->file('logo')->storeAs('institutions', $image_name);
+        $request->file('logo')->storeAs('institutions', $image_name, 'public');
       } else {
         $image_name = $organism->logo;
       }
