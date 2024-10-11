@@ -24,10 +24,16 @@ class CallsController extends Controller
     // Aplicamos la búsqueda de convocatorias según los filtros
     $calls = $this->getFilteredCalls($filters);
 
+    // Obtener los nombres de los filtros
+    $country = isset($filters['country_id']) ? Country::find($filters['country_id']) : null;
+    $format = isset($filters['format_id']) ? Format::find($filters['format_id']) : null;
+    
     // Pasamos las entidades relacionadas
     $data = $this->getCommonData();
     $data['calls'] = $calls;
     $data['filters'] = $filters;
+    $data['country'] = $country;
+    $data['format'] = $format;
 
     return view('frontend.calls', $data);
   }
