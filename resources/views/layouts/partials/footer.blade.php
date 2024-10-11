@@ -21,10 +21,10 @@
       <div class="col-md-4">
         <p class="h6 fw-bold text-white">Menú principal</p>
         <ul class="text-white">
-          <li><a href="" class="link_webpass" target="_blank">Inicio</a></li>
-          <li><a href="" class="link_webpass" target="_blank">Nosotros</a></li>
-          <li><a href="" class="link_webpass" target="_blank">Que hacemos</a></li>
-          <li><a href="" class="link_webpass" target="_blank">Convocatorias</a></li>
+          <li><a href="{{ route('home') }}" class="link_webpass">Inicio</a></li>
+          <li><a href="{{ route('about-us') }}" class="link_webpass">Nosotros</a></li>
+          <li><a href="{{ route('company') }}" class="link_webpass">Que hacemos</a></li>
+          <li><a href="{{ route('calls') }}" class="link_webpass">Convocatorias</a></li>
         </ul>
       </div>
 

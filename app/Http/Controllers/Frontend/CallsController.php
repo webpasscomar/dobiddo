@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-
 use App\Models\Call;
 use App\Models\Country;
 use App\Models\Institution;
@@ -16,79 +15,97 @@ use Carbon\Carbon;
 
 class CallsController extends Controller
 {
-  public function index(Request $request)
+  // Método principal de la vista de convocatorias
+  public function index(Request $request): View
   {
+    // Obtenemos los filtros
+    $filters = $this->getFilters($request);
 
-    // búsqueda de convocatorias por nombre, resumen, contenido, pais y formato
-    // pasamos filters al front para saber si se hizo una busqueda y mostrar el botón de reset en caso de haya filtros aplicados
-    $filters = $request->only(['search', 'country_id', 'format_id']);
+    // Aplicamos la búsqueda de convocatorias según los filtros
+    $calls = $this->getFilteredCalls($filters);
 
-    // si no hay ningun filtro mostramos todos los registros paginados de a 5
-    if (empty(array_filter($filters))) {
-      // Devuelvo todas las calls que aun esten vigentes paginadas
-      $calls = Call::where('expiration', '>=', Carbon::today())
-        ->where('state_id', '=', 2)
-        ->orderBy('expiration', 'asc')
-        ->paginate(15);
-    } else {
+    // Pasamos las entidades relacionadas
+    $data = $this->getCommonData();
+    $data['calls'] = $calls;
+    $data['filters'] = $filters;
 
-      $query = Call::where('expiration', '>=', Carbon::today())->where('state_id', '=', 2);
-
-      // Aplicar filtros según los campos a filtrar
-      // filtro por nombre y resumen
-      if (!empty($filters['search'])) {
-        $query->where(function ($q) use ($filters) {
-          $q->where('name', 'like', '%' . $filters['search'] . '%')
-            ->orWhere('resume', 'like', '%' . $filters['search'] . '%');
-        });
-      };
-
-      //Filtro por paises
-      if (!empty($filters['country_id'])) {
-        $query->where('country_id', $filters['country_id']);
-      }
-
-      if (!empty($filters['format_id'])) {
-        $query->where('format_id', $filters['format_id']);
-      }
-
-      // Si hay filtros los aplicamos,mostrando los registros paginados de a 5
-      $calls = $query->orderBy('expiration', 'asc')->paginate(15);
-    }
-
-
-    // Obtener los datos para los combos
-    $countries = Country::all();
-    $institutions = Institution::all();
-    $dedications = Dedication::all();
-    $durations = Duration::all();
-    $formats = Format::all();
-
-    return view('frontend.calls', compact('calls', 'countries', 'institutions', 'dedications', 'durations', 'formats', 'filters'));
+    return view('frontend.calls', $data);
   }
 
-
-  public function details(Call $call)
+  // Método para obtener los detalles de una convocatoria
+  public function details(Call $call): View
   {
-    return view('frontend.calls-details', [
-      'call' => $call
-    ]);
+    return view('frontend.calls-details', ['call' => $call]);
   }
 
-
-  public function callsByCountry($id): View
+  // Método para mostrar las convocatorias por país
+  public function callsByCountry(int $id, Request $request): View
   {
-    $calls = Call::where('country_id', '=', intval($id))
-      ->where('expiration', '>=', Carbon::today())
-      ->where('state_id', '=', 2)
-      ->orderBy('expiration', 'asc')
-      ->get();
+    // Aplicamos el filtro por país
+    $filters = $this->getFilters($request);
+    $filters['country_id'] = $id;
+
+    // Obtenemos las convocatorias filtradas
+    $calls = $this->getFilteredCalls($filters);
+
+    // Obtenemos el país para mostrarlo en la vista
     $country = Country::find($id);
 
+    // Pasamos las entidades relacionadas
+    $data = $this->getCommonData();
+    $data['calls'] = $calls;
+    $data['filters'] = $filters;
+    $data['country'] = $country;
 
-    return view('frontend.calls-by-country', [
-      'calls' => $calls,
-      'country' => $country
-    ]);
+    return view('frontend.calls', $data);
+  }
+
+  // -------------------- Métodos privados para refactorización --------------------
+
+  // Obtener filtros de la request
+  private function getFilters(Request $request): array
+  {
+    return $request->only(['search', 'country_id', 'format_id']);
+  }
+
+  // Obtener las convocatorias filtradas
+  private function getFilteredCalls(array $filters)
+  {
+    // Consulta básica para las convocatorias vigentes
+    $query = Call::where('expiration', '>=', Carbon::today())
+      ->where('state_id', '=', 2);
+
+    // Aplicar filtro por búsqueda en nombre o resumen
+    if (!empty($filters['search'])) {
+      $query->where(function ($q) use ($filters) {
+        $q->where('name', 'like', '%' . $filters['search'] . '%')
+          ->orWhere('resume', 'like', '%' . $filters['search'] . '%');
+      });
+    }
+
+    // Aplicar filtro por país
+    if (!empty($filters['country_id'])) {
+      $query->where('country_id', $filters['country_id']);
+    }
+
+    // Aplicar filtro por formato
+    if (!empty($filters['format_id'])) {
+      $query->where('format_id', $filters['format_id']);
+    }
+
+    // Devolver los resultados paginados
+    return $query->orderBy('expiration', 'asc')->paginate(15);
+  }
+
+  // Obtener datos comunes para los combos de selección
+  private function getCommonData(): array
+  {
+    return [
+      'countries' => Country::all(),
+      'institutions' => Institution::all(),
+      'dedications' => Dedication::all(),
+      'durations' => Duration::all(),
+      'formats' => Format::all(),
+    ];
   }
 }
