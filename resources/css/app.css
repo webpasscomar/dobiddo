@@ -179,5 +179,11 @@
   .about-slippers{
     width: 40%;
   }
+
+  /* Imágen del email consultores */
+  .email_consultants-img{
+    width: 100%;
+  }
+
 }
 
