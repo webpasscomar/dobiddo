@@ -7,7 +7,8 @@
     <title>Email Responsive con Tablas</title>
     <style>
         @media (min-width: 600px) {
-          /*  .col-50 {
+
+            /*  .col-50 {
                 width: 50%;
                 display: table-cell;
                 padding: 0 20px
@@ -20,7 +21,7 @@
             .text-welcome {
                 vertical-align: top;
                 text-align: justify;
-                padding:0 10px;
+                padding: 0 10px;
             }
         }
     </style>
@@ -48,14 +49,12 @@
                 <table class="content" width="100%" cellpadding="0" cellspacing="0" border="0"
                     style="text-align:left; margin-bottom:20px;">
                     <tr class="row" style="width:100%" width="100%">
-                        <td style="display:block; width:100%; padding:0;" align="left"
-                            width="100%">
-                            <img src="./img/email/dobiddo-mod.png" alt="Imagen Dobiddo"
+                        <td style="display:block; width:100%; padding:0;" align="left" width="100%">
+                            <img src="{{ asset('img/email/dobiddo-mod.png') }}" alt="Imagen Dobiddo"
                                 style="border:0; height:auto; line-height:100%; max-width:100%; text-decoration:none"
                                 height="auto">
                         </td>
-                        <td style="display:block; text-align:justify; margin-top:35px;padding:0 10px;"
-                        >
+                        <td style="display:block; text-align:justify; margin-top:35px;padding:0 10px;">
                             <p style="margin-top:0">
                                 Hola {{ Str::title($data['name']) }}!, ¡Ya sos parte de la <em>comunidad dobiddo</em>!
                             </p>
