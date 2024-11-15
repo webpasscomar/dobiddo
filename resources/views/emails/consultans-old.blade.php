@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Responsive con Tablas</title>
     <style>
-        @media (min-width: 600px) {
-          /*  .col-50 {
+        @media (min-width: 768px) {
+            .col-50 {
                 width: 50%;
                 display: table-cell;
                 padding: 0 20px
@@ -16,11 +16,10 @@
             .content {
                 padding: 30px 0
             }
-            */
+
             .text-welcome {
                 vertical-align: top;
-                text-align: justify;
-                padding:0 10px;
+                text-align: justify
             }
         }
     </style>
@@ -28,35 +27,36 @@
 
 <body style="background-color:#f8f9fa; font-family:Arial, sans-serif; margin:0; padding:0" bgcolor="#f8f9fa">
     <table class="container" cellpadding="0" cellspacing="0" border="0"
-        style="background-color:#fff; box-shadow:0 0 10px rgba(0, 0, 0, 0.1); margin:auto; max-width:600px; padding:0px; width:100%"
+        style="background-color:#fff; box-shadow:0 0 10px rgba(0, 0, 0, 0.1); margin:auto; max-width:768px; padding:10px; width:100%"
         bgcolor="#ffffff" width="100%">
         <tr>
             <td>
                 <table class="header" width="100%" cellpadding="0" cellspacing="0" border="0"
-                    style="padding:15px 10px; text-align:left; margin-bottom:10px;" align="left">
+                    style="margin-bottom:50px; padding:10px 0; text-align:center" align="center">
                     <tr>
                         <td>
                             <a href="%7B%7B%20route('home')%20%7D%7D" title="Home">
                                 <img src="https://dobiddo.webpass.com.ar/img/logotipos/08%20Logo%20claim%20izquierdo%20rojo.png"
                                     alt="Logo Dobiddo"
-                                    style="border:0; height:auto; line-height:100%; max-width:200px; text-decoration:none"
+                                    style="border:0; height:auto; line-height:100%; max-width:100%; text-decoration:none"
                                     height="auto">
                             </a>
                         </td>
                     </tr>
                 </table>
                 <table class="content" width="100%" cellpadding="0" cellspacing="0" border="0"
-                    style="text-align:left; margin-bottom:20px;">
+                    style="padding:20px 5px; text-align:left" align="left">
                     <tr class="row" style="width:100%" width="100%">
-                        <td style="display:block; width:100%; padding:0;" align="left"
+                        <td class="col col-50" style="display:block; text-align:center; width:100%" align="center"
                             width="100%">
-                            <img src="./img/email/dobiddo-mod.png" alt="Imagen Dobiddo"
+                            <img src="https://dobiddo.webpass.com.ar/img/email/dobiddo.jpg" alt="Imagen Dobiddo"
                                 style="border:0; height:auto; line-height:100%; max-width:100%; text-decoration:none"
                                 height="auto">
                         </td>
-                        <td style="display:block; text-align:justify; margin-top:35px;padding:0 10px;"
-                        >
-                            <p style="margin-top:0">
+                        <td class="col col-50 text-welcome"
+                            style="display:block; text-align:justify; width:100%; margin-top:35px; vertical-align:top"
+                            align="justify" width="100%" valign="top">
+                            <p class="text-welcome-first-paragraph" style="margin-top:0">
                                 Hola {{ Str::title($data['name']) }}!, ¡Ya sos parte de la <em>comunidad dobiddo</em>!
                             </p>
                             <p>
@@ -156,7 +156,7 @@
                         <tr>
                             <td>
                                 <div
-                                    style="padding:0 10px;color:#a5a5ac;direction:ltr;font-family:Arial, Helvetica, sans-serif;font-size:11px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:justify; margin-top:20px;">
+                                    style="color:#a5a5ac;direction:ltr;font-family:Arial, Helvetica, sans-serif;font-size:11px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:justify; margin-top:40px;">
                                     <p style="margin: 0; margin-bottom: 16px;">
                                         <em>
                                             Nuestro trabajo se limita a difundir convocatorias e información de interés
@@ -177,6 +177,11 @@
                                             confidencialidad, así como a no cederlos a terceros sin su previo
                                             consentimiento. Podrá ejercer en cualquier momento sus derechos de acceso,
                                             rectificación y cancelación.
+                                        </em>
+                                    </p>
+                                    <p>
+                                        <em>
+                                            Si no desea seguir recibiendo información haga clic aquí
                                         </em>
                                     </p>
                                 </div>

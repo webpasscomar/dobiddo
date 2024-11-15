@@ -65,7 +65,7 @@ class ConsultansController extends Controller
         toast('Formulario enviado con éxito', 'success');
         return redirect()->route('consultans');
       } catch (\Throwable $th) {
-//      dd($th->getMessage());
+     dd($th->getMessage());
         toast('No se pudo enviar el formulario', 'error');
         return redirect()->route('consultans');
       }
