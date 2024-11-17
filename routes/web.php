@@ -55,6 +55,10 @@ Route::get('/privacy-policies', function () {
   return view('frontend.policies');
 })->name('policies');
 
+Route::get('/email', function () {
+  return view('emails.consultans');
+})->name('emails.consultans');
+
 //*********************************************************************************************************
 
 //  RUTAS BACKEND / ADMIN - DASHBOARD
