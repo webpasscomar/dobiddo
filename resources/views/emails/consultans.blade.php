@@ -32,9 +32,9 @@
   <table class="container" cellpadding="0" cellspacing="0" border="0"
     style="background-color:#fff; box-shadow:0 0 10px rgba(0, 0, 0, 0.1); margin:auto; max-width:600px; padding:0px; width:100%"
     bgcolor="#ffffff" width="100%">
+
     <tr>
       <td>
-
         <table class="header" width="100%" cellpadding="0" cellspacing="0" border="0"
           style="padding:15px 10px; text-align:left; margin-bottom:10px;" align="left">
           <tr>
@@ -46,7 +46,11 @@
             </td>
           </tr>
         </table>
+      </td>
+    </tr>
 
+    <tr>
+      <td>
         <table class="content" width="100%" cellpadding="0" cellspacing="0" border="0"
           style="text-align:left; margin-bottom:20px;">
           <tr class="row" style="width:100%" width="100%">
@@ -79,7 +83,11 @@
             </td>
           </tr>
         </table>
+      </td>
+    </tr>
 
+    <tr>
+      <td>
         <table textalign="center" width="100%" margin="0" cellpadding="0" cellspacing="0" role="presentation"
           border="0" style="background-color: #333333">
           <tbody>
@@ -124,6 +132,11 @@
           </tbody>
         </table>
 
+      </td>
+    </tr>
+
+    <tr>
+      <td>
         <table width="100%" margin="0" cellpadding="0" cellspacing="0" role="presentation" border="0">
           <tbody>
             <tr>
@@ -157,9 +170,9 @@
             </tr>
           </tbody>
         </table>
-
       </td>
     </tr>
+
   </table>
 
 </body>
