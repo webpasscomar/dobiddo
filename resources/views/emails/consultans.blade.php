@@ -37,8 +37,8 @@
                     style="padding:15px 10px; text-align:left; margin-bottom:10px;" align="left">
                     <tr>
                         <td>
-                            <a href="%7B%7B%20route('home')%20%7D%7D" title="Home">
-                                <img src="https://dobiddo.webpass.com.ar/img/logotipos/08%20Logo%20claim%20izquierdo%20rojo.png"
+                            <a href="https://dobiddo.com" title="Home">
+                                <img src="https://dobiddo.com/img/logo-2.png"
                                     alt="Logo Dobiddo"
                                     style="border:0; height:auto; line-height:100%; max-width:200px; text-decoration:none"
                                     height="auto">
@@ -50,15 +50,15 @@
                     style="text-align:left; margin-bottom:20px;">
                     <tr class="row" style="width:100%" width="100%">
                         <td style="display:block; width:100%; padding:0;" align="left" width="100%">
-                            <img src="{{ asset('img/email/dobiddo-mod.png') }}" alt="Imagen Dobiddo"
+                            <img src="https://dobiddo.com/img/email/dobiddo-mod.png" alt="Imagen Dobiddo"
                                 style="border:0; height:auto; line-height:100%; max-width:100%; text-decoration:none"
                                 height="auto">
                         </td>
-                        <td style="display:block; text-align:justify; margin-top:35px;padding:0 10px;">
+                        <td style="display:block; text-align:justify; margin-top:35px;padding:0 30px;">
                             <p style="margin-top:0">
-                                Hola {{ Str::title($data['name']) }}!, ¡Ya sos parte de la <em>comunidad dobiddo</em>!
-                            </p>
-                            <p>
+                                </p>
+                                <p>
+                                Hola <b> {{ Str::title($data['name']) }}!</b>, ¡Ya sos parte de la <em>comunidad dobiddo</em>!
                                 Te damos la bienvenida y esperamos que <em>dobiddo</em> te resulte de mucha utilidad al
                                 momento de buscar nuevas oportunidades y desafíos!
                             </p>
@@ -67,84 +67,59 @@
                                 podrás acceder en un solo clic a los enlaces de cada llamado para que puedas continuar
                                 con el proceso de postulación según los requisitos y procedimientos de cada organismo
                                 convocante.
-                            </p>
-                            <p>
-                                Si necesitas que te ayudemos a formular alguna propuesta no dudes en contactarte
-                                enviando tu consulta a consultas a <a href="mailto:info@dobiddo.com"
-                                    style="text-decoration: underline; color: #7747FF;">
-                                    info@dobiddo.com
-                                </a>
-                            </p>
+                                </p>
                         </td>
+                        <td style="display:block; width:100%; padding:0; margin:0" width="100%">
+                            <img src="https://dobiddo.com/img/email/dobiddo-mod2.png" alt="Imagen Dobiddo"
+                                style="border:0; height:auto; line-height; max-width:100%; text-decoration:none"
+                                height="auto">
+                        </td>
+
                     </tr>
                 </table>
+                
                 <table textalign="center" width="100%" margin="0" cellpadding="0" cellspacing="0"
-                    role="presentation" border="0" style="background-color: #e66741">
+                    role="presentation" border="0" style="background-color: #333333">
                     <tbody>
                         <tr>
                             <td>
-                                <table textalign="center" margin="0" cellpadding="0" cellspacing="20" border="0"
+                                <table textalign="center" margin="0,0,0,20" cellpadding="0" border="0"
                                     role="presentation" style="margin:0 auto;">
                                     <tbody>
                                         <tr>
-                                            <td width="50%" style="letter-spacing: 10px; text-align:left;">
-                                                <a href="https://www.linkedin.com/" target="_blank"
-                                                    style="text-decoration: none;">
-                                                    <img src="https://app-rsrc.getbee.io/public/resources/social-networks-icon-sets/circle-dark-gray/linkedin@2x.png"
-                                                        width="32" alt="Linkedin" title="linkedin"
-                                                        style="border:0; height:auto; line-height:100%; max-width:100%; text-decoration:none"
-                                                        height="auto">
-                                                </a>
-                                                <a href="https://www.instagram.com/" style="text-decoration: none;"
-                                                    target="_blank">
-                                                    <img src="https://app-rsrc.getbee.io/public/resources/social-networks-icon-sets/circle-dark-gray/instagram@2x.png"
-                                                        width="32" alt="Instagram" title="instagram"
-                                                        style="border:0; height:auto; line-height:100%; max-width:100%; text-decoration:none"
-                                                        height="auto">
-                                                </a>
+                                            <td width="60%">
                                             </td>
-                                            <td width="50%">
-                                                <div
-                                                    style="color:#f3e6e6;direction:ltr;font-family:Arial, Helvetica, sans-serif;font-size:16px;font-weight:400;line-height:120%;">
-                                                    <p style="margin-bottom: 16px;">
-                                                        <a href="https://dobiddo.webpass.com.ar/calls"
-                                                            style="text-decoration: underline; color: #f3e6e6;">
-                                                            ¡Empezá ahora!
-                                                        </a>
-                                                    </p>
-                                                    <p style="margin-bottom: 16px;">
-                                                        <strong>
-                                                            Equipo dobiddo
-                                                        </strong>
-                                                    </p>
-                                                    <p>
-                                                        dobiddo.com
-                                                    </p>
+                                            <td width="40%" style="color:white; font-weight: 500;">
+                                                <p>                          
+                                                Nuestras redes  
+                                                </p>
+                                                <a href="mailto:info@dobiddo.com" target="_blank"
+                                                    style="text-decoration: none;">
+                                                    <img src="https://dobiddo.com/img/social_media_iconos/mail.png"
+                                                        width="35" alt="Email"
+                                                        style="border:0; height:auto; line-height:100%; max-width:100%; text-decoration:none"
+                                                        height="auto">
+
+                                                </a>
+                                                <a href="https://www.instagram.com/thebiddoers/" style="text-decoration: none;"
+                                                    target="_blank">
+                                                    <img src="https://dobiddo.com/img/social_media_iconos/instagram.png"
+                                                        width="35" alt="Instagram"
+                                                        style="border:0; height:auto; line-height:100%; max-width:100%; text-decoration:none"
+                                                        height="auto">
+                                                </a>
+                                                <a href="https://www.linkedin.com/company/dobiddo" style="text-decoration: none;"
+                                                    target="_blank">
+                                                    <img src="https://dobiddo.com/img/social_media_iconos/linkedin.png"
+                                                        width="35" alt="Linkedin" title="linkedin"
+                                                        style="border:0; height:auto; line-height:100%; max-width:100%; text-decoration:none"
+                                                        height="auto">
+                                                </a>
                                                 </div>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <table margin="0" cellpadding="0" cellspacing="0" role="presentation" border="0"
-                    style="background-color: #383535; padding:20px;">
-                    <tbody>
-                        <tr>
-                            <td style="font-weight: 400;">
-                                <div
-                                    style="color:#e1e6eb;direction:ltr;font-family:Arial, Helvetica, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:left;">
-                                    <p style="margin: 0;">
-                                        Si necesitas que te ayudemos a formular alguna propuesta no dudes en contactarte
-                                        enviando tu consulta a consultas a
-                                        <a href="mailto:info@dobiddo.com" target="_blank"
-                                            style="text-decoration: underline; color: #e66741;" rel="noopener">
-                                            info@dobiddo.com
-                                        </a>
-                                    </p>
-                                </div>
                             </td>
                         </tr>
                     </tbody>
@@ -156,20 +131,20 @@
                             <td>
                                 <div
                                     style="padding:0 10px;color:#a5a5ac;direction:ltr;font-family:Arial, Helvetica, sans-serif;font-size:11px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:justify; margin-top:20px;">
-                                    <p style="margin: 0; margin-bottom: 16px;">
+                                    <p style="margin: 0; margin-bottom: 5px;">
                                         <em>
                                             Nuestro trabajo se limita a difundir convocatorias e información de interés
                                             para la comunidad de consultores.
                                         </em>
                                     </p>
-                                    <p style="margin-bottom: 16px;">
+                                    <p style="margin-bottom: 5px;">
                                         <em>
                                             dobiddo no participa en los procesos de postulación, siendo esta instancia
                                             de exclusiva responsabilidad del consultor y de los organismos según sus
                                             políticas de selección y contratación.
                                         </em>
                                     </p>
-                                    <p style="margin-bottom: 16px;">
+                                    <p style="margin-bottom: 5px;">
                                         <em>
                                             dobiddo se compromete al cumplimiento de su obligación de secreto con
                                             respecto a sus datos de carácter personal y a tratarlos con

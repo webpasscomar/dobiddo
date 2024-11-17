@@ -30,8 +30,8 @@
 
       <!-- categorias -->
       <div class="col-md-4">
-        <p class="h6 fw-bold text-white">Otros</p>
-        <ul class="list-unstyled text-white-50 light">
+        <!-- <p class="h6 fw-bold text-white">Otros</p> -->
+      <!--   <ul class="list-unstyled text-white-50 light">
           <li>
             <a href="#" class="text-decoration-none link-light" title="Politicas de privacidad">Politicas de
               privacidad
@@ -39,7 +39,7 @@
             {{--  {{ route('policies') }} --}}
           </li>
 
-        </ul>
+        </ul> -->
         <p class="h6 fw-bold text-white">Contacto</p>
         <a href="mailto:info@dobiddo.com" class="text-decoration-none link-light" title="Envianos un email">
           info@dobiddo.com </a>
