@@ -64,15 +64,19 @@
                 {{--    botones país, formato, dedicación      --}}
                 <div class="row mt-3">
                   <div class="col-md-12">
-                    <button class="btn btn-sm btn-outline-secondary"><img
-                        src="{{ asset('storage/flags/' . $call->country->flag) }}" alt="{{ $call->name }}"
-                        width="20" height="20" class="me-1">{{ $call->country->name }}</button>
+
+                    @foreach ($call->countries as $country)
+                      <button type="button" class="btn btn-outline-secondary btn-sm p-0"><img
+                          src="{{ asset('storage/flags/' . $country->flag) }}" alt="{{ $country->name }}" width="22"
+                          height="20">
+                      </button>
+                    @endforeach
+
                     <button class="btn btn-sm btn_calls-dedication text-white">{{ $call->dedication->name }}</button>
                     <button type="button"
                       class="btn btn-sm btn_calls-format fw-semibold">{{ $call->format->name }}</button>
                   </div>
                 </div>
-
 
                 <div class="d-flex align-items-center mt-2 column-gap-2">
                   @if ($call->extended === 1)

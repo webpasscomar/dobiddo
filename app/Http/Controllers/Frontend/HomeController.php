@@ -20,12 +20,21 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $countriesWithCalls = Country::select('countries.id', 'countries.name', 'countries.lat', 'countries.lon', DB::raw('count(calls.id) as calls_count'))
-            ->join('calls', 'countries.id', '=', 'calls.country_id')
-            ->where('expiration', '>=', Carbon::today())
+
+        $countriesWithCalls = Country::select(
+            'countries.id',
+            'countries.name',
+            'countries.lat',
+            'countries.lon',
+            DB::raw('count(call_country.call_id) as calls_count')
+        )
+            ->join('call_country', 'countries.id', '=', 'call_country.country_id')
+            ->join('calls', 'call_country.call_id', '=', 'calls.id')
+            ->where('calls.expiration', '>=', Carbon::today())
             ->where('calls.state_id', '=', 2)
             ->groupBy('countries.id', 'countries.name', 'countries.lat', 'countries.lon')
             ->get();
+
         // dd($countriesWithCalls);
         return view('frontend.home', compact('countriesWithCalls'));
         // return view('frontend.home',);

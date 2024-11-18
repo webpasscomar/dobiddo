@@ -60,9 +60,9 @@ class Call extends Model
     return $this->belongsToMany(Sector::class);
   }
 
-  public function country()
+  public function countries()
   {
-    return $this->belongsTo(Country::class);
+    return $this->belongsToMany(Country::class, 'call_country');
   }
 
   public function institution()

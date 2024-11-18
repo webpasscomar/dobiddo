@@ -62,9 +62,10 @@
           <tr>
             <td style="display:block; text-align:justify; margin-top:35px;padding:0 30px;">
               <p style="margin-top:0">
+                {{-- {{ Str::title($data['name']) }} --}}
               </p>
               <p>
-                Hola <b>{{ Str::title($data['name']) }} !</b>, ¡Ya sos parte de la <em>comunidad dobiddo</em>!
+                Hola <b> Pirulo !</b>, ¡Ya sos parte de la <em>comunidad dobiddo</em>!
                 Te damos la bienvenida y esperamos que <em>dobiddo</em> te resulte de mucha utilidad al
                 momento de buscar nuevas oportunidades y desafíos!
               </p>
@@ -92,41 +93,30 @@
           border="0" style="background-color: #333333">
           <tbody>
             <tr>
-              <td>
-                <table textalign="center" margin="0,0,0,20" cellpadding="0" border="0" role="presentation"
-                  style="margin:0 auto;">
-                  <tbody>
-                    <tr>
-                      <td width="60%">
-                      </td>
-                      <td width="40%" style="color:white; font-weight: 500;">
-                        <p>
-                          Nuestras redes
-                        </p>
-                        <a href="mailto:info@dobiddo.com" target="_blank" style="text-decoration: none;">
-                          <img src="https://dobiddo.com/img/social_media_iconos/mail.png" width="35" alt="Email"
-                            style="border:0; height:auto; line-height:100%; max-width:100%; text-decoration:none"
-                            height="auto">
+              <td width="60%">
+              </td>
+              <td width="40%" style="color:white; font-weight: 500;">
+                <p>
+                  Nuestras redes
+                </p>
+                <a href="mailto:info@dobiddo.com" target="_blank" style="text-decoration: none;">
+                  <img src="https://dobiddo.com/img/social_media_iconos/mail.png" width="35" alt="Email"
+                    style="border:0; height:auto; line-height:100%; max-width:100%; text-decoration:none"
+                    height="auto">
 
-                        </a>
-                        <a href="https://www.instagram.com/thebiddoers/" style="text-decoration: none;" target="_blank">
-                          <img src="https://dobiddo.com/img/social_media_iconos/instagram.png" width="35"
-                            alt="Instagram"
-                            style="border:0; height:auto; line-height:100%; max-width:100%; text-decoration:none"
-                            height="auto">
-                        </a>
-                        <a href="https://www.linkedin.com/company/dobiddo" style="text-decoration: none;"
-                          target="_blank">
-                          <img src="https://dobiddo.com/img/social_media_iconos/linkedin.png" width="35"
-                            alt="Linkedin" title="linkedin"
-                            style="border:0; height:auto; line-height:100%; max-width:100%; text-decoration:none"
-                            height="auto">
-                        </a>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                </a>
+                <a href="https://www.instagram.com/thebiddoers/" style="text-decoration: none;" target="_blank">
+                  <img src="https://dobiddo.com/img/social_media_iconos/instagram.png" width="35" alt="Instagram"
+                    style="border:0; height:auto; line-height:100%; max-width:100%; text-decoration:none"
+                    height="auto">
+                </a>
+                <a href="https://www.linkedin.com/company/dobiddo" style="text-decoration: none;" target="_blank">
+                  <img src="https://dobiddo.com/img/social_media_iconos/linkedin.png" width="35" alt="Linkedin"
+                    title="linkedin"
+                    style="border:0; height:auto; line-height:100%; max-width:100%; text-decoration:none"
+                    height="auto">
+                </a>
+                </div>
               </td>
             </tr>
           </tbody>
@@ -140,32 +130,31 @@
         <table width="100%" margin="0" cellpadding="0" cellspacing="0" role="presentation" border="0">
           <tbody>
             <tr>
-              <td>
-                <div
-                  style="padding:0 10px;color:#a5a5ac;direction:ltr;font-family:Arial, Helvetica, sans-serif;font-size:11px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:justify; margin-top:20px;">
-                  <p style="margin: 0; margin-bottom: 5px;">
-                    <em>
-                      Nuestro trabajo se limita a difundir convocatorias e información de interés
-                      para la comunidad de consultores.
-                    </em>
-                  </p>
-                  <p style="margin-bottom: 5px;">
-                    <em>
-                      dobiddo no participa en los procesos de postulación, siendo esta instancia
-                      de exclusiva responsabilidad del consultor y de los organismos según sus
-                      políticas de selección y contratación.
-                    </em>
-                  </p>
-                  <p style="margin-bottom: 5px;">
-                    <em>
-                      dobiddo se compromete al cumplimiento de su obligación de secreto con
-                      respecto a sus datos de carácter personal y a tratarlos con
-                      confidencialidad, así como a no cederlos a terceros sin su previo
-                      consentimiento. Podrá ejercer en cualquier momento sus derechos de acceso,
-                      rectificación y cancelación.
-                    </em>
-                  </p>
-                </div>
+              <td
+                style="padding:0 10px;color:#a5a5ac;direction:ltr;font-family:Arial, Helvetica, sans-serif;font-size:11px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:justify; margin-top:20px;">
+                <p style="margin: 0; margin-bottom: 5px;">
+                  <em>
+                    Nuestro trabajo se limita a difundir convocatorias e información de interés
+                    para la comunidad de consultores.
+                  </em>
+                </p>
+                <p style="margin-bottom: 5px;">
+                  <em>
+                    dobiddo no participa en los procesos de postulación, siendo esta instancia
+                    de exclusiva responsabilidad del consultor y de los organismos según sus
+                    políticas de selección y contratación.
+                  </em>
+                </p>
+                <p style="margin-bottom: 5px;">
+                  <em>
+                    dobiddo se compromete al cumplimiento de su obligación de secreto con
+                    respecto a sus datos de carácter personal y a tratarlos con
+                    confidencialidad, así como a no cederlos a terceros sin su previo
+                    consentimiento. Podrá ejercer en cualquier momento sus derechos de acceso,
+                    rectificación y cancelación.
+                  </em>
+                </p>
+
               </td>
             </tr>
           </tbody>

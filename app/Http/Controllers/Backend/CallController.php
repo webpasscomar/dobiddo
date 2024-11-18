@@ -67,29 +67,31 @@ class CallController extends Controller
   public function store(CallRequest $request): RedirectResponse
   {
     $request->validated();
+
     $publish = null;
     $unpublish = null;
 
-    // Se limpian los datos ingresados con texto enriquecido con la libreira mews/purifier
+    // Limpiar el texto enriquecido usando la librería mews/purifier
     $clean_resume = Purifier::clean($request->input('resume'));
     $clean_content = Purifier::clean($request->input('content'));
 
-    // Comprobar el estado de la convocatoria y poner la fecha ségun si fue publicada ó despublicada
+    // Comprobar el estado de la convocatoria y ajustar fechas según el estado
     $state = $request->input('state_id');
     if ($state == 2) {
       $publish = now()->format('Y-m-d');
     } else if ($state == 4) {
       $unpublish = now()->format('Y-m-d');
     }
+
     try {
-      Call::create([
+      // Crear la convocatoria (sin country_id)
+      $call = Call::create([
         'name' => $request->input('name'),
-        'resume' =>  $clean_resume,
+        'resume' => $clean_resume,
         'content' => $clean_content,
         'link' => $request->input('link'),
         'expiration' => $request->input('expiration'),
         'extended' => $request->input('extended'),
-        'country_id' => $request->input('country_id'),
         'institution_id' => $request->input('institution_id'),
         'dedication_id' => $request->input('dedication_id'),
         'duration_id' => $request->input('duration_id'),
@@ -100,10 +102,14 @@ class CallController extends Controller
         'state_id' => $request->input('state_id'),
       ]);
 
+      // Sincronizar los países seleccionados con la tabla intermedia
+      $call->countries()->sync($request->input('countries'));
+
       Alert::success('Convocatoria creada', 'La convocatoria ha sido creada con éxito');
       return redirect()->route('convocatorias.index');
     } catch (\Throwable $th) {
-      //          dd($th->getMessage());
+      // Manejo de errores
+      dd($th->getMessage());
       Alert::error('Proceso incorrecto', 'No se pudo crear la convocatoria');
       return redirect()->route('convocatorias.index');
     }
@@ -154,9 +160,9 @@ class CallController extends Controller
    */
   public function update(CallRequest $request, Call $call): RedirectResponse
   {
-
     $request->validated();
-    // Comprobar el estado de la convocatoria y poner la fecha ségun si fue publicada ó despublicada
+
+    // Comprobar el estado de la convocatoria y ajustar las fechas según el estado
     $state = $request->input('state_id');
     if ($state == 2) {
       $publish = now()->format('Y-m-d');
@@ -169,10 +175,9 @@ class CallController extends Controller
       $unpublish = $call->unpublish;
     }
 
-    // Se limpian los datos ingresados con texto enriquecido con la libreira mews/purifier
+    // Limpiar el texto enriquecido usando la librería mews/purifier
     $clean_resume = Purifier::clean($request->input('resume'));
     $clean_content = Purifier::clean($request->input('content'));
-
 
     try {
       // Actualizar la convocatoria
@@ -183,7 +188,6 @@ class CallController extends Controller
         'link' => $request->input('link'),
         'expiration' => $request->input('expiration'),
         'extended' => $request->input('extended'),
-        'country_id' => $request->input('country_id'),
         'institution_id' => $request->input('institution_id'),
         'dedication_id' => $request->input('dedication_id'),
         'duration_id' => $request->input('duration_id'),
@@ -194,10 +198,13 @@ class CallController extends Controller
         'state_id' => $request->input('state_id'),
       ]);
 
+      // Sincronizar los países seleccionados con la tabla intermedia
+      $call->countries()->sync($request->input('countries'));
+
       Alert::success('Convocatoria actualizada', 'La convocatoria ha sido actualizada con éxito');
       return redirect()->route('convocatorias.index');
     } catch (\Throwable $th) {
-      //        dd($th->getMessage());
+      // Manejo de errores
       Alert::error('Proceso incorrecto', 'No se pudo actualizar la convocatoria');
       return redirect()->route('convocatorias.index');
     }

@@ -27,7 +27,7 @@ class CallsController extends Controller
     // Obtener los nombres de los filtros
     $country = isset($filters['country_id']) ? Country::find($filters['country_id']) : null;
     $format = isset($filters['format_id']) ? Format::find($filters['format_id']) : null;
-    
+
     // Pasamos las entidades relacionadas
     $data = $this->getCommonData();
     $data['calls'] = $calls;
@@ -55,7 +55,7 @@ class CallsController extends Controller
     $calls = $this->getFilteredCalls($filters);
 
     // Obtenemos el país para mostrarlo en la vista
-    $country = Country::find($id);
+    $country = Country::findOrFail($id);
 
     // Pasamos las entidades relacionadas
     $data = $this->getCommonData();
@@ -65,6 +65,7 @@ class CallsController extends Controller
 
     return view('frontend.calls', $data);
   }
+
 
   // -------------------- Métodos privados para refactorización --------------------
 
@@ -91,7 +92,9 @@ class CallsController extends Controller
 
     // Aplicar filtro por país
     if (!empty($filters['country_id'])) {
-      $query->where('country_id', $filters['country_id']);
+      $query->whereHas('countries', function ($query) use ($filters) {
+        $query->where('countries.id', $filters['country_id']);
+      });
     }
 
     // Aplicar filtro por formato

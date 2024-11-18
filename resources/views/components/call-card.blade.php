@@ -25,10 +25,19 @@
 
     <!-- Footer de la tarjeta -->
     <div class="card-footer text-end bg-transparent mt-auto">
-      <button type="button" class="btn btn-outline-secondary btn-sm">
-        <img src="{{ asset('storage/flags/' . $call->country->flag) }}" width="20" height="20">
-        {{ $call->country->name }}
-      </button>
+      @foreach ($call->countries as $country)
+        <button type="button" class="btn btn-outline-secondary btn-sm p-0"><img
+            src="{{ asset('storage/flags/' . $country->flag) }}" alt="{{ $country->name }}" width="22"
+            height="20">
+        </button>
+      @endforeach
+
+
+      {{-- <img src="{{ asset('storage/flags/' . $call->country->flag) }}" width="20" height="20">
+        {{ $call->country->name }} --}}
+
+
+
       <button type="button" class="btn btn_calls-dedication btn-sm text-white">{{ $call->dedication->name }}</button>
       <button type="button" class="btn btn_calls-format btn-sm fw-semibold">{{ $call->format->name }}</button>
 
