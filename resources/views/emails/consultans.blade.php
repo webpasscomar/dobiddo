@@ -4,20 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Responsive con Tablas</title>
+    <title>Consultores</title>
     <style>
         @media (min-width: 600px) {
-
-            /*  .col-50 {
-                width: 50%;
-                display: table-cell;
-                padding: 0 20px
-            }
-
-            .content {
-                padding: 30px 0
-            }
-            */
             .text-welcome {
                 vertical-align: top;
                 text-align: justify;
@@ -37,10 +26,9 @@
                     style="padding:15px 10px; text-align:left; margin-bottom:10px;" align="left">
                     <tr>
                         <td>
-                            <a href="%7B%7B%20route('home')%20%7D%7D" title="Home">
-                                <img src="https://dobiddo.webpass.com.ar/img/logotipos/08%20Logo%20claim%20izquierdo%20rojo.png"
-                                    alt="Logo Dobiddo"
-                                    style="border:0; height:auto; line-height:100%; max-width:200px; text-decoration:none"
+                            <a href="https://dobiddo.webpass.com.ar/" title="Home">
+                                <img src="https://dobiddo.webpass.com.ar/img/email/logo.png" alt="Logo Dobiddo"
+                                    style="border:0; height:auto; line-height:100%; max-width:80px; text-decoration:none"
                                     height="auto">
                             </a>
                         </td>
@@ -50,13 +38,15 @@
                     style="text-align:left; margin-bottom:20px;">
                     <tr class="row" style="width:100%" width="100%">
                         <td style="display:block; width:100%; padding:0;" align="left" width="100%">
-                            <img src="{{ asset('img/email/dobiddo-mod.png') }}" alt="Imagen Dobiddo"
+                            <img src="https://dobiddo.webpass.com.ar/img/email/kitchen.png" alt="Imagen Dobiddo"
                                 style="border:0; height:auto; line-height:100%; max-width:100%; text-decoration:none"
                                 height="auto">
                         </td>
                         <td style="display:block; text-align:justify; margin-top:35px;padding:0 10px;">
                             <p style="margin-top:0">
-                                Hola {{ Str::title($data['name']) }}!, ¡Ya sos parte de la <em>comunidad dobiddo</em>!
+                                Hola <strong><i
+                                        style="font-weight: bolder">{{ Str::title($data['name']) }}</i></strong>!, ¡Ya
+                                sos parte de la <em>comunidad dobiddo</em>!
                             </p>
                             <p>
                                 Te damos la bienvenida y esperamos que <em>dobiddo</em> te resulte de mucha utilidad al
@@ -68,89 +58,48 @@
                                 con el proceso de postulación según los requisitos y procedimientos de cada organismo
                                 convocante.
                             </p>
-                            <p>
-                                Si necesitas que te ayudemos a formular alguna propuesta no dudes en contactarte
-                                enviando tu consulta a consultas a <a href="mailto:info@dobiddo.com"
-                                    style="text-decoration: underline; color: #7747FF;">
-                                    info@dobiddo.com
-                                </a>
-                            </p>
                         </td>
                     </tr>
                 </table>
-                <table textalign="center" width="100%" margin="0" cellpadding="0" cellspacing="0"
-                    role="presentation" border="0" style="background-color: #e66741">
+                <table style="width: 100%; background-color: #A4DAE8" cellpadding="0" cellspacing="0">
                     <tbody>
                         <tr>
                             <td>
-                                <table textalign="center" margin="0" cellpadding="0" cellspacing="20" border="0"
-                                    role="presentation" style="margin:0 auto;">
-                                    <tbody>
-                                        <tr>
-                                            <td width="50%" style="letter-spacing: 10px; text-align:left;">
-                                                <a href="https://www.linkedin.com/" target="_blank"
-                                                    style="text-decoration: none;">
-                                                    <img src="https://app-rsrc.getbee.io/public/resources/social-networks-icon-sets/circle-dark-gray/linkedin@2x.png"
-                                                        width="32" alt="Linkedin" title="linkedin"
-                                                        style="border:0; height:auto; line-height:100%; max-width:100%; text-decoration:none"
-                                                        height="auto">
-                                                </a>
-                                                <a href="https://www.instagram.com/" style="text-decoration: none;"
-                                                    target="_blank">
-                                                    <img src="https://app-rsrc.getbee.io/public/resources/social-networks-icon-sets/circle-dark-gray/instagram@2x.png"
-                                                        width="32" alt="Instagram" title="instagram"
-                                                        style="border:0; height:auto; line-height:100%; max-width:100%; text-decoration:none"
-                                                        height="auto">
-                                                </a>
-                                            </td>
-                                            <td width="50%">
-                                                <div
-                                                    style="color:#f3e6e6;direction:ltr;font-family:Arial, Helvetica, sans-serif;font-size:16px;font-weight:400;line-height:120%;">
-                                                    <p style="margin-bottom: 16px;">
-                                                        <a href="https://dobiddo.webpass.com.ar/calls"
-                                                            style="text-decoration: underline; color: #f3e6e6;">
-                                                            ¡Empezá ahora!
-                                                        </a>
-                                                    </p>
-                                                    <p style="margin-bottom: 16px;">
-                                                        <strong>
-                                                            Equipo dobiddo
-                                                        </strong>
-                                                    </p>
-                                                    <p>
-                                                        dobiddo.com
-                                                    </p>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <img src="https://dobiddo.webpass.com.ar/img/email/footer.png"
+                                    alt="Making bids succeed">
                             </td>
                         </tr>
                     </tbody>
                 </table>
-                <table margin="0" cellpadding="0" cellspacing="0" role="presentation" border="0"
-                    style="background-color: #383535; padding:20px;">
+                {{-- Redes sociales / Email --}}
+                <table cellspacing="0" cellpadding="0"
+                    style="background-color: #383535; padding:10px 15px; width: 100%;">
                     <tbody>
                         <tr>
-                            <td style="font-weight: 400;">
-                                <div
-                                    style="color:#e1e6eb;direction:ltr;font-family:Arial, Helvetica, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:left;">
-                                    <p style="margin: 0;">
-                                        Si necesitas que te ayudemos a formular alguna propuesta no dudes en contactarte
-                                        enviando tu consulta a consultas a
-                                        <a href="mailto:info@dobiddo.com" target="_blank"
-                                            style="text-decoration: underline; color: #e66741;" rel="noopener">
-                                            info@dobiddo.com
-                                        </a>
-                                    </p>
+                            <td>
+                                <div style="text-align: right; margin-top: 5px;">
+                                    <a href="mailto:info@dobiddo.com" style="text-decoration: none; margin-right: 5px;"
+                                        title="Envianos un email">
+                                        <img src="https://dobiddo.webpass.com.ar/img/email/mail.png" alt="email"
+                                            width="24">
+                                    </a>
+                                    <a href="https://www.instagram.com/thebiddoers?igsh=M3BwYmV1Nzc2aTE4"
+                                        target="_blank" style="text-decoration: none; margin-right: 5px;"
+                                        title="Instagram">
+                                        <img src="https://dobiddo.webpass.com.ar/img/email/instagram.png"
+                                            alt="instagram" width="24">
+                                    </a>
+                                    <a href="https://www.linkedin.com/company/dobiddo" target="_blank"
+                                        style="text-decoration: none;" title="Linkedin">
+                                        <img src="https://dobiddo.webpass.com.ar/img/email/linkedin.png" alt="Linkedin"
+                                            width="24">
+                                    </a>
                                 </div>
                             </td>
                         </tr>
                     </tbody>
                 </table>
-                <table width="100%" margin="0" cellpadding="0" cellspacing="0" role="presentation"
-                    border="0">
+                <table width="100%" margin="0" cellpadding="0" cellspacing="0" role="presentation" border="0">
                     <tbody>
                         <tr>
                             <td>
