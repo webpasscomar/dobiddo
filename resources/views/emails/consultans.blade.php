@@ -26,8 +26,8 @@
                     style="padding:15px 10px; text-align:left; margin-bottom:10px;" align="left">
                     <tr>
                         <td>
-                            <a href="https://dobiddo.webpass.com.ar/" title="Home">
-                                <img src="https://dobiddo.webpass.com.ar/img/email/logo.png" alt="Logo Dobiddo"
+                            <a href="https://dobiddo.com/" title="Home">
+                                <img src="https://dobiddo.com/img/email/logo.png" alt="Logo Dobiddo"
                                     style="border:0; height:auto; line-height:100%; max-width:80px; text-decoration:none"
                                     height="auto">
                             </a>
@@ -38,7 +38,7 @@
                     style="text-align:left; margin-bottom:20px;">
                     <tr class="row" style="width:100%" width="100%">
                         <td style="display:block; width:100%; padding:0;" align="left" width="100%">
-                            <img src="https://dobiddo.webpass.com.ar/img/email/kitchen.png" alt="Imagen Dobiddo"
+                            <img src="https://dobiddo.com/img/email/kitchen.png" alt="Imagen Dobiddo"
                                 style="border:0; height:auto; line-height:100%; max-width:100%; text-decoration:none"
                                 height="auto">
                         </td>
@@ -65,7 +65,7 @@
                     <tbody>
                         <tr>
                             <td>
-                                <img src="https://dobiddo.webpass.com.ar/img/email/footer.png"
+                                <img src="https://dobiddo.com/img/email/footer.png"
                                     alt="Making bids succeed">
                             </td>
                         </tr>
@@ -80,18 +80,18 @@
                                 <div style="text-align: right; margin-top: 5px;">
                                     <a href="mailto:info@dobiddo.com" style="text-decoration: none; margin-right: 5px;"
                                         title="Envianos un email">
-                                        <img src="https://dobiddo.webpass.com.ar/img/email/mail.png" alt="email"
+                                        <img src="https://dobiddo.com/img/email/mail.png" alt="email"
                                             width="24">
                                     </a>
                                     <a href="https://www.instagram.com/thebiddoers?igsh=M3BwYmV1Nzc2aTE4"
                                         target="_blank" style="text-decoration: none; margin-right: 5px;"
                                         title="Instagram">
-                                        <img src="https://dobiddo.webpass.com.ar/img/email/instagram.png"
+                                        <img src="https://dobiddo.com/img/email/instagram.png"
                                             alt="instagram" width="24">
                                     </a>
                                     <a href="https://www.linkedin.com/company/dobiddo" target="_blank"
                                         style="text-decoration: none;" title="Linkedin">
-                                        <img src="https://dobiddo.webpass.com.ar/img/email/linkedin.png" alt="Linkedin"
+                                        <img src="https://dobiddo.com/img/email/linkedin.png" alt="Linkedin"
                                             width="24">
                                     </a>
                                 </div>
